@@ -1,4 +1,0 @@
-A AJOUTER ENTRE <manifest et <application   
-
-
- <uses-permission android:name="android.permission.INTERNET"/>
