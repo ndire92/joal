@@ -1,0 +1,154 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-success mb-4 shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="{% url 'posts:index' %}">Blog</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="nav navbar-nav center-nav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" "nav navbar-nav center-nav">
+        {{ request.user.username }}
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'posts:new_post' %}">New Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'compte:logout' %}">logout</a>
+        </li>
+        {% else%} 
+        <li class="nav-item">
+          <a class="nav-link  text-white active" aria-current="page" href="{% url 'posts:index' %}">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'posts:commun' %}">Commun</a>
+  
+        </li>
+        <li class="nav-item">
+        
+          <div>
+            <div class="dropdown relative">
+              <a
+                class="
+                  dropdown-toggle
+                  px-6
+                  py-2.5
+                  bg-blue-600
+                  text-white
+                  font-medium
+                  text-xs
+                
+                "
+                href="{% url 'posts:domaine' %}"
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="true"
+              >
+              Domaine
+              </a>
+              <ul
+                class="
+                  dropdown-menu
+                  min-w-max
+                  absolute
+                  hidden
+                  bg-white
+                  text-base
+                  z-50
+                  float-left
+                  py-2
+                  list-none
+                  text-left
+                  rounded-lg
+                  shadow-lg
+                  mt-1
+                  hidden
+                  m-0
+                  bg-clip-padding
+                  border-none
+                "
+                aria-labelledby="dropdownMenuButton2"
+              >
+                <li>
+                  <a
+                    class="
+                      dropdown-item
+                      text-sm
+                      py-2
+                      px-4
+                      font-normal
+                      block
+                      w-full
+                      whitespace-nowrap
+                      bg-transparent
+                      text-gray-700
+                      hover:bg-gray-100
+                    "
+                    href="{% url 'posts:domaine' %}"
+                    >Action</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="
+                      dropdown-item
+                      text-sm
+                      py-2
+                      px-4
+                      font-normal
+                      block
+                      w-full
+                      whitespace-nowrap
+                      bg-transparent
+                      text-gray-700
+                      hover:bg-gray-100
+                    "
+                    href="#"
+                    >Another action</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="
+                      dropdown-item
+                      text-sm
+                      py-2
+                      px-4
+                      font-normal
+                      block
+                      w-full
+                      whitespace-nowrap
+                      bg-transparent
+                      text-gray-700
+                      hover:bg-gray-100
+                    "
+                    href="#"
+                    >Something else here</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        
+      </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'posts:all' %}">blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'compte:logout' %}">login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'compte:register'%}">Sign up</a>
+        </li>
+        
+
+
+        {% endif%}    
+        </ul>
+       
+   
+      
+    </div>
+  </div>
+</nav>

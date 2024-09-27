@@ -1,0 +1,61 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var acceuilLink = document.querySelector(".nav-link.active");
+      if (acceuilLink) {
+        acceuilLink.addEventListener("click", function(e) {
+          e.preventDefault();
+          window.location.href = "/acceuil";
+        });
+      }
+
+      var communeLink = document.querySelector(".nav-link[href='/commune']");
+      if (communeLink) {
+        communeLink.addEventListener("click", function(e) {
+          e.preventDefault();
+          window.location.href = "/commune";
+        });
+      }
+
+      var ressourceLink = document.querySelector(".nav-link[href='/ressource']");
+      if (ressourceLink) {
+        ressourceLink.addEventListener("click", function(e) {
+          e.preventDefault();
+          window.location.href = "/ressource";
+        });
+      }
+
+      var blogLink = document.querySelector(".nav-link[href='/post']");
+      if (blogLink) {
+        blogLink.addEventListener("click", function(e) {
+          e.preventDefault();
+          window.location.href = "/post";
+        });
+      }
+
+      {% if request.user.is_authenticated %}
+      var newPostLink = document.querySelector(".nav-link[href='/new_post']");
+      if (newPostLink) {
+        newPostLink.addEventListener("click", function(e) {
+          e.preventDefault();
+          window.location.href = "/new_post";
+        });
+      }
+
+      var logoutLink = document.querySelector(".nav-link[href='/logout']");
+      if (logoutLink) {
+        logoutLink.addEventListener("click", function(e) {
+          e.preventDefault();
+          window.location.href = "/logout";
+        });
+      }
+      {% else %}
+      var loginLink = document.querySelector(".btn.btn-primary.ms-auto.justify-content-start[href='/login']");
+      if (loginLink) {
+        loginLink.addEventListener("click", function(e) {
+          e.preventDefault();
+          window.location.href = "/login";
+        });
+      }
+      {% endif %}
+    });
+  </script>

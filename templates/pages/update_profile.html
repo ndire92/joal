@@ -1,0 +1,78 @@
+{% extends 'layout/base.html' %} 
+{% load static %}
+{% block title %}mise a jour profil{% endblock %} 
+{% block body %}
+<div class="page-wrapper d-flex justify-content-center align-items-center">
+  <div class="row">
+      <div class="col-sm-12">
+          <div class="card">
+              <div class="card-body">
+                  <h2 class="text-center">Bienvenue {{ profile.user.username }} ! Veuillez compléter votre profil</h2>
+
+                  <form method="post" enctype="multipart/form-data" class="mt-4">
+                      {% csrf_token %}
+                      
+                      <!-- Styles for the ProfileForm -->
+                      <div style="margin-bottom: 20px;">
+                          {{ form.as_p }}
+                      </div>
+                      
+                      <!-- Styles for the PasswordChangeForm -->
+                      <div style="background-color: #f0f0f0; padding: 10px; border-radius: 8px;">
+                          <h3>Password Change</h3>
+
+                          <!-- Apply styles to individual input fields -->
+                          <div style="margin-bottom: 10px;">
+                              <label for="{{ password_change_form.old_password.id_for_label }}" style="font-weight: bold;">Ancien mot de passe:</label>
+                              {{ password_change_form.old_password }}
+                          </div>
+
+                          <div style="margin-bottom: 10px;">
+                              <label for="{{ password_change_form.new_password1.id_for_label }}" style="font-weight: bold;">Nouveau mot de passe:</label>
+                              {{ password_change_form.new_password1 }}
+                              <span class="text-muted small">Votre mot de passe ne peut pas être trop similaire à vos autres informations personnelles.<br>
+                                  Votre mot de passe doit contenir au moins 8 caractères.<br>
+                                  Votre mot de passe ne peut pas être un mot de passe couramment utilisé.<br>
+                                  Votre mot de passe ne peut pas être entièrement numérique.
+                              </span>
+                          </div>
+
+                          <div style="margin-bottom: 10px;">
+                              <label for="{{ password_change_form.new_password2.id_for_label }}" style="font-weight: bold;">Confirmer le mot de passe:</label>
+                              {{ password_change_form.new_password2 }}
+                          </div>
+                      </div>
+
+                      <div class="form-group form-check">
+                          <input type="checkbox" class="form-check-input" id="showPasswordCheckbox">
+                          <label class="form-check-label" for="showPasswordCheckbox">Afficher le mot de passe</label>
+                      </div>
+
+                      <button type="submit" class="btn btn-primary" style="background-color: #1da8dd;">Update Profile</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Ajoutez ceci à votre fichier HTML -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const showPasswordCheckbox = document.getElementById('showPasswordCheckbox');
+      const passwordField = document.getElementById('id_new_password1');  // Assurez-vous de remplacer 'id_new_password1' par le bon ID du champ de mot de passe
+
+      // Fonction pour basculer la visibilité du mot de passe
+      function togglePasswordVisibility() {
+          passwordField.type = showPasswordCheckbox.checked ? 'text' : 'password';
+      }
+
+      // Associez la fonction au changement de l'état de la case à cocher
+      showPasswordCheckbox.addEventListener('change', togglePasswordVisibility);
+
+      // Assurez-vous que la visibilité du mot de passe est correcte au chargement de la page
+      togglePasswordVisibility();
+  });
+</script>
+
+{% endblock %}

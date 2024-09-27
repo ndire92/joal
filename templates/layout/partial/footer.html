@@ -1,0 +1,110 @@
+{% load static %}
+<footer style="background-color: #000;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1 col-sm-6 col-12 footer-column">
+        <!-- Première colonne -->
+        <div class="footer-links">
+          <img src="{% static 'ass/img/brands/logo_mairiejoal.png' %}" alt="Votre Logo" style="width: 100px;">
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-12 footer-column">
+        <!-- Deuxième colonne -->
+        <div class="footer-links">
+<ul style="font-size:20px; color: #fff; list-style-type: none;">
+  <li><a href="{% url 'test' %}" style="color:#fff; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-house" style="font-size: 19px;">
+       <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"></path>
+   </svg> &nbsp;&nbsp;&nbsp;Accueil</a></li>
+  <li><a href="{% url 'com' %}" style="color:#fff; text-decoration: none;"><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;Commune</a></li>
+  <li><a href="{% url 'ressource' %}" style="color:#fff; text-decoration: none;"><i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;Ressources</a></li>
+ 
+  <li><a href="{% url 'post' %}" style="color:#fff; text-decoration: none;"><i class="fas fa-info"></i>
+&nbsp;&nbsp;&nbsp;Blog</a></li>
+  <li><a href="" style="color:#fff; text-decoration: none;"><i class="la la-anchor" style="font-size: 21px;"></i>&nbsp;&nbsp;Visualisation</a></li>
+
+</ul>
+
+       </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-12 footer-column">
+        <!-- Troisième colonne -->
+        <div class="column" style="margin-right: 0px;">
+			<!--p>Nombre total de visites : <span id="counter">0</span></p>
+          <p style="color: #1da8dd; font-size: 20px;">Nombre total de visites :{{ request.session.visits }}</p>-->
+          <h6><p style="color: #fff; font-size: 20px;">Mairie de Joal-Fadiouth</p></h6>
+          <p style="color: #fff; font-size: 20px;"><i class="far fa-envelope"></i> &nbsp;&nbsp;communejf@yahoo.com</p>
+          <p style="color: #fff; font-size: 20px;"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+221 33 957 61 04</p>
+        </div>
+      </div>
+
+   <div class="col-md-3 col-sm-6 col-12 footer-column">
+         <div class="column" style="margin-left: 50px;">
+           <h3 style="color: #fff;">Suivez-nous</h3>
+           <ul style="font-size:20px; color: #fff; list-style-type: none">
+             <li><i class="fab fa-brands fa-facebook" style="color: #ffffff;text-decoration: none;"></i>&nbsp;&nbsp;&nbsp;<a href="#" style="color: #fff;font-size: 20px;">Facebook</a></li><br>
+             <li><i class="fab fa-twitter" style="color: #ffffff;text-decoration: none;"></i>&nbsp;&nbsp;&nbsp;<a href="#" style="color: #fff;font-size: 20px;">Twitter</a></li><br>
+             <li><i class="fab fa-linkedin"></i>
+&nbsp;&nbsp;&nbsp;<a href="#" style="color: #fff;font-size: 20px;">LinkedIn</a></li>
+           </ul>
+         </div>
+       </div>
+      <p style="color: #fff; font-size: 17px;">Copyright © 2023 Precvadi <span style="color: #1da8dd; font-size: 20px;">ENSA-APHRC</span></p>
+       
+    </div>
+  </div>
+</footer>
+<script>
+    function exportTableToCSV() {
+        var csv = [];
+        var rows = document.querySelectorAll("table tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            var row = [], cols = rows[i].querySelectorAll("td, th");
+
+            for (var j = 0; j < cols.length; j++)
+                row.push(cols[j].innerText);
+
+            csv.push(row.join(","));
+        }
+
+        // Créer un lien de téléchargement
+        var csvContent = "data:text/csv;charset=utf-8," + csv.join("\n");
+        var encodedUri = encodeURI(csvContent);
+        var link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "tableau.csv");
+        document.body.appendChild(link);
+
+        // Déclencher le téléchargement
+        link.click();
+    }
+	document.addEventListener('DOMContentLoaded', function () {
+    // Récupérer le compteur depuis le localStorage
+    let count = localStorage.getItem('refreshCount') || 0;
+
+    // Mettre à jour l'élément HTML avec le compteur actuel
+    document.getElementById('counter').innerText = count;
+
+    // Incrémenter le compteur à chaque actualisation de la page
+    count++;
+    document.getElementById('counter').innerText = count;
+
+    // Stocker le nouveau compteur dans le localStorage
+    localStorage.setItem('refreshCount', count.toString());
+});
+
+</script>
+<style>
+ /* Pour la dernière colonne, supprimez la bordure de droite pour éviter un double trait */
+ .footer-column:last-child {
+   border-right: none;
+ }
+
+ .footer-column {
+   display: flex;
+   justify-content: center; /* Center content horizontally */
+   align-items: center; /* Center content vertically */
+ }
+</style>

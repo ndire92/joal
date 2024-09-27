@@ -1,0 +1,431 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block content  %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+       <div class="page-header">
+          <div class="row">
+             <div class="col-sm-12">
+                <h2 class="page-title">Bienvenue&nbsp;&nbsp;&nbsp;{{user.username}} sur la plateforme de données de Joal-Fadiouth</h2>
+                <ul class="breadcrumb">
+                   <li class="breadcrumb-item active"></li>
+                </ul>
+             </div>
+          </div>
+       </div>
+       <div class="row">
+          <div>
+             <div class="card bg-one w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+
+                      <div class="db-info">
+                         <h3>{{pfina}}</h3>
+                         <h6>Financement pêche artisanale</h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div>
+           <div class="card bg-one w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+
+                      <div class="db-info">
+                         <h3>{{tafina}}</h3>
+                         <h6>Financement transformation artisanale </h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div>
+             <div class="card bg-one w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+
+                      <div class="db-info">
+                         <h3>{{passura}}</h3>
+                         <h6> Assurance pêche </h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div>
+             <div class="card bg-one w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+
+                      <div class="db-info">
+                         <h3>{{tassur}}</h3>
+                         <h6>Assurance Transformation artisanale</h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div>
+             <div class="card bg-two w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+
+                      <div class="db-info">
+                         <h3>{{pcom}}</h3>
+                         <h6>Commercialisation pêche</h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>&nbsp;&nbsp;
+          <div>
+             <div class="card bg-two w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+
+                      <div class="db-info">
+                         <h3>{{tcom}}</h3>
+                         <h6>Commercialisation transformation artisanale </h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div>
+             <div class="card bg-three w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+
+                      <div class="db-info">
+                         <h3>{{peche}}</h3>
+                         <h6>Pêche artisanale</h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div>
+             <div class="card bg-three w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+
+                      <div class="db-info">
+                         <h3>{{tart}}</h3>
+                         <h6>Transformation artisanale</h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div >
+             <div class="card bg-four w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+
+                      <div class="db-info">
+                         <h3>{{peino}}</h3>
+                         <h6>Innovations pêche</h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <div >
+             <div class="card bg-four w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+
+                      <div class="db-info">
+                         <h3>{{taino}}</h3>
+                         <h6>Innovations transformation artisanale</h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+
+
+
+
+       <div class="row">
+          <div class="col-md-12 col-lg-6">
+             <div class="card card-chart">
+                <div class="card-header">
+                   <div class="row align-items-center">
+                      <div class="col-6">
+                         <h5 class="card-title"></h5>
+                      </div>
+                      <div class="col-6">
+                         <ul class="list-inline-group text-right mb-0 pl-0">
+                            <li class="list-inline-item">
+                               <div class="form-group mb-0 amount-spent-select">
+
+                               </div>
+                            </li>
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+                <div class="card-body">
+                   <canvas id="myBarChart"></canvas>
+                </div>
+             </div>
+          </div>
+          <div class="col-md-12 col-lg-6">
+             <div class="card card-chart">
+                <div class="card-header">
+                   <div class="row align-items-center">
+                      <div class="col-6">
+                         <h5 class="card-title"></h5>
+                      </div>
+                      <div class="col-6">
+                         <ul class="list-inline-group text-right mb-0 pl-0">
+                            <li class="list-inline-item">
+                               <div class="form-group mb-0 amount-spent-select">
+
+                               </div>
+                            </li>
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+                <div class="card-body">
+                  <canvas id="myPieChart"></canvas>
+                </div>
+             </div>
+          </div>
+       </div>
+
+       <div class="row">
+         <div class="col-md-12 col-lg-6">
+            <div class="card card-chart">
+               <div class="card-header">
+                  <div class="row align-items-center">
+                     <div class="col-6">
+                        <h5 class="card-title"></h5>
+                     </div>
+                     <div class="col-6">
+                        <ul class="list-inline-group text-right mb-0 pl-0">
+                           <li class="list-inline-item">
+                              <div class="form-group mb-0 amount-spent-select">
+
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="card-body">
+                  <div ><canvas id="myChart"></canvas></div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-12 col-lg-6">
+            <div class="card card-chart">
+               <div class="card-header">
+                  <div class="row align-items-center">
+                     <div class="col-6">
+                        <h5 class="card-title"></h5>
+                     </div>
+                     <div class="col-6">
+                        <ul class="list-inline-group text-right mb-0 pl-0">
+                           <li class="list-inline-item">
+                              <div class="form-group mb-0 amount-spent-select">
+
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="card-body">
+                 <canvas id="myPolarAreaChart"></canvas>
+
+               </div>
+            </div>
+         </div>
+
+    </div>
+    {% include 'includes/chart.html'%}
+
+
+
+ {% include 'includes/chart.html'%}
+
+<script>
+ // Get the canvas element
+var ctx = document.getElementById('myChart').getContext('2d');
+
+// Define the chart data
+var chartData = {
+    labels:['Peche Finance', 'Peche Artisan', 'Peche Commerce', 'Peche Innovation','Peche assurance','Peche TAFinance', 'Peche Transformation Artisan', 'Peche TACommerce', 'Peche TAInnovation','Peche TAassurance'],
+    datasets: [{
+        label: 'Peche',
+        data: [{{peche}}, {{pfina}},{{peche}}, {{pfina}},{{passura}},{{tart}},{{taino}},{{tcom}},{{tassur}},{{tafina}}],
+
+   backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 5
+    }]
+};
+
+// Create the chart
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: chartData,
+    options: {}
+});
+
+
+</script>
+<script>
+// Get the canvas element
+var ctx = document.getElementById('myPieChart').getContext('2d');
+
+// Define the chart data
+var chartData = {
+    labels: ['Peche Finance', 'Peche Artisan', 'Peche Commerce', 'Peche Innovation','Peche assurance','Peche TAFinance', 'Peche Transformation Artisan', 'Peche TACommerce', 'Peche TAInnovation','Peche TAassurance'],
+    datasets: [{
+        label: 'Colors',
+        data: [{{peche}}, {{pfina}},{{peche}}, {{pfina}},{{passura}},{{tart}},{{taino}},{{tcom}},{{tassur}},{{tafina}}],
+
+      backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1
+    }]
+};
+
+// Create the chart
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: chartData,
+    options: {}
+});
+
+</script>
+
+<script>
+// Get the canvas element
+var ctx = document.getElementById('myBarChart').getContext('2d');
+
+// Define the chart data
+var chartData = {
+    labels: ['Peche Finance', 'Peche Artisan', 'Peche Commerce', 'Peche Innovation','Peche assurance','Peche TAFinance', 'Peche Transformation Artisan', 'Peche TACommerce', 'Peche TAInnovation','Peche TAassurance'],
+    datasets: [{
+        label: 'Peche',
+
+        data:[{{peche}}, {{pfina}},{{peche}}, {{pfina}},{{passura}},{{tart}},{{taino}},{{tcom}},{{tassur}},{{tafina}}],
+
+         backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+        ],
+
+        borderWidth: 1
+    }]
+};
+
+// Create the chart
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: chartData,
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+</script>
+<script>
+
+// Get the canvas element
+var ctx = document.getElementById('myPolarAreaChart').getContext('2d');
+
+// Define the chart data
+var chartData = {
+    labels:['Peche Finance', 'Peche Artisan', 'Peche Commerce', 'Peche Innovation','Peche assurance','Peche TAFinance', 'Peche Transformation Artisan', 'Peche TACommerce', 'Peche TAInnovation','Peche TAassurance'],
+    datasets: [{
+        label: 'My First Dataset',
+        data: [{{peche}}, {{pfina}},{{peche}}, {{pfina}},{{passura}},{{tart}},{{taino}},{{tcom}},{{tassur}},{{tafina}}],
+
+
+   backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1
+    }]
+};
+
+// Create the chart
+var myChart = new Chart(ctx, {
+    type: 'polarArea',
+    data: chartData,
+    options: {}
+});
+
+</script>
+
+    {% endblock %}

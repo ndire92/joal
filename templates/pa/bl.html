@@ -1,0 +1,509 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Darou</title>
+
+    <!-- Inclure le fichier CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css' rel='stylesheet' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.js'></script>
+    
+    <!-- Inclure les fichiers CSS statiques -->
+    <link rel="stylesheet" href="{% static 'ass/css/Abril%20Fatface.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Advent%20Pro.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Alatsi.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Inter.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/fonts/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Bold-BS4-Footer-Big-Logo.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Google-Map-With-Full-Wide.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom-animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/untitled.css' %}">
+
+    <!-- Inclure jQuery avant Bootstrap.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Inclure le fichier JavaScript Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Inclure Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'ass/fonts/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+    <link href="  https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css"> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Initialisez le menu déroulant après que le document soit prêt
+      $(document).ready(function() {
+        $('.dropdown-toggle').dropdown();
+      });
+    </script>
+    
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'as/fonts/flaticon.css '%}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+    
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+  {% include 'layout/partial/header.html' %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+{% block body  %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2">
+      <div class="info">
+      <!-- Titre de la colonne -->
+      <h2>Information</h2>
+    </div>
+    </div>
+    <div class="col-lg-10">
+      <!-- Colonne avec défilement -->
+      <div class="marquee" id="marquee">
+          <!-- Phrases à faire défiler -->
+          {% for post in poste %}
+         <a href="{{ post.title.id }}" class="a">
+
+              {% if post.image %}
+              <h2><img src="{{ post.image.url }}" alt="Image" style="">{{ post.title }}</h2>
+              {% else %}
+            
+              {% endif %}
+          </a>
+          {% endfor %}
+      </div>
+  </div>
+  </div>
+<header class="bg-primary-gradient">
+  <div class="container custom-card card mb-3 shadow">
+      <div class="row pt-5">
+          <div class="col-lg-8">
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                  <!-- Carousel Indicators -->
+                  <div class="carousel-indicators">
+                      {% for post in poste %}
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" {% endif %} aria-label="Slide {{ forloop.counter }}"></button>
+                      {% endfor %}
+                  </div>
+                  <!-- Carousel Items -->
+                  <div class="carousel-inner custom-carousel-inner">
+                      {% for post in poste %}
+                      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                          {% if post.image %}
+                          <img src="{{ post.image.url }}" class="d-block w-100" alt="{{ post.title }}">
+                          <div class="carousel-caption d-none d-md-block">
+                              <h5>{{ post.title }}</h5>
+                            
+                          </div>
+                          {% endif %}
+                      </div>
+                      {% endfor %}
+                  </div>
+                  <!-- Carousel Controls -->
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                  </button>
+              </div>
+              <!-- List of Posts -->
+              <div class="row" style="margin: 6%;">
+                  {% for post in pos %}
+                  <div class="col-md-6">
+                      <!-- Post Card -->
+                      <div class="row">
+                          <div class="col">
+                              <div class="custom-card card mb-3 shadow" style="display: flex; flex-direction: column; width: 300px;">
+                                  {% if post.image %}
+                                  <img src="{{ post.image.url }}" class="card-img-top card-img-custom" alt="...">
+                                  {% endif %}
+                                  <div class="card-body">
+                                      <h5 class="card-title" style="color: #000;text-align: center">{{ post.title }}</h5>
+                                      <p class="card-text" style="color:#000;font-size:16px;">{{ post.content|truncatechars:"70"|safe }}</p>
+                                  </div>
+                                  <div class="card-footer">
+                                      <a href="{% url 'detail' post.id %}" class="btn btn-primary" style="background-color: #258baf; color: #fff;">Savoir Plus</a>
+                                      {% if post.user == request.user %}
+                                      <a href="{% url 'update_post' post.id %}" class="btn btn-info">Update</a>
+                                      <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+                                      {% endif %} <div>
+                                      <p style="color: #000; display: inline-block; font-size: 15px;">Publié par 
+    <span style="color: #1da8dd;">{{ post.user.username }}</span> 
+    le {{ post.date_en }}
+  </p>
+</div>
+ </div>
+</div>
+</div>
+ </div>
+ </div>
+{% endfor %}
+                  
+              </div>
+              <nav aria-label="Pagination">
+                <hr class="my-0" />
+                <ul class="pagination justify-content-center my-4">
+                <!-- Pagination pour les articles -->
+{% if pos.has_other_pages %}
+<nav aria-label="Pagination">
+  <ul class="pagination justify-content-center my-4">
+      {% if pos.has_previous %}
+          <li class="page-item "><a class="page-link" href="?post_page={{pos.previous_page_number}}" tabindex="-1" aria-disabled="true">Previous</a></li>
+      {% endif %}
+      <li class="page-item active" aria-current="page"><a class="page-link" href="#!">{{pos.number}}</a></li>
+      {% if pos.paginator.num_pages != pos.number %}
+          <li class="page-item"><a class="page-link" href="#!">of</a></li>
+          <li class="page-item"><a class="page-link" href="#!">{{pos.paginator.num_pages}}</a></li>
+      {% endif %}
+      {% if pos.has_next %}
+          <li class="page-item"><a class="page-link" href="?post_page={{pos.next_page_number}}">Next</a></li>
+      {% endif %}
+  </ul>
+</nav>
+{% endif %}
+
+                </ul>
+            </nav>
+            
+          </div>
+          <!-- Sidebar -->
+       <div class="col-lg-4">
+  <div id="search-5" class="sidebar-wrap widget_search">
+      <form class="searchform" method="get" action="">
+          <div class="input-group">
+              <div class="form-group live-search-input">
+                  <label for="s" class="screen-reader-text">Search for:</label>
+                  <input type="text" id="s" name="s" class="form-control" placeholder="Rechercher">
+              </div>
+          </div>
+      </form>
+  </div>
+  <!-- Video Section -->
+  <h2 style="text-align: center; color: #000;">Vidéos récentes</h2>
+  <div>
+    {% for video in videos %}
+    <div class="row">
+        <div class="col">
+            <div class="custom-card card mb-3 shadow" style="display: flex; flex-direction: column; width: 300px;">
+                <div class="card-body position-relative">
+                    {% if video.video %}
+                    <video class="card-img-top card-img-custom" controls style="width: 100%; height: auto; object-fit: cover;">
+                        <source src="{{ video.video.url }}" type="video/mp4" />
+                        <source src="{{ video.video.url }}" type="video/webm" />
+                        <source src="{{ video.video.url }}" type="video/ogg" />
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="play-icon" onclick="playVideo(this)">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    {% endif %}
+                    <h6 class="card-title" style="color: #000;text-align: center">{{ video.title }}</h6>
+                   
+ <div>
+  <p style="color: #000; display: inline-block; font-size: 15px;">Publié par 
+    <span style="color: #1da8dd;">{{ video.user.username }}</span> 
+    le {{ video.date_en }}
+  </p>
+</div>
+
+                </div>
+                <div class="card-footer">
+                  {% if video.user == request.user %}
+                  <a href="{% url 'update_video' video.id %}" class="btn btn-info">Modifier</a>
+                  <a href="{% url 'delete_video' video.id %}" class="btn btn-danger">Supprimer</a>
+                  {% endif %}
+                 
+     <!-- Pagination pour les vidéos -->
+<!-- Pagination pour les vidéos -->
+{% if videos.has_other_pages %}
+<nav aria-label="Pagination">
+<ul class="pagination justify-content-center my-4">
+  <li class="page-item">
+    {% if videos.has_previous %}
+   
+    <a class="page-link" href="?video_page={{ videos.previous_page_number }}"><i class="fas fa-chevron-left"></i> Précédent</a>
+    {% endif %}
+  </li>
+  <li class="page-item">
+    <span class="current">Page {{ videos.number }} de {{ videos.paginator.num_pages }}</span>
+  </li>
+  <li class="page-item">
+    {% if videos.has_next %}
+  <a class="page-link" href="?video_page={{ videos.next_page_number }}" style="font-size: 14px;">Suivant <i class="fas fa-chevron-right"></i></a>
+
+    {% endif %}
+  </li>
+</ul>
+</nav>
+  </div>
+
+{% endif %}
+              </div>
+            </div>
+        </div>
+        
+    </div>
+    {% endfor %}
+ 
+   
+<div class="tool-directory">
+  <h3 class="text-center">Répertoire des Outils et Supports</h3>
+</div>
+<!-- Articles récents -->
+
+
+<div class="card-deck">
+  <div class="card mb-3">
+      <div class="card-body text-center">
+        <h6 class="card-title"><a href="{% url 'r'%}" class="card-link"><b>Bibliothèque de Ressources</b></a></h6>
+      </div>
+  </div>
+  <div class="card mb-3">
+      <div class="card-body text-center">
+          <h6 class="card-title"><a href="{% url 'atelier'%}" class="card-link"><b>Catalogue d'Ateliers et de Formations</b></a></h6>
+      </div>
+  </div>
+  <div class="card mb-3">
+      <div class="card-body text-center">
+          <h6 class="card-title"><a href="{% url 'indi'%}" class="card-link"><b>Index des Indicateurs</b></a></h6>
+      </div>
+  </div>
+  <div class="card mb-3">
+      <div class="card-body text-center">
+          <h6 class="card-title"><a href="{% url 'documt'%}" class="card-link"><b>Centre de Documentation</b></a></h6>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+</div>
+ </div>
+
+            
+      </div>
+  </div>
+</header>
+{% include 'layout/partial/footer.html' %}
+
+<!-- Inclure les fichiers JavaScript supplémentaires -->
+<script src="{% static 'ass/js/jquery.min.js' %}"></script>
+<script src="{% static 'ass/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'ass/js/bold-and-bright.js' %}"></script>
+<script src="{% static 'ass/js/Slider_Carousel_webalgustocom-slider.js' %}"></script>
+<script src="{% static 'ass/js/bold-and-bright.js' %}"></script>
+<script>
+  window.onload = function() {
+    const marquee = document.getElementById('marquee');
+    const phrases = marquee.getElementsByTagName('h2');
+    let index = 0;
+  
+    function scrollPhrases() {
+      phrases[index].style.display = 'none';
+      index = (index + 1) % phrases.length;
+      phrases[index].style.display = 'inline-block';
+    }
+  
+    setInterval(scrollPhrases, 2000); // Change de phrase toutes les 2 secondes
+  };
+  
+</script>
+<script>
+  function playVideo(icon) {
+    // Ajouter la classe active à l'icône
+    icon.classList.add('active');
+  
+    // Démarrer la vidéo
+    var video = icon.parentNode.querySelector('video');
+    video.play();
+  }
+  </script>
+  
+<style>
+
+  .centered-line {
+          width: 50%; /* Ajustez la largeur du trait */
+          height: 10px; /* Ajustez l'épaisseur du trait */
+          margin: 20px auto; /* Centrez horizontalement et ajoutez une marge pour l'espacement */
+          background-color: #1da8dd
+          border-radius: 50px;
+          color: #1da8dd
+
+      }
+      
+          @media (max-width: 767px) {
+              .custom-margin {
+                  margin: 20px !important;
+              }
+          }
+        
+            .row {
+              display: flex;
+              flex-wrap: wrap;
+            }
+          
+            .col-md-5, .col-md-7 {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            }
+          
+            .col-md-5 {
+              align-items: center;
+            }
+          
+            .col-md-7 {
+              padding-left: 20px; /* Adjust as needed for spacing */
+              padding-right: 20px; /* Adjust as needed for spacing */
+            }
+          
+            img {
+              width: 40%;
+              height: auto;
+              border-radius: 15px; /* Adjust as needed for border radius */
+            }
+         
+            .carousel-item img {
+              max-height: 500px; /* Ajustez cette valeur en fonction de la hauteur désirée */
+          }
+          #search-5 {
+            margin-bottom: 10px; /* Ajoutez l'espace désiré entre la section de recherche et la vidéo */
+        }
+        
+        /* Pour éviter que la vidéo ne soit collée à la section suivante, vous pouvez également ajouter une marge supérieure à la vidéo */
+        video {
+            margin-top: 0px; /* Ajoutez l'espace désiré au-dessus de la vidéo */
+        }
+        #search-5 .input-group {
+          display: flex;
+          align-items: center;
+      }
+      
+      #search-5 .form-control {
+          flex: 1; /* Le champ de texte prendra tout l'espace disponible */
+          margin-right: 100px; /* Ajoute une marge à droite pour séparer le champ de texte du bouton */
+      }
+      
+      #search-5 .btn {
+          flex-shrink: 0; /* Empêche le bouton de rétrécir */
+      }  .col-lg-10 {
+        overflow: hidden;
+      }
+  
+      .marquee {
+        white-space: nowrap;
+        animation: marquee 30s linear infinite; /* Ajustez la vitesse et la durée de l'animation selon vos préférences */
+      }
+  
+      .marquee h2 {
+        font-size: 20px;
+        font-weight: bold;
+        display: inline-block;
+        margin-right: 20px; /* Espace entre les titres */
+      }
+
+      .marquee img {
+      display: inline-block;
+      max-width: 50px; /* Ajustez la taille de l'image selon vos besoins */
+      margin-right: 10px; 
+      height: auto/* Espace entre l'image et le titre */
+    }
+
+      .info{
+        background-color: #1da8dd;
+        color: #fff;
+        /* Ajustez la vitesse et la durée de l'animation selon vos préférences */
+      }
+      .a {
+        color: #000; /* Couleur du texte */
+        text-decoration: none; /* Suppression du soulignement par défaut */
+      }
+      .play-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff; /* Couleur de l'icône */
+        font-size: 48px; /* Taille de l'icône */
+      }
+      .play-icon.active {
+        transform: scale(1.2); /* Par exemple, agrandir l'icône lorsqu'elle est activée */
+        transition: transform 0.3s ease; /* Ajouter une transition pour un effet fluide */
+      }
+      <video class="card-img-top card-img-custom" controls style="width: 100%; height: auto; object-fit: cover;">
+
+        .card-deck {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+      }
+      
+  
+      .card-link {
+          text-decoration: none;
+          color: #1da8dd;
+          font-size: 20px;
+      }
+      
+      .card-link:hover {
+          color: #007bff;
+          
+      }
+      .exclude-styles img {
+        width: auto;
+        height: auto;
+        border-radius: initial; /* Réinitialisez le rayon de la bordure si nécessaire */
+    }
+        .card-img-custom {
+        height:300px;
+        border-radius: 5px;
+       /* Set the desired height for the images */
+        object-fit: cover; /* This property ensures the image scales uniformly */
+    }
+
+.custom-carousel-inner {
+    height: 500px; /* Remplacez 500px par la hauteur souhaitée */
+}
+.tool-directory {
+  margin-top: 50px;
+  text-align: center;
+}
+.tool-directory h3 {
+  color: #333; /* Couleur du texte */
+  font-size: 24px; /* Taille de la police */
+  font-weight: bold; /* Gras */
+  text-decoration: none;
+
+}
+
+  </style>
+  
+{% endblock %}
+</html>

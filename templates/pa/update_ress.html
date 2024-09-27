@@ -1,0 +1,198 @@
+{% extends 'layout/base.html'%}
+
+{% load static %}
+<title>{% block title%}ressource{%endblock%}</title>
+
+
+    <header>
+        {% include 'layout/partial/header.html' %}
+    </header>
+    {% block body  %}
+<body>
+   <div class="page-header" style="margin-top: 30px;">
+      <div class="row">
+          <div class="col">
+              <h3 class="page-title" style="text-align: left;font-size: 40px;">
+                  <span style="font-style: italic;">Mise a jours </span>
+                  <span style="color: #049ed9;">Ressources</span>
+              </h3>
+              <ul class="breadcrumb">
+
+              </ul>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+   <div class="col-sm-12">
+      <div class="card">
+         <div class="card-body">
+    {% if request.user.is_authenticated %}
+  <div class="page-wrapper" style="margin-left:0px;">
+        <div class="content container-fluid">
+           <div class="page-header">
+              <div class="row align-items-center">
+                 <div class="col">
+                    <h3 class="page-title"></h3>
+                    <ul class="breadcrumb">
+
+                    </ul>
+                 </div>
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-sm-12">
+                 <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                          <div class="row">
+                             <div class="col-12">
+                                <h5 class="form-title"><span>Mise àjours Ressource</span></h5>
+                             </div>
+
+                  <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label> Titre</label>
+                       {{ form.title }}
+                    </div>
+                 </div>
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Mots-clés</label>
+                       {{ form.mot_cle}}
+                    </div>
+                 </div>
+
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Date</label>
+                       <div>
+                        {{ form.date_en}}
+                       </div>
+                    </div>
+                 </div>
+                   <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Action</label>
+                       {{ form.action}}
+                    </div>
+                 </div>
+                             <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Ajouter</button>
+                             </div>
+                          </div>
+                       </form>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     {% endif%}
+   </div>
+</div>
+
+
+</div>
+
+</div>
+   
+<style>
+   .card-img-custom {
+       height: 150px;
+       border-radius: 10px;
+       /* Set the desired height for the images */
+       object-fit: cover; /* This property ensures the image scales uniformly */
+   }
+
+   .card {
+       border: 1px solid #ccc;
+       border-radius: 10px;
+       margin: 10px;
+       background: linear-gradient(180deg, #569DF5, rgba(217, 217, 217, 0));
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       object-fit: cover;
+   }
+
+   .card-body {
+       padding: 20px;
+   }
+
+   
+   .slider-container {
+       width: 80%;
+       max-width: 50%;
+       margin:4% 0;
+      
+   }
+   
+   .slider {
+       display: flex;
+       transition: transform 0.3s ease-in-out;
+   }
+   
+   .slide {
+       
+       flex: 0 0 auto;
+       margin-right: 20px;
+       border: 1px solid #ccc;
+       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       background-color: #FCF5F5;
+       padding: 10px;
+       display: flex;
+flex-direction: column;
+width: 308px;
+height: 230px;
+}
+   
+   
+   .slide video {
+       width: 100%;
+   }
+   
+   .slide-info {
+       margin-top: 10px;
+   }
+   
+   .slide-title {
+       font-size: 18px;
+       font-weight: bold;
+       color: #333;
+       margin-bottom: 5px;
+   }
+   
+   .slide-date {
+       font-size: 14px;
+       color: #777;
+   }
+   
+   .btn-container {
+       display: flex;
+       margin-left: 100%;
+       margin-top: 10px;
+       
+       justify-content: center; /* Center align horizontally */
+       align-items: center; /* Center align vertically */
+       margin-top: 10px;
+   }
+   
+   .btn {
+       padding: 5px 10px;
+       background-color: #007bff;
+       color: #fff;
+       border: none;
+       cursor: pointer;
+   }
+   
+   .btn:hover {
+       background-color: #0056b3;
+   }
+  
+   
+</style>
+</body>
+
+<!-- Mirrored from preschool.dreamguystech.com/html-template/data-tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:12:06 GMT -->
+</html>
+{% endblock %}

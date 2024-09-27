@@ -1,0 +1,164 @@
+{% extends 'layout/base.html'%}
+{% load static %}
+
+<title>{% block title%}ressource{%endblock%}</title>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="{% static 'csss/style.css'%}"/>
+    <header>
+        {% include 'layout/partial/header.html' %}
+    </header>
+    {% block body  %}
+<body>
+
+    {% if request.user.is_authenticated %}
+  <div class="page-wrapper" style="margin-left:0px;">
+        <div class="content container-fluid">
+           <div class="page-header">
+              <div class="row align-items-center">
+                 <div class="col">
+             <h3 class="page-title">
+                        
+                    </h3>
+                    <ul class="breadcrumb">
+
+                    </ul>
+                 </div>
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-sm-12">
+                 <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                          <div class="row">
+                             <div class="col-12">
+                                <h5 class="form-title"><span>Ressource</span></h5>
+                             </div>
+
+                  <div class="col-12 col-sm-6">
+                    <div class="form-group" >
+                       <label> Titre</label>
+                       {{ form.title }}
+                    </div>
+                 </div>
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Mots-clés</label>
+                       {{ form.mot_cle}}
+                    </div>
+                 </div>
+                 
+
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Date</label>
+                       <div>
+                        {{ form.date_en}}
+                       </div>
+                    </div>
+                 </div>
+
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group" >
+                       <label>Action</label>
+                       {{ form.action}}
+                    </div>
+                 </div>
+                 <div class="text-right">
+                  <button type="submit" class="btn btn-success">Ajouter</button>
+                </div>
+                          </div>
+                       </form>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     {% endif%}
+
+<h3 class="page-title" style="margin-left:100px;font-size: 26px;">
+                        <span style="font-style: italic;">Liste des Ressources</span>
+                        <!--span style="color: #1da8dd;">Ressources</span-->
+                    </h3>
+<div class="row row-cols-md-4 row-cols-sm-6" style="margin: 4%;">
+    {% for resource in posts %} {# Utilisez 'posts' au lieu de 'dataObject' ici #}
+    <div class="col mb-4">
+        <div class="custom-card card mb-3 shadow" style="display: flex; flex-direction: column; width: 271px;height: 250px;">
+            <div class="card-body" style="position: relative; height: 200px;">
+              <h5 class="card-title" style="color: #000">{{ resource.title|striptags|safe }}</h5>
+              <p class="card-text" style="color: #fff; font-size: 17px;">{{ resource.mot_cle|truncatechars:50|striptags|safe }}</p> </div>
+            <div class="card-footer" style="display: flex; justify-content: space-between; align-items: center;">
+                <b>{{ resource.date_en }},&nbsp;<b style="color: #a3bc1c;"> {{ resource.user.username }}</b></b>
+                <a href="{% url 'r' %}"><img src="{% static '/public/documentsvgrepocom-1.svg' %}" class="unknown-28-1-icon2" alt="" style="margin-right: 2px;" /></a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<nav aria-label="Pagination">
+    <hr class="my-0" />
+    <ul class="pagination justify-content-center my-4">
+        {% if posts.has_previous %}
+            <li class="page-item "><a class="page-link" href="?page={{posts.previous_page_number}}" tabindex="-1" aria-disabled="true">Previous</a></li>
+        {% endif %}
+        <li class="page-item active" aria-current="page"><a class="page-link" href="#!">{{posts.number}}</a></li>
+        {% if posts.paginator.num_pages != posts.number %}
+            <li class="page-item"><a class="page-link" href="#!">of</a></li>
+            <li class="page-item"><a class="page-link" href="#!">{{posts.paginator.num_pages}}</a></li>
+        {% endif %}
+        {% if posts.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{posts.next_page_number}}">Next</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+                </div>
+            </div> 
+        </div>
+        </div>
+                  
+<style>
+    .card-img-custom {
+        height: 150px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin: 10px;
+        background: linear-gradient(180deg, #1da8dd, rgba(217, 217, 217, 0));
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
+        overflow: hidden; /* Add this line to hide overflowing content */
+    }
+
+ 
+
+    .card-title {
+        
+        font-size: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Add this to truncate text with an ellipsis (...) */
+		text-align: justify; /* Add this line to justify the text content */
+    }
+
+    .card-text {
+      
+        overflow: hidden;
+        text-overflow: ellipsis; /* Add this to truncate text with an ellipsis (...) */
+		text-align: justify; /* Add this line to justify the text content */
+    }
+    .card-title, .card-text {
+      word-spacing: normal;
+  }
+</style>
+
+</body>
+</html>
+{% endblock %}

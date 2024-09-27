@@ -1,0 +1,145 @@
+{% load static %}
+<link rel="shortcut icon" href="/static/assets/img/favicon.jpg">
+<nav class="navbar navbar-expand-lg navbar-light" style="margin: 20px;">
+
+  <div class="container">
+    <!-- Logo à gauche -->
+    <a class="navbar-brand" href="{% url 'test' %}">
+      <img src="{% static 'ass/img/brands/logo_mairiejoal.png' %}" alt="Logo" style="width: 95px; height: 93.15px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navcol-1">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Menu au centre -->
+    <div class="collapse navbar-collapse" id="navcol-1" style="background-color:#1da8dd;height: 48px; border-radius: 100px; border: 4px;margin-left:50px;margin-right: 100px;">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'test' %}" style="color: rgb(248, 244, 244);"><i class="fa-solid fa-house"></i> Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'com' %}" style="color: rgb(248, 244, 244);"><i class="fas fa-map-marker-alt"></i> Commune</a>
+        </li>
+<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="{% url 'ressource' %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(248, 244, 244);">
+              <i class="fas fa-book"></i> Ressources
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{% url 'ressource' %}">Ressources</a></li>
+              <li><a class="dropdown-item" href="{% url 'atelier' %}">Ateliers</a></li>
+              <li><a class="dropdown-item" href="{% url 'documt' %}">Documentation</a></li>
+              
+              <li><a class="dropdown-item" href="{% url 'indi' %}">Indicateurs</a></li>
+          </ul>
+      </li>
+      
+      
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'b' %}" style="color: rgb(248, 244, 244);"><i class="fas fa-info"></i> Blog</a>
+        </li>&nbsp;&nbsp;
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'donne' %}" style="color: rgb(248, 244, 244);"><i class="la la-anchor" style="font-size: 21px;"></i>&nbsp;Données</a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a href="{% url 'new_post' %}" class="nav-link" style="color: rgb(248, 244, 244);">Nouveau Poste</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'logout' %}" class="nav-link" style="color: rgb(248, 244, 244);">Déconnexion</a>
+        </li>
+        {% else %}
+        <!-- Additional items here for non-authenticated users -->
+        {% endif %}
+        <!-- "Plateform" button as a separate li element -->
+        <li class="nav-item ml-auto">
+          {% if request.user.is_authenticated %}
+          <!-- User menu for authenticated users -->
+          <ul class="nav user-menu">
+            <!-- User menu items go here -->
+          </ul>
+          </li>
+        </li>
+      </ul>
+    </div>
+    </div>
+    {% else %}
+   
+  </div>
+ <!-- Bouton "Plateforme" à droite -->
+ <a class="btn btn-primary shadow ml-auto" role="button" href="{% url 'login' %}" style="border-radius: 100px; background-color: #1da8dd; width: 184px; height: 48px; text-align: center; color: #fff; margin-left:1px;">
+  <i class="fas fa-user fa-2x" style="color: #ffffff;"></i>
+ Plateforme
+</a>
+{% endif %}   
+<ul class="nav user-menu" style="position: absolute; top:28px; left:1104px;">
+  {% if not request.user.userprofile %}
+   <li>
+          <a href="{% url 'create_profile' %}"></a>
+       </li>
+{% endif %} 
+{% if request.user.is_authenticated %}
+<li class="nav-item dropdown has-arrow">
+<a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+<span class="user-img">
+<img
+src="{{ request.user.userprofile.profile_picture.url }}"
+alt="User Image"
+width="50"
+height="50"
+/>
+</span>
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<div class="user-header">
+  <div class="avatar avatar-sm">
+    {% if user.is_authenticated %}
+        {% if user.is_gestionnaire %}
+            <a class="dropdown-item" href="{% url 'home' %}">Gestionnaire</a>
+        {% elif user.is_decideur %}
+            <a class="dropdown-item" href="{% url 'decideur' %}">Décideur</a>
+        {% else %}
+            <a class="dropdown-item" href="{% url 'home' %}">Gestionnaire</a>
+            <a class="dropdown-item" href="{% url 'decideur' %}">Décideur</a>
+        {% endif %}
+    {% endif %}
+</div>
+
+
+  
+<div class="user-text">
+<h6>
+{{ request.user.userprofile.first_name }}
+{{request.user.userprofile.last_name }}
+</h6>
+</div>
+</div>
+{% if not request.user.userprofile %}
+<a class="dropdown-item" href="{% url 'create_profile' %}"
+>Ajouter un Profil</a
+>
+{% else %}
+<a class="dropdown-item" href="{% url 'profile_list' %}">Profil</a>
+{% endif %}
+<a class="dropdown-item" href="{% url 'logout' %}">Se déconnecter</a>
+</div>
+</li>
+{% endif %}
+
+</ul>
+</nav>
+<style>
+
+  /* Media query pour les appareils mobiles */
+  @media screen and (max-width: 768px) {
+    .navbar-nav {
+      border-radius: 0px;
+      background-color: #1da8dd; /* Couleur différente pour mobile */
+      
+    }
+    .navcol-1{
+      background-color: #fff;
+    }
+
+
+  }
+</style>

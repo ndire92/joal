@@ -1,0 +1,174 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block content  %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+       <div class="page-header">
+          <div class="row">
+             <div class="col-sm-12">
+                <h3 class="page-title">Bienvenu {{ user.first_name}} {{ user.last_name}}</h3>
+                <ul class="breadcrumb">
+                   <li class="breadcrumb-item active">Tableau de bord</li>
+                </ul>
+             </div>
+          </div>
+       </div>
+       <div class="row">
+          <div>
+             <div class="card bg-one w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+                      
+                      <div class="db-info">
+                         <h3>{{pfina}}</h3>
+                         <h6>Peche Finance</h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <div>
+             <div class="card bg-two w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+                   
+                      <div class="db-info">
+                         <h3>{{pcom}}</h3>
+                         <h6>Peche Commerce</h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div>
+             <div class="card bg-three w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+                     
+                      <div class="db-info">
+                         <h3>{{peche}}</h3>
+                         <h6>Peche Artisan</h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div >
+             <div class="card bg-four w-100">
+                <div class="card-body">
+                   <div class="db-widgets d-flex justify-content-between align-items-center">
+                     
+                      <div class="db-info">
+                         <h3>{{peino}}</h3>
+                         <h6>Peche Innovation</h6>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          
+       </div>
+
+
+
+       <div class="row">
+          <div class="col-md-12 col-lg-6">
+             <div class="card card-chart">
+                <div class="card-header">
+                   <div class="row align-items-center">
+                      <div class="col-6">
+                         <h5 class="card-title"></h5>
+                      </div>
+                      <div class="col-6">
+                         <ul class="list-inline-group text-right mb-0 pl-0">
+                            <li class="list-inline-item">
+                               <div class="form-group mb-0 amount-spent-select">
+                                
+                               </div>
+                            </li>
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+                <div class="card-body">
+                   <div id="all_details"></div>
+                </div>
+             </div>
+          </div>
+          <div class="col-md-12 col-lg-6">
+             <div class="card card-chart">
+                <div class="card-header">
+                   <div class="row align-items-center">
+                      <div class="col-6">
+                         <h5 class="card-title"></h5>
+                      </div>
+                      <div class="col-6">
+                         <ul class="list-inline-group text-right mb-0 pl-0">
+                            <li class="list-inline-item">
+                               <div class="form-group mb-0 amount-spent-select">
+                                
+                               </div>
+                            </li>
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+                <div class="card-body">
+                   <div id="stud_gender"></div>
+                </div>
+             </div>
+          </div>
+       </div>
+
+       <div class="row">
+         <div class="col-md-12 col-lg-6">
+            <div class="card card-chart">
+               <div class="card-header">
+                  <div class="row align-items-center">
+                     <div class="col-6">
+                        <h5 class="card-title"></h5>
+                     </div>
+                     <div class="col-6">
+                        <ul class="list-inline-group text-right mb-0 pl-0">
+                           <li class="list-inline-item">
+                              <div class="form-group mb-0 amount-spent-select">
+                                 
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="card-body">
+                  <div id="all"></div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-12 col-lg-6">
+            <div class="card card-chart">
+               <div class="card-header">
+                  <div class="row align-items-center">
+                     <div class="col-6">
+                        <h5 class="card-title">Santé</h5>
+                     </div>
+                     <div class="col-6">
+                        <ul class="list-inline-group text-right mb-0 pl-0">
+                           <li class="list-inline-item">
+                              <div class="form-group mb-0 amount-spent-select">
+                                 
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="card-body">
+                  <div id="course"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+    {% include 'includes/chart.html'%}
+    {% endblock %}

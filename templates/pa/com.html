@@ -1,0 +1,274 @@
+{% extends 'layout/base.html'%}
+
+{% load static %}
+
+  {% include 'layout/partial/header.html' %}
+
+{% block body  %}
+<header class="bg-primary-gradient">
+  <div class="container">
+    <div class="row pt-5">
+      <!-- Colonne de gauche (pour les grands écrans) -->
+      <div class="col-lg-6 custom-margin">
+        <div class="text-center" style="background: #1da8dd; border-radius: 16px; padding: 32px;">
+          <p class="fw-bold text-success mb-2" style="font-size: 26px;"><span style="color: rgb(252, 252, 252);">COMMUNE&nbsp;</span><strong><span style="color: rgb(249, 249, 249);">DE&nbsp; JOAL</span><span style="color: rgb(62, 148, 227);">&nbsp;</span><span style="color: rgb(249, 249, 249);">FADIOUTH</span></strong></p>
+          <p style="font-size: 16px;"><span style="color: rgb(249, 249, 249);"><br>La commune de Joal Fadiouth est située à l'extrémité de la Petite-Côte, au sud de la capitale Dakar</span></p>
+       
+          <div style="padding-top: 16px;">
+            <p style="font-size: 20px;"><strong><span style="color: rgb(62, 148, 227);"></span></strong><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-bar-chart" style="color: rgb(254, 254, 254); font-size: 24px;">
+                <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"></path>
+              </svg><strong><span style="color: rgb(62, 148, 227);">&nbsp; </span><span style="text-decoration: underline; color: rgb(250, 250, 251);">Superficie</span><span style="text-decoration: underline; color: rgb(254, 254, 254);">:</span><span style="color: rgb(254, 254, 254);"> 5 035 ha&nbsp;</span></strong></p><br>
+            <p style="font-size: 20px;"><strong><span style="color: rgb(62, 148, 227);"> </span></strong><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="color: rgb(255, 255, 255); font-size: 24px;">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2721 10.2721C16.2721 12.4813 14.4813 14.2721 12.2721 14.2721C10.063 14.2721 8.27214 12.4813 8.27214 10.2721C8.27214 8.06298 10.063 6.27212 12.2721 6.27212C14.4813 6.27212 16.2721 8.06298 16.2721 10.2721ZM14.2721 10.2721C14.2721 11.3767 13.3767 12.2721 12.2721 12.2721C11.1676 12.2721 10.2721 11.3767 10.2721 10.2721C10.2721 9.16755 11.1676 8.27212 12.2721 8.27212C13.3767 8.27212 14.2721 9.16755 14.2721 10.2721Z" fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.79417 16.5183C2.19424 13.0909 2.05438 7.39409 5.48178 3.79417C8.90918 0.194243 14.6059 0.054383 18.2059 3.48178C21.8058 6.90918 21.9457 12.6059 18.5183 16.2059L12.3124 22.7241L5.79417 16.5183ZM17.0698 14.8268L12.243 19.8965L7.17324 15.0698C4.3733 12.404 4.26452 7.97318 6.93028 5.17324C9.59603 2.3733 14.0268 2.26452 16.8268 4.93028C19.6267 7.59603 19.7355 12.0268 17.0698 14.8268Z" fill="currentColor"></path>
+              </svg><strong><span style="color: rgb(252, 252, 252);">&nbsp;</span><span style="text-decoration: underline; color: rgb(252, 252, 252);">Département</span><span style="color: rgb(252, 252, 252);"> : Mbour</span></strong></p><br>
+              <p style="font-size: 20px;">
+                <strong>
+                    <span style="color: rgb(62, 148, 227);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>
+                </strong>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="color: rgb(255, 255, 255); font-size: 24px;">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2721 10.2721C16.2721 12.4813 14.4813 14.2721 12.2721 14.2721C10.063 14.2721 8.27214 12.4813 8.27214 10.2721C8.27214 8.06298 10.063 6.27212 12.2721 6.27212C14.4813 6.27212 16.2721 8.06298 16.2721 10.2721Z" fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.79417 16.5183C2.19424 13.0909 2.05438 7.39409 5.48178 3.79417C8.90918 0.194243 14.6059 0.054383 18.2059 3.48178C21.8058 6.90918 21.9457 12.6059 18.5183 16.2059L12.3124 22.7241L5.79417 16.5183ZM17.0698 14.8268L12.243 19.8965L7.17324 15.0698C4.3733 12.404 4.26452 7.97318 6.93028 5.17324C9.59603 2.3733 14.0268 2.26452 16.8268 4.93028C19.6267 7.59603 19.7355 12.0268 17.0698 14.8268Z" fill="currentColor"></path>
+                </svg>
+                <strong><span style="color: rgb(252, 252, 252);"> Population : 60 068 habitants</span></strong> <!-- Remplacez 100 000 par la population réelle -->
+            </p>
+          </div>
+         <!-- ... (votre code précédent) ... -->
+<div class="d-flex" style="width: 397px; margin: 1px; margin-top: 34px; padding: 1px; margin-left: 80px; padding-left: 1px;">
+ </div>
+<!-- ... (votre code précédent) ... -->
+
+        </div>
+      </div>
+      <!-- Colonne de droite (pour les grands écrans) -->
+      <div class="col-lg-6 custom-margin d-flex align-items-center h-100">
+        <div class="position-relative">
+          <div style="border-radius: 16px; color: rgb(62, 148, 227); background: #1da8dd; padding: 16px;">
+            
+               
+                <div class=""><img class="rounded img-fluid shadow" src="{% static 'ass/img/4.png'%}"></div>
+            
+          
+        </div>
+      </div>
+      <!-- Fin des colonnes pour les grands écrans -->
+     
+    </div>
+  </div>
+</header>
+
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Colonne de texte avec titre -->
+            <div class="col-md-6">
+                <div><h5 style="margin-top: -45px;font-size: 26px;margin-left: 49px;height: 60.8px;"><br><strong><span style="color: #1da8dd;">LA COMMUNE DE&nbsp;</span><span  style="color: #1da8dd;">JOAL-FADIOUTH</span></strong>
+                    </h5>
+                    <p  style="color:rgb(0, 0, 0);text-align: justify; font-size: 18px;">Est située à l'extrémité de la petite-côte, au sud de la capitale Dakar. Joal-Fadiouth est la réunion de deux villages, Joal, plus vaste et sur le littoral et Fadiouth, plus visité par les touristes. Fadiouth est aussi une île artificielle et reliée à Joal par un pont de bois. Fadiouth est le village de naissance du président poète, Léopold Sédar Senghor. La commune de Joal – Fadiouth est caractérisée par trois grandes zones. Une première zone qui correspond à Joal et qui regroupe les services administratifs et municipaux. Une deuxième zone plutôt commerciale qui coïncide avec la zone du port. Une troisième zone dédiée aux unités de transformation des produits de la pêche dans les tannes</p>
+                    
+                </div>
+            </div>
+            <!-- Colonne avec image de fond -->
+            <div class="col-md-6">
+                <div style="border-radius: 16px; color: rgb(62, 148, 227); background: #1da8dd; padding: 16px;">
+         
+                <div class=""><img class="rounded img-fluid shadow" src="{% static 'ass/img/products/2.png'%}"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<hr class="centered-line">
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Colonne de texte avec titre -->
+            <div class="col-md-6">
+                <div><h5 style="margin-top: -45px;font-size: 26px;margin-left: 49px;height: 60.8px;"><br><strong><span style="color: #1da8dd;">HISTOIRE&nbsp;</span><span  style="color: #1da8dd;">DE LA COMMUNE</span></strong>
+                    </h5>
+                    <p  style="color:rgb(0, 0, 0);text-align: justify; font-size: 18px;"> L’histoire de la commune est diversement racontée par les historiens et leaders traditionnels. La commune est majoritairement habitée par des Sérères, contraints par la percée des Almoravides et qui ont quitté la vallée du Fleuve Sénégal pour s’installer dans la petite côte et le Sine. Pour d’autres, Joal et Fadiouth furent fonder par les Guelwar chassés du royaume du Gabou. Joal a enregistré, durant la période coloniale, l’arrivée successive des Portugais, Hollandais, Français et Anglais et a été un grand comptoir commercial du Sénégal. </p>
+                    
+                </div>
+            </div>
+            <!-- Colonne avec image de fond -->
+            <div class="col-md-6">
+                <div style="border-radius: 16px; color: rgb(62, 148, 227); background: #1da8dd; padding: 16px;">
+         
+                <div class=""><img class="rounded img-fluid shadow" src="{% static 'ass/img/products/3.png'%}"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Colonne de texte avec titre -->
+            <div class="col-md-6">
+                <div><h5 style="margin-top: -45px;font-size: 26px;margin-left: 49px;height: 60.8px;"><br><strong><span style="color: #1da8dd;"></span><span  style="color: #1da8dd;">POPULATION ET CADRE PHYSIQUE</span></strong>
+                    </h5>
+                    <p  style="color:rgb(0, 0, 0);text-align: justify; font-size: 18px;">   Au dernier recensement de 2023 (ANSD, 2023), la commune compte 60 068 habitants, soit une densité moyenne de 1193 hbts/km². Les sérères surtout Niominka, Lébous et Guet Ndariens et les wolofs sont les ethnies ou sous ethnies dominantes. Certains sont attirées par la mer et sont des pêcheurs itinérants. <br>
+                        Le Climat est de type semi-aride, sec et chaud. La commune de Joal – Fadiouth se retrouve sur une longue plaine et se dresse entre l’Océan Atlantique, le bras de mer de Mama NGethie et les tannes. Les températures annuelles fluctuent entre 15 et 34°C. </p>
+                    
+                </div>
+            </div>
+            <!-- Colonne avec image de fond -->
+            <div class="col-md-6">
+                <div style="border-radius: 16px; color: rgb(62, 148, 227); background: #1da8dd; padding: 16px;">
+         
+                <div class=""><img class="rounded img-fluid shadow" src="{% static 'ass/img/products/5.png'%}"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<hr class="centered-line">
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Colonne de texte avec titre -->
+            <div class="col-md-6">
+                <div><h5 style="margin-top: -45px;font-size: 26px;margin-left: 49px;height: 77.8px;"><br><strong><span style="color: rgb(0, 0, 0);"></span><span style="color: #1da8dd;">ATOUTS</span></strong>
+                    </h5>
+                    <p  style="color:rgb(0, 0, 0);text-align: justify; font-size: 18px;">La commune regorge d’importantes potentialités agricoles, halieutiques  et touristiques. Du fait de sa position géographique, la ville recèle d’une longue côte et très poissonneuse, d’une mer relativement calme et de belles plages de sable. Il s’y développe une florissante pêche artisanale et de la transformation artisanale de produits de mer. Les activités de pêche et de transformation artisanale halieutiques sont des sources de revenus pour la plupart des populations autochtones et allochtones. Elles jouent un rôle important dans l’économie locale et nationale. 
+La commune de Joal - Fadiouth constitue le premier port de pêche artisanale du pays avec un quai équipé. Elle constitue également un lieu touristique et attire par ses sites et monuments historiques dans la commune et ses traditions culturelles et socio-économiques
+</p>
+                    
+                </div>
+            </div>
+            <!-- Colonne avec image de fond -->
+            <div class="col-md-6">
+                <div style="border-radius: 16px; color: rgb(62, 148, 227); background: #1da8dd; padding: 16px;">
+         
+                <div class=""><img class="rounded img-fluid shadow" src="{% static 'ass/img/products/4.png'%}"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<hr class="centered-line">
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Colonne de texte avec titre -->
+            <div class="col-md-6">
+                <div><h5 style="margin-top: 0px;font-size: 26px;margin-left: 49px;height: 77.8px;"><br><strong><span style="color: rgb(0, 0, 0);"></span><span style="color: #1da8dd;">CONTRAINTES</span></strong>
+                    </h5>
+                    <p  style="color:rgb(0, 0, 0);text-align: justify; font-size: 18px;">
+
+                        Les contraintes majeure sont d’ordre technique, foncière, écologique et naturelles. Le manque d’espaces urbains rend très difficile l'extension de la ville. Cet extension de pourra se faire qu’au détriment d’autres communes voisines et des formations forestières.<br> 
+Les inondations sont fréquentes dans la commune. Le document du Plan Directeur d’urbanisme de la commune de Joal - Fadiouth Horizon 2022 estime que 60 %  de la superficie de la commune est inondable durant la saison des pluies. 
+Ces problèmes d’inondation s’explique par les faibles dénivellations dans l'estuaire et les sols argileux peu perméables et qui favorisent très peu l’infiltration des eaux de ruissellement.<br>
+Les contraintes de la commune se structure surtout dans la planification de politiques publiques étatiques ou avec des partenaires au développement et basée sur des données probantes. Les données infranationales ne sont pas centralisées. 
+                        </p>
+                    
+                </div>
+            </div>
+            <!-- Colonne avec image de fond -->
+            <div class="col-md-6">
+                <div style="border-radius: 16px; color: rgb(62, 148, 227); background: #1da8dd; padding: 16px;">
+         
+                <div class=""><img class="rounded img-fluid shadow" src="{% static 'ass/img/products/6.png'%}">
+               </div>
+            </div>
+            <p  style="color:rgb(0, 0, 0);text-align: justify; font-size: 18px;">
+             Elles sont détenues par des services techniques locaux et nationaux et des groupements d’acteurs et ceux-ci ne sont pas reliés dans un cadre d’échanges ou de co-publication des données.<br> 
+                C’est ce qui donne au projet de « Renforcement de Chaînes de Valeurs de données Infranationales en Afrique Subsaharienne (PRECVADI) » tout son sens et sa pertinence.</p>
+           
+        </div>
+        </div>
+    </div>
+</section>
+<hr class="centered-line">
+<section style="margin-top: 45px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 ">
+            <div><h5 style="margin-top: 0px;font-size: 26px;margin-left: 49px;height: 50.8px;text-align:center;"><strong><span style="color: #1da8dd;">Quai &nbsp;</span><span style="color: #1da8dd;">de Pêche Joal-Fadiouth</span></strong></p></h5></div>
+            <p  style="color:rgb(0, 0, 0);text-align: justify; font-size: 18px;">la pêche constitue la principale activité économique. Le centre de pêche de Joal, de par son volume des mises à terre annuelles est le premier quai de débarquement de la pêche artisanale au Sénégal. La pêche mobilise en moyenne 650 pirogues par an et 7 700 pécheurs, pour une moyenne annuelle des mises à terre de 150 000 tonnes et une valeur commerciale moyenne annuelle estimée à 17 milliards de F CFA.</span></p>
+        </div>
+        <div class="row mt-4" >
+            <div class="col-md-4">
+                <img src="{% static 'ass/img/13.png'%}" alt="Hommes" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'ass/img/14.png'%}" alt="Femmes" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'ass/img/15.png'%}" alt="Femmes" class="img-fluid">
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="centered-line">
+  
+<section style="margin-top: 45px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 ">
+            <div><h5 style="margin-top: 0px;font-size: 26px;margin-left: 49px;height: 50.8px;text-align:center;"><strong><span style="color: #1da8dd;">Site&nbsp;</span><span style="color: #1da8dd;"> de transformation Khelcom</span></strong></p></h5></div>
+            <p  style="color:rgb(0, 0, 0);text-align: justify; font-size: 18px;">Khelcom, la cité de transformation des produits halieutiques de Joal, est l’un des poumons économiques de la commune. Ce site arpenté à longueur d’année par des centaines de femmes est dans un état de délabrement avancé. Les transformatrices de poissons demandent l’aide de l’Etat.</span></p>
+        </div>
+        <div class="row mt-4" >
+            <div class="col-md-4">
+                <img src="{% static 'ass/img/7.png'%}" alt="Hommes" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'ass/img/8.png'%}" alt="Femmes" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'ass/img/9.png'%}" alt="Femmes" class="img-fluid">
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="centered-line">
+  <section style="margin-top: 45px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 ">
+            <div><h5 style="margin-top: 0px;font-size: 26px;margin-left: 49px;height: 50.8px;text-align:center;"><strong><span style="color: #1da8dd;">Site&nbsp;</span><span style="color: #1da8dd;"> de transformation tann</span></strong></p></h5></div>
+            <p  style="color:rgb(0, 0, 0);text-align: justify; font-size: 18px;">Joal est un hub de transformation de produits halieutiques. Le fait se justifie par la présence de ressortissants de pays limitrophes du Mali, du Burkina-Faso, de la Gambie, de la Côte d'Ivoire et du Togo. Le site construit vient à son heure et participe à l'amélioration de la qualité des produits transformés</span></p>
+        </div>
+        <div class="row mt-4" >
+            <div class="col-md-4">
+                <img src="{% static 'ass/img/10.png'%}" alt="Hommes" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'ass/img/11.png'%}" alt="Femmes" class="img-fluid">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'ass/img/12.png'%}" alt="Femmes" class="img-fluid">
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="centered-line">
+    <style>
+        .centered-line {
+            width: 50%; /* Ajustez la largeur du trait */
+            height: 10px; /* Ajustez l'épaisseur du trait */
+            margin: 20px auto; /* Centrez horizontalement et ajoutez une marge pour l'espacement */
+            background-color: #3e94e3;
+            border-radius: 50px;
+
+        }
+        @media (max-width: 767px) {
+  .custom-margin {
+      margin: 20px !important;
+  }
+ 
+}
+
+    </style>
+
+{% endblock %}
+
+</html>

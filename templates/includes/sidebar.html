@@ -1,0 +1,69 @@
+{% load active_link_tags %}
+{% load static %}
+<div class="sidebar" id="sidebar" style="background-color: #1da8dd;">
+    <div class="sidebar-inner slimscroll">
+       <div id="sidebar-menu" class="sidebar-menu">
+
+         <ul>
+            <li class="menu-title">
+               <span>{{user.username}} {{user.username}}</span>
+            </li>
+            <li class="menu-title">
+               <span>Menu principal</span>
+            </li>
+
+            <li class="{% active_link 'home' 'active' %}">
+              <a href="{% url 'home' %}"><img src="{% static '/imge/icon peche.png'%}" alt="logo" width="50" height="50"> <span style="font-size: 20px">Peche</span></a>
+           </li>
+
+        
+         </ul>
+
+         
+
+         <ul>
+         <li>
+            
+            
+           <li class="submenu {% active_link 'peche:pch' 'active' %}{% active_link 'peche:pch' 'active' %}">
+              
+ 
+
+                  <!-- li><a href="{% url 'peche:dimpecart'%}">Pêche Artisanale</a></li-->
+                  
+                  <li><a href="{% url 'peche:dimact'%}">Acteurs pêches</a></li>
+                  <li><a href="{% url 'peche:dimpechgpt'%}">Groupement Pêcheur</a></li>
+                  <li><a href="{% url 'peche:dimpechpirogue'%}">Pêche Artisanale Type Pirogue</a></li>
+                  <li><a href="{% url 'peche:dimpechniv'%}">Pêche Artisanale Type Produit Niveau</a></li>
+                  <li><a href="{% url 'peche:dimpechimmat'%}">Pêche Artisanale Pirogues Immatriculées</a></li>
+                  <li><a href="{% url 'peche:dimrepart'%}">Pêche Artisanale Répartition Produits</a></li>
+                  <li><a href="{% url 'peche:dimpechprod'%}">Pêche Production par pirogue</a></li>
+                  <li><a href="{% url 'peche:dimfact'%}">Table Mesures pêche</a></li>
+                  <li><a href="{% url 'peche:dimpecass'%}">Pêche Artisanale Assurance</a></li>
+                  <li><a href="{% url 'peche:dimpecec'%}">Pêche Artisanale Commerce</a></li>
+                  <li><a href="{% url 'peche:dimpecfin'%}">Pêche Artisanale Finance</a></li>
+                  <li><a href="{% url 'peche:pech_ino'%}">Pêche Artisanale Innovation</a></li>
+                  <li><a href="{% url 'peche:pech_taino'%}">Peche TA Innovation</a></li>
+                  <li><a href="{% url 'peche:pech_trans'%}">Peche tranformation Artisanale</a></li>
+                  <li><a href="{% url 'peche:pech_taassu'%}">Peche TA Assurance</a></li>
+                  <li><a href="{% url 'peche:pech_tacom'%}">Peche TA Commerce</a></li>
+                  <li><a href="{% url 'peche:pech_tafina'%}">Peche TA Finance</a></li>
+                  
+
+
+     
+               
+               
+                  <li><i class=""></i>
+                        <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> <span> Se déconnecter</span></a>
+                  </li>
+              
+            </li>
+      </li>
+         </ul>
+
+        
+
+       </div>
+    </div>
+ </div>

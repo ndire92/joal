@@ -1,0 +1,32 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+<title>{% block title %}Modifier la Vidéo{% endblock %}</title>
+
+<header>
+    {% include 'layout/partial/header.html' %}
+</header>
+
+{% block body %}
+<div class="container">
+    <center><h1 style="color: #557029; margin-top: 30px;">Bienvenue {{ request.user.username }} sur la page de modification !</h1></center>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" style="background-color: #557029; color: #fff;">
+                    <h2 class="text-center">Modifier la Vidéo</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary" style="background-color: #557029;">Mettre à Jour</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

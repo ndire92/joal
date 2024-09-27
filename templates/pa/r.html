@@ -1,0 +1,135 @@
+
+{% extends 'layout/base.html'%}
+{% load static %}
+
+<title>{% block title%}ressource{%endblock%}</title>
+
+<link rel="stylesheet" href="{% static 'csss/style.css'%}"/>
+    <header>
+        {% include 'layout/partial/header.html' %}
+    </header>
+   
+
+    {% block body  %}
+
+<div class="page-wrapper" style="margin-left: 0px;">
+    <div class="content container-fluid" style="margin-left: 0px; text-align: center;">
+        <div class="page-header" style="margin-top: 30px;">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title" style="text-align: left;font-size: 40px;">
+                        <span style="font-style: italic;">Tableau des </span>
+                        <span style="color: #049ed9;">Ressources</span>
+                    </h3>
+                    <ul class="breadcrumb">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-2"></h5>
+                        <p class="card-text">
+
+                        </p>
+                    </div>
+                     <div class="row">
+                      
+                        <div class="col-sm-12">
+                            <form method="GET" class="mb-4">
+                                <div class="input-group" style="max-width: 400px; margin: 0 auto;margin-right:10px; display: flex; ">
+                                    <input type="text" name="q" class="form-control" placeholder="Recherche par titre ou mots-clés" style="top:12px;margin-right:13px">
+                                    <div class="input-group-append">
+                                       <button type="submit" class="btn btn-success" style="top:11px">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                   </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                      
+                            <table style="border: 2px solid black; width: 100%;">
+                                <tr style="border: 2px solid black;">
+                                    <th style="border: 2px solid black;text-align: center; padding: 10px;">Numéro</th>
+                                    <th style="border: 2px solid black; text-align: center;padding: 10px;">Titre</th>
+                                    <th style="border: 2px solid black; text-align: center;padding: 10px;">Mots clés</th>
+                                    <th style="border: 2px solid black; text-align: center;padding: 10px;">Date de publication</th>
+                                    <th style="border: 2px solid black; text-align: center;text-align: center; ">Voir le Rapport</th>
+                                    {% if request.user.is_authenticated %}
+                                        <th style="border: 2px solid black; text-align: left; padding: 10px;">Action</th>
+                                    {% endif %}
+                                </tr>
+                                {% for resource in stud  %}
+                                <tr>
+                                    <td style="border: 2px solid black;text-align: left; padding: 10px;">{{ resource.id }}</td>
+                                    <td style="border: 2px solid black; text-align: left;padding: 10px;">{{ resource.title|truncatechars:30}}</td>
+                                    <td style="border: 2px solid black; text-align: left;padding: 10px;">{{ resource.mot_cle|truncatechars:100|safe}}</td>
+                                    <td style="border: 2px solid black;text-align: left;padding: 10px; ">{{ resource.date_en }}</td>
+                                    <td style="border: 2px solid black; text-align: left;padding: 10px;"><a href="{{ resource.action.url }}" class="btn btn-success"><i class="fas fa-download"></i> Download</a></td>
+                                    {% if resource.user == request.user %}
+                                    <td class="text-right" style="border : 2px solid black;">
+                                        <div class="actions">
+                                            <a href="{% url 'upda_res' id=resource.id %}" class="btn btn-sm bg-success-light mr-2">
+                                                <i class="fas fa-pen"></i>
+                                            </a>
+                                            <a href="{% url 'delete_ress' id=resource.id %}" class="btn btn-sm bg-danger-light">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav aria-label="Pagination">
+            <hr class="my-0" />
+            <ul class="pagination justify-content-center my-4">
+                {% if stud.has_previous %}
+                    <li class="page-item "><a class="page-link" href="?page={{stud.previous_page_number}}" tabindex="-1" aria-disabled="true">Previous</a></li>
+                {% endif %}
+                <li class="page-item active" aria-current="page"><a class="page-link" href="#!">{{stud.number}}</a></li>
+                {% if stud.paginator.num_pages != stud.number %}
+                    <li class="page-item"><a class="page-link" href="#!">of</a></li>
+                    <li class="page-item"><a class="page-link" href="#!">{{stud.paginator.num_pages}}</a></li>
+                {% endif %}
+                {% if stud.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{stud.next_page_number}}">Next</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        <style>
+            .content {
+                text-align: center;
+            }
+
+            .card {
+                border: 1px solid #ccc;
+                border-radius: 30px;
+                margin: 10px;
+                background: linear-gradient( 180deg, #049ed9 15.63%, rgba(217, 217, 217, 0) 91.67% );
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+        </style>
+    </div>
+</div>
+
+{% endblock %}

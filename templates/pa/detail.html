@@ -1,0 +1,115 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Joal</title>
+
+    <!-- Inclure le fichier CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Inclure les fichiers CSS statiques -->
+    <link rel="stylesheet" href="{% static 'ass/css/Abril%20Fatface.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Advent%20Pro.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Alatsi.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Inter.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/fonts/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Bold-BS4-Footer-Big-Logo.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Google-Map-With-Full-Wide.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom-animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/untitled.css' %}">
+
+    <!-- Inclure jQuery avant Bootstrap.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Inclure le fichier JavaScript Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Inclure Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'ass/fonts/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+    <link href="  https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css"> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Initialisez le menu déroulant après que le document soit prêt
+      $(document).ready(function() {
+        $('.dropdown-toggle').dropdown();
+      });
+    </script>
+    
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'as/fonts/flaticon.css '%}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+    
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+  {% include 'layout/partial/header.html' %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+{% block body %}
+<div class="container" >
+  <div class="row">
+    <div class="col-md-8" style="margin-block-end: 5%;">
+      <div class="card">
+        <h1 class="text-center">{{ post.title }} </h1>
+        <img src="{{ post.image.url }}" class="card-img-top" width="400px" alt="...">
+        <div class="card-body">
+      
+          <p class="card-text">{{ post.content|safe }}</p>
+        </div>
+        {% if post.user == request.user %}
+        <div class="card-footer">
+          <a href="{% url 'update_post' post.id %}" class="btn btn-info">Update</a>
+          <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-md-4">
+      <!-- Sidebar for recent posts -->
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Recent Posts</h5>
+          <!-- Loop through recent posts and display links -->
+          {% for recent_post in recent_posts %}
+            <div class="media mb-4">
+              <img src="{{ recent_post.image.url }}" class="mr-3 rounded" alt="Recent Post Image" width="80">
+              <div class="media-body">
+                <h6 class="mt-0 mb-1"><a href="{% url 'detail' recent_post.id %}">{{ recent_post.title }}</a></h6>
+                <p class="text-muted small">Publié par <span style="color: #258baf;">{{ recent_post.user.username }}</span> le {{ recent_post.date }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'layout/partial/footer.html' %}
+<!-- Inclure les fichiers JavaScript supplémentaires -->
+<script src="{% static 'ass/js/jquery.min.js' %}"></script>
+<script src="{% static 'ass/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'ass/js/bold-and-bright.js' %}"></script>
+<script src="{% static 'ass/js/Slider_Carousel_webalgustocom-slider.js' %}"></script>
+{% endblock %}

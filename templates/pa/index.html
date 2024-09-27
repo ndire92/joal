@@ -1,0 +1,2255 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Precvadi - Joal</title>
+
+    <!-- Inclure le fichier CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <!-- Inclure les fichiers CSS statiques -->
+    <link rel="stylesheet" href="{% static 'ass/css/Abril%20Fatface.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Advent%20Pro.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Alatsi.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Inter.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/fonts/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Bold-BS4-Footer-Big-Logo.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Google-Map-With-Full-Wide.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom-animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/untitled.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Inclure jQuery avant Bootstrap.js -->
+       <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+
+
+    <!-- Inclure Chart.js -->
+    <!-- script src="https://cdn.jsdelivr.net/npm/chart.js"></script -->
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'ass/fonts/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+    <link href="  https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'ass/css/index.css' %}">
+   
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+
+    <script>
+      // Initialisez le menu déroulant après que le document soit prêt
+      $(document).ready(function() {
+        $('.dropdown-toggle').dropdown();
+      });
+    </script>
+
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'as/fonts/flaticon.css '%}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+    
+
+  {% include 'layout/partial/header.html' %}
+  <!---script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script--->
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+
+{% block body  %}
+ 
+<header class="bg-primary-gradient">
+  <div class="container">
+    <div class="row pt-5">
+      <!-- Colonne de gauche (pour les grands écrans) -->
+      <div class="col-lg-6 custom-margin">
+        <div class="text-center" style="background: #1da8dd; border-radius: 16px; padding: 32px;">
+          <p class="fw-bold text-success mb-2" style="font-size: 26px;"><span style="color: rgb(252, 252, 252);">COMMUNE&nbsp;</span><strong><span style="color: rgb(249, 249, 249);">DE&nbsp; JOAL</span><span style="color: rgb(62, 148, 227);">&nbsp;</span><span style="color: rgb(249, 249, 249);">FADIOUTH</span></strong></p>
+          <p style="font-size: 16px;"><span style="color: rgb(249, 249, 249);">La commune de Joal Fadiouth est située à l'extrémité de la Petite-Côte, au sud de la capitale Dakar</span></p>
+       
+          <div style="padding-top: 16px;">
+            <p style="font-size: 20px;"><strong><span style="color: rgb(62, 148, 227);"></span></strong><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-bar-chart" style="color: rgb(254, 254, 254); font-size: 24px;">
+                <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"></path>
+              </svg><strong><span style="color: rgb(62, 148, 227);">&nbsp; </span><span style="text-decoration: underline; color: rgb(250, 250, 251);">Superficie</span><span style="text-decoration: underline; color: rgb(254, 254, 254);">:</span><span style="color: rgb(254, 254, 254);"> 5 035 ha&nbsp;</span></strong></p><br>
+            <p style="font-size: 20px;"><strong><span style="color: rgb(62, 148, 227);"> </span></strong><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="color: rgb(255, 255, 255); font-size: 24px;">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2721 10.2721C16.2721 12.4813 14.4813 14.2721 12.2721 14.2721C10.063 14.2721 8.27214 12.4813 8.27214 10.2721C8.27214 8.06298 10.063 6.27212 12.2721 6.27212C14.4813 6.27212 16.2721 8.06298 16.2721 10.2721ZM14.2721 10.2721C14.2721 11.3767 13.3767 12.2721 12.2721 12.2721C11.1676 12.2721 10.2721 11.3767 10.2721 10.2721C10.2721 9.16755 11.1676 8.27212 12.2721 8.27212C13.3767 8.27212 14.2721 9.16755 14.2721 10.2721Z" fill="currentColor"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.79417 16.5183C2.19424 13.0909 2.05438 7.39409 5.48178 3.79417C8.90918 0.194243 14.6059 0.054383 18.2059 3.48178C21.8058 6.90918 21.9457 12.6059 18.5183 16.2059L12.3124 22.7241L5.79417 16.5183ZM17.0698 14.8268L12.243 19.8965L7.17324 15.0698C4.3733 12.404 4.26452 7.97318 6.93028 5.17324C9.59603 2.3733 14.0268 2.26452 16.8268 4.93028C19.6267 7.59603 19.7355 12.0268 17.0698 14.8268Z" fill="currentColor"></path>
+              </svg><strong><span style="color: rgb(252, 252, 252);">&nbsp;</span><span style="text-decoration: underline; color: rgb(252, 252, 252);">Département</span><span style="color: rgb(252, 252, 252);"> : Mbour</span></strong></p><br>
+              <p style="font-size: 20px;">
+                <strong>
+                    <span style="color: rgb(62, 148, 227);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>
+                </strong>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="color: rgb(255, 255, 255); font-size: 24px;">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2721 10.2721C16.2721 12.4813 14.4813 14.2721 12.2721 14.2721C10.063 14.2721 8.27214 12.4813 8.27214 10.2721C8.27214 8.06298 10.063 6.27212 12.2721 6.27212C14.4813 6.27212 16.2721 8.06298 16.2721 10.2721Z" fill="currentColor"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.79417 16.5183C2.19424 13.0909 2.05438 7.39409 5.48178 3.79417C8.90918 0.194243 14.6059 0.054383 18.2059 3.48178C21.8058 6.90918 21.9457 12.6059 18.5183 16.2059L12.3124 22.7241L5.79417 16.5183ZM17.0698 14.8268L12.243 19.8965L7.17324 15.0698C4.3733 12.404 4.26452 7.97318 6.93028 5.17324C9.59603 2.3733 14.0268 2.26452 16.8268 4.93028C19.6267 7.59603 19.7355 12.0268 17.0698 14.8268Z" fill="currentColor"></path>
+                </svg>
+                <strong><span style="color: rgb(252, 252, 252);"> Population : 60 068 habitants</span></strong> <!-- Remplacez 100 000 par la population réelle -->
+            </p>
+          </div>
+         <!-- ... (votre code précédent) ... -->
+         <div class="d-flex justify-content-center mt-3">
+          <button class="btn btn-primary mx-2" id="lireplus" type="button">Lire plus...</button>
+          <button class="btn btn-primary mx-2" type="button" id="peche">
+              <i class="fas fa-fish"></i> Pêche
+          </button>
+      </div>
+
+
+        </div>
+      </div>
+      <!-- Colonne de droite (pour les grands écrans) -->
+      <div class="col-lg-6 custom-margin">
+        <div class="position-relative">
+          <div style="border-radius: 16px; color: #1da8dd; background: #1da8dd; padding: 16px;">
+            <div class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="w-100 d-block" src="  {% static 'ass/img/img-1196-2@2x.png'%}" alt="Slide Image">
+                </div>
+                <div class="carousel-item">
+                  <img class="w-100 d-block" src="  {% static 'ass/img/c1.png'%}" alt="Slide Image">
+                </div>
+                <div class="carousel-item">
+                  <img class="w-100 d-block" src="  {% static 'ass/img/c2.png'%}" alt="Slide Image">
+                </div>
+                <div class="carousel-item">
+                  <img class="w-100 d-block" src="  {% static 'ass/img/c3.png'%}" alt="Slide Image">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin des colonnes pour les grands écrans -->
+     
+    </div>
+  </div>
+</header>
+	
+<section style="margin-top: 45px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div style="background: #1da8dd; padding: 4px; border-radius: 100px; box-shadow: inset 4px 3px rgb(78, 76, 76); padding-left: 28px;">
+          <p style="color: rgb(255, 253, 253); font-size: 18px;">&nbsp; &nbsp; <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="font-size: 32px;">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2721 10.2721C16.2721 12.4813 14.4813 14.2721 12.2721 14.2721C10.063 14.2721 8.27214 12.4813 8.27214 10.2721C8.27214 8.06298 10.063 6.27212 12.2721 6.27212C14.4813 6.27212 16.2721 8.06298 16.2721 10.2721ZM14.2721 10.2721C14.2721 11.3767 13.3767 12.2721 12.2721 12.2721C11.1676 12.2721 10.2721 11.3767 10.2721 10.2721C10.2721 9.16755 11.1676 8.27212 12.2721 8.27212C13.3767 8.27212 14.2721 9.16755 14.2721 10.2721Z" fill="currentColor"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.79417 16.5183C2.19424 13.0909 2.05438 7.39409 5.48178 3.79417C8.90918 0.194243 14.6059 0.054383 18.2059 3.48178C21.8058 6.90918 21.9457 12.6059 18.5183 16.2059L12.3124 22.7241L5.79417 16.5183ZM17.0698 14.8268L12.243 19.8965L7.17324 15.0698C4.3733 12.404 4.26452 7.97318 6.93028 5.17324C9.59603 2.3733 14.0268 2.26452 16.8268 4.93028C19.6267 7.59603 19.7355 12.0268 17.0698 14.8268Z" fill="currentColor"></path>
+            </svg>Commune : Joal Fadiouth Ngazobil&nbsp; &nbsp; &nbsp; &nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="font-size: 32px;">
+              <path d="M11 6H13V18H11V6Z" fill="currentColor"></path>
+              <path d="M7 13H9V18H7V13Z" fill="currentColor"></path>
+              <path d="M15 9H17V18H15V9Z" fill="currentColor"></path>
+            </svg> Coordonnée :&nbsp;14° 10′ nord, 16° 50′ Ouest&nbsp; &nbsp; <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" style="font-size: 32px;">
+              <path d="M13 10H17V16H13V10Z" fill="currentColor" fill-opacity="0.5"></path>
+              <path d="M11 4H7V16H11V4Z" fill="currentColor"></path>
+              <path d="M18 18H6V20H18V18Z" fill="currentColor"></path>
+            </svg>&nbsp; Densité : 1193 hab./km2</p>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="containerv">
+  <h5 style="margin-top: 47px; font-size: 26px; height: 47.8px; text-align: center;">
+    <strong><span style="color: rgb(0, 0, 0);"></span><span style="color: #1da8dd;">Visualisation des données de la pêche et de la transformation artisanales</span></strong>
+</h5>
+</div>
+	
+
+<section class="py-3 mt-3">
+  <div class="container" style="background: #1da8dd; border-radius: 42px">
+    <div class="container">
+      <div class="row">
+        <div class="row custom-margin">
+          <div class="col-12 col-md-4">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-action" style="font-size: 26px; color: #1da8dd; text-align: center; font-weight: bold;">DOMAINE PECHE</a>
+          
+              <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home" style="font-size: 16px;text-align: left; font-weight: bold;">Pêche artisanale
+				     <label for="year-select-artisanale" style="font-size: 16px; text-align: left;">
+                  Sélectionnez une année:
+                  <select id="year-select-artisanale" style="font-size: 16px; padding: 5px; margin: 10px;">
+                      {% for year in data_by_year %}
+                      <option value="{{ year }}">{{ year }}</option>
+                      {% endfor %}
+                  </select>
+              </label>
+          
+				
+				</a>
+          
+           
+              <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages" style="font-size: 16px;text-align: left; font-weight: bold;">Pêche Transformation artisanale
+				
+				              <label for="year-select-transformation" style="font-size: 16px; text-align: left;">
+                  Sélectionnez une année:
+                  <select id="year-select-transformation" style="font-size: 16px; padding: 5px; margin: 10px;">
+                      {% for year in data_by_year %}
+                      <option value="{{ year }}">{{ year }}</option>
+                      {% endfor %}
+                  </select>
+              </label>
+				
+				</a>
+              
+
+              <!--a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Tableaux</a-->
+          </div>
+          
+        </div>
+       
+          <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+
+              <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"> <section id="artisanale">
+                <article>
+                  <!-- Ajoutez des boutons ici avec les liens appropriés -->
+                  <div class="buttons-container"  style="background-color: #ffffff">
+                      <a href="{% url 'donne'%}" class="button button--secondary--fill">Vue Pêche artisanale Dashboard</a>
+                      <a href="#diagram" class="button" onclick="toggleDiagram()">Diagrammes</a>
+                      <a href="#arg" class="button">Map</a>
+                  </div>
+              
+                  <div id="carousel-container-peche-artisanale">
+				  
+				  
+                      {% for year, data in data_by_year.items %}
+                      <div class="l-4up" style="background-color: #ffffff">
+                          <!-- Ajoutez des blocs similaires pour d'autres statistiques -->
+                          <div class="l-2up__col" data-year="{{ year }}">
+                              <div class="spotlight__stat">
+                                  <h3 class="spotlight__stat-heading" style="font-size: 14px;">Nombre de GIE de Pêcheurs
+                                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                                      </span>
+                                  </h3>
+                                  <p class="spotlight__stat-data">{{ data.0.NbreGIEPecheur }}</p>
+                              </div>
+                          </div>
+                          <div class="l-2up__col">
+                            <div class="spotlight__stat">
+                                <h3 class="spotlight__stat-heading"> Nombre d'organisations professionnelles de Pêcheurs
+                                        <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                    <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                                </span>
+                                </h3>
+                                <p class="spotlight__stat-data">{{data.0.NbrOrganiProfessPecheur}}</p>
+                            </div>
+                        </div>
+                        <div class="l-2up__col">
+                          <div class="spotlight__stat">
+                              <h3 class="spotlight__stat-heading"> Nombre d'associations de Pêcheurs
+                                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                              </span>
+                              </h3>
+                              <p class="spotlight__stat-data">{{data.0.Nbr_AssociatPecheur}}</p>
+                          </div>
+                      </div>
+                      <div class="l-2up__col">
+                        <div class="spotlight__stat">
+                            <h3 class="spotlight__stat-heading"> Nombre de GIE de Mareyeurs 
+                                  <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                              </span>
+                            </h3>
+                            <p class="spotlight__stat-data">{{data.0.NbreGIEMarey}}</p>
+                        </div>
+                    </div>
+                   
+                      <!-- Add similar blocks for other statistics -->
+                      <div class="l-2up__col">
+                        <div class="spotlight__stat">
+                         <h3 class="spotlight__stat-heading"> Nombre d'organisations professionnelles de Mareyeurs
+                         <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                         </span>
+                      </h3>
+                      <p class="spotlight__stat-data">{{data.0.NbrOrganiProfessMarey}}</p>
+                      </div>
+                    </div> 
+                    <div class="l-2up__col">
+                      <div class="spotlight__stat">
+                          <h3 class="spotlight__stat-heading"> Nombre d'associations de Mareyeurs
+                            <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                              <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                          </span>
+                          </h3>
+                          <p class="spotlight__stat-data">{{data.0.Nbr_AssociatMarey}}</p>
+                      </div>
+                  </div>
+                  <div class="l-2up__col">
+                      <div class="spotlight__stat">
+                          <h3 class="spotlight__stat-heading"> Nombre de Quai de pêche 
+                            <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                              <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                          </span>
+                          </h3>
+                          <p class="spotlight__stat-data">{{data.0.NbreQuaiPech}}</p>
+                      </div>
+                  </div> 
+                  <div class="l-2up__col hidden" data-year="{{ year }}">
+                    <div class="spotlight__stat">
+                        <h3 class="spotlight__stat-heading"> Quantité annuelle de poissons débarquée 
+                          <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                            <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                        </span>
+                        </h3>
+                        <p class="spotlight__stat-data">{{ data.0.Qteannuel_debarq }}</p>
+                    </div>
+                </div> 
+                <div class="l-2up__col hidden" data-year="{{ year }}">
+                  <div class="spotlight__stat">
+                    <h3 class="spotlight__stat-heading"> Nombre de Pirogues en bois 
+                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                      <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                    </span>
+                    </h3>
+                    <p class="spotlight__stat-data">{{data.0.NbrPirogBois}}</p>
+                  </div>
+                </div> 
+                <div class="l-2up__col hidden" data-year="{{ year }}">
+                  <div class="spotlight__stat">
+                      <h3 class="spotlight__stat-heading"> Nombre de Pirogues en verre
+                        <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                      </span>
+                      </h3>
+                      <p class="spotlight__stat-data">{{data.0.NbrePirogFibVer}}</p>
+                  </div>
+                </div>
+                <div class="l-2up__col hidden" data-year="{{ year }}">
+                  <div class="spotlight__stat">
+                      <h3 class="spotlight__stat-heading">Nombre de Pirogues en Aluminium
+                        <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                      </span>
+                      </h3>
+                      <p class="spotlight__stat-data">{{data.0.NbrPirogAlumin}}</p>
+                  </div>
+                </div> 
+                <div class="l-2up__col hidden" data-year="{{ year }}">
+                <div class="spotlight__stat">
+                    <h3 class="spotlight__stat-heading"> Nombre de Pirogues immatriculées
+                     
+                        <span class="spotlight__stat-icon css-4po351" aria-describedby="popup-2">
+                           <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                        </span>
+                    </h3>
+                    <p class="spotlight__stat-data">{{data.0.NbrePirogImmatri}}</p>
+                </div>
+                </div> 
+                <div class="l-2up__col hidden" data-year="{{ year }}">
+                  <div class="spotlight__stat">
+                      <h3 class="spotlight__stat-heading">Valeur commerciale de la capture annuelle de poissons (en fcfa)
+                        <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                      </span>
+                      </h3>
+                      <p class="spotlight__stat-data">{{data.0.ValeurComCaptAnnuel}}</p>
+                  </div>
+              </div>
+              <div class="l-2up__col hidden" data-year="{{ year }}">
+                <div class="spotlight__stat">
+                <h3 class="spotlight__stat-heading"> Volume de carburant débité (litre)
+                <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                </span>
+                </h3>
+                
+                <p class="spotlight__stat-data">{{data.0.VolumDebitCarb}}</p>
+                </div>
+            </div> 
+            <div class="l-2up__col hidden" data-year="{{ year }}">
+              <div class="spotlight__stat">
+              <h3 class="spotlight__stat-heading"> Nombre total de Stations de Carburant
+                <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+              </span>
+              </h3>
+              <p class="spotlight__stat-data">{{data.0.TotStatCarbu}}</p>
+              </div>
+              </div> 
+			  <div class="l-2up__col hidden" data-year="{{ year }}">
+                <div class="spotlight__stat">
+                <h3 class="spotlight__stat-heading">Nombre total de fabriques de glace
+                  <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                    <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                </span>
+                </h3>
+                <p class="spotlight__stat-data">{{data.0.NbrTotFabriqGlace}}</p>
+                </div>
+                </div> 
+                 <div class="l-2up__col hidden" data-year="{{ year }}">
+                  <div class="spotlight__stat">
+                  <h3 class="spotlight__stat-heading"> Nombre total de mareyeurs déclarés
+                    <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                      <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                  </span>
+                  </h3>
+                  <p class="spotlight__stat-data">{{data.0.NbrMareyTotDeclare}}</p>
+                  </div>
+                  </div> 
+                   <div class="l-2up__col hidden" data-year="{{ year }}">
+                    <div class="spotlight__stat">
+                    <h3 class="spotlight__stat-heading"> Nombre total de mareyeurs recensés
+                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                        <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                    </span>
+                    </h3>
+                    <p class="spotlight__stat-data">{{data.0.NbrMareyTotRecensmt}}</p>
+                    </div>
+                    </div> 
+                     <div class="l-2up__col hidden" data-year="{{ year }}">
+                      <div class="spotlight__stat">
+                      <h3 class="spotlight__stat-heading">Nombre total de pêcheurs recensés
+                        <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                      </span>
+                      </h3>
+                      <p class="spotlight__stat-data">{{data.0.NbrPecheurTotRecensmt}}</p>
+                      </div>
+                      </div>
+         
+                          <!-- Ajoutez d'autres blocs pour d'autres statistiques ici -->
+                      </div>
+
+                      {% endfor %}
+                  </div>
+		
+              </article>
+              
+            	<div class="carousel-navigation" style="background-color: #ffffff">
+              <button onclick="prevSlide('artisanale')">Précédent</button>
+              <button onclick="nextSlide('artisanale')">Suivant</button>
+          </div>
+          </section>
+        </div>
+              <div class="tab-pane fade" id="" role="tabpanel" aria-labelledby="">
+               
+          </div>
+              <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">  
+                <section id="transformation">
+                <article>
+                  <div class="buttons-container" style="background-color: #ffffff"  >
+                    <a href="{% url 'donne'%}" class="button button--secondary--fill">Vue Pêche artisanale Dashboard</a>
+                    <a href="#diagram" class="button" onclick="toggleDiagram()">Diagrammes</a>
+                    <a href="#arg" class="button">Map</a>
+                </div>
+           
+                <section>
+                  <div id="carousel-container-peche-tran">
+                    
+                  {% for year, data in data_by_year.items %}
+                      <div class="l-4up"  style="background-color: #ffffff">
+                          <!-- Ajoutez des blocs similaires pour d'autres statistiques -->
+                          <div class="l-2up__col" data-year="{{ year }}">
+                              <div class="spotlight__stat">
+                                  <h3 class="spotlight__stat-heading">Nombre d'acteurs de la transformation artisanale recensés
+                                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                                      </span>
+                                  </h3>
+                                  <p class="spotlight__stat-data">1112</p>
+                              </div>
+                          </div>
+                          <div class="l-2up__col" data-year="{{ year }}">
+                            <div class="spotlight__stat">
+                                <h3 class="spotlight__stat-heading"> Nombre de fours dans la transformation artisanale
+                                        <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                    <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                                </span>
+                                </h3>
+                                <p class="spotlight__stat-data">1163</p>
+                            </div>
+                        </div>
+						  <div class="l-2up__col" data-year="{{ year }}">
+                          <div class="spotlight__stat">
+                              <h3 class="spotlight__stat-heading"> Approvisionnement en poisson frais pour la transformation (kg)
+                                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                              </span>
+                              </h3>
+                              <p class="spotlight__stat-data">{{data.0.QteApprovisPoisson}}</p>
+                          </div>
+                      </div>
+                        <div class="l-2up__col" data-year="{{ year }}">
+                          <div class="spotlight__stat">
+                              <h3 class="spotlight__stat-heading"> Quantité totale produite par la transformation artisanale (kg) 
+                                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                              </span>
+                              </h3>
+                              <p class="spotlight__stat-data">{{data.0.QteTotProdTA}}</p>
+                          </div>
+                      </div>
+                        <div class="l-2up__col" data-year="{{ year }}">
+                          <div class="spotlight__stat">
+                              <h3 class="spotlight__stat-heading"> Nombre total de pirogue 
+                                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                              </span>
+                              </h3>
+                              <p class="spotlight__stat-data">{{data.0.NbreTotTypPirog}}</p>
+                          </div>
+                      </div>
+                      <div class="l-2up__col" data-year="{{ year }}">
+                        <div class="spotlight__stat">
+                            <h3 class="spotlight__stat-heading"> Valeur commerciale de la production totale (en fcfa) 
+                                  <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                              </span>
+                            </h3>
+                            <p class="spotlight__stat-data">{{data.0.ValeurComProdTA}}</p>
+                        </div>
+                    </div>
+                   
+                      <!-- Add similar blocks for other statistics -->
+                    
+                  
+            
+                          <!-- Ajoutez d'autres blocs pour d'autres statistiques ici -->
+                      </div>
+                      {% endfor %}
+					    
+              <div class="carousel-navigation" style="background-color:#ffffff">
+                <button onclick="prevSlide('transformation')">Précédent</button>
+                <button onclick="nextSlide('transformation')">Suivant</button>
+              </div>
+            
+  
+    </div> 
+            </article>
+          
+          </section>
+         </div>
+              <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">..</div>
+            </div>
+          </div>
+        </div>
+
+</div>
+</section>
+<!-- Section graphique --><!-- Section graphique -->
+<!-- Boutons pour la sélection du type de graphique -->
+		<div class="container">
+  <h5 style="margin-top:20px; font-size: 26px; height:0px; text-align: center;">
+    <strong><span style="color: rgb(0, 0, 0);"></span><span style="color: #1da8dd;">Représentation graphique des indicateurs de la pêche:</span></strong>
+</h5>
+</div>
+<section class="py-5 mt-5" id="diagram">
+  <div class="container" style="background: #1da8dd; border-radius: 42px">
+    <div class="container">
+
+<div class="row">
+  <div class="row custom-margin">
+  <div class="col-md-4 mb-4">
+    <div class="list-group" id="list-tab" role="tablist">
+      <button class="list-group-item list-group-item-action active" id="liste-home-list" data-bs-toggle="list" href="#liste-home" role="tab" aria-controls="liste-home">
+        <h2 class="mobile-heading" style="font-size: 16px; font-weight: bold;">Sélectionnez un indicateur:<br>Pêche artisanale</h2>
+    <select class="form-select form-select-lg mb-3" id="data-select-artisanale" onchange="updateDiagram(this.value)" style="font-size:15px;">
+    
+      <option value="myCharte">Valeur commerciale du carburant vendu par année</option>
+                <option value="Chart_1">Nombre de pêcheurs</option>
+		<option value="Chart_150">Nombre acteurs de la pêche artisanale </option>
+		
+                <option value="Chart_2">Volume débité en carburant (en litres) par année</option>
+                <option value="Chart_3"> Nombre de types de permis par année</option>
+                <!---option value="Chart_4">Type de Pirogue et type de pêcheur par année</option-->
+                <option value="Chart_41">Nombre de pirogue ayant Renouvelé(B+C)</option>
+                <option value="Chart_555">Nombre de pirogue par type</option>
+                <option value="Chart_444">Type de pirogue et les especes ciblées</option>
+                <option value="Chart_51"> Valeur commerciale de la capture annuelle (en fcfa)</option>
+                <option value="Chart_44">Répartition de la capture annuelle </option>
+                <option value="Chart_15">Quantité annuelle débarquée </option>
+             
+              </select>
+                   <!--select class="form-select form-select-sm" id="year-select-artisanale" aria-label="Select 2">
+              <option selected disabled>Année</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+            </select-->
+            
+	  
+          </button>
+      <button class="list-group-item list-group-item-action" id="liste-profile-list" data-bs-toggle="list" href="#liste-profile" role="tab" aria-controls="liste-profile">
+        <h2 class="mobile-heading" style="font-size: 16px; font-weight: bold;">Sélectionnez un indicateur:<br>transformation artisanale</h2>
+        <select class="form-select form-select-lg mb-3" id="data-select-transformation" onchange="updateDiagram(this.value)" style="font-size:15px;">
+            
+            <option value="myChart">Quantité totale de produits transformés (kg)</option>
+                <option value="Chart_11"> Approvisionnement en poisson frais pour la transformation (kg)</option>
+                <option value="myCharteee">Valeur commerciale de la production totale (en fcfa) </option>
+                <!--option value="Chart_13">NbreGIEMarey</option>myCharteee
+                <option value="Chart_14">Nbre</option-->
+			</select>
+      </button>
+  </div>
+  </div>
+  <div class="col-md-8 mb-4">
+    <div class="tab-content" id="nav-tabContent">
+
+	  
+      <div class="tab-pane fade show active" id="liste-home" role="tabpanel" aria-labelledby="liste-home-list">
+	                <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_444">
+                <h2 class="text-center">Type de pirogue et les especes ciblées</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                
+                  
+    <table>
+      <thead>
+          <tr>
+              <th>Type de Pirogue</th>
+              <th>Espèces Cibles</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td class="pirogue-type">Pirogue Senne Tournante</td>
+              <td class="target-species">
+                  Sardinelle plate, Sardinelle ronde, Chinchard noir, Chinchard blanc, Ethmologe, Scomber, Sompath, Brochet, Caranx, Pelon
+              </td>
+          </tr>
+          <tr>
+              <td class="pirogue-type">Pirogue Filet Dormant de Fond</td>
+              <td class="target-species">
+                  Sole, Murex, Cymbium, Langouste, Poissons divers, Crevettes
+              </td>
+          </tr>
+          <tr>
+              <td class="pirogue-type">Pirogue Filet Maillant de Surface</td>
+              <td class="target-species">
+                  Sardinelle plate, Sardinelle ronde, Ethmalose, Mugil
+              </td>
+          </tr>
+          <tr>
+              <td class="pirogue-type">Pirogue Casier</td>
+              <td class="target-species">
+                  Seiche
+              </td>
+          </tr>
+          <tr>
+              <td class="pirogue-type">Pirogue Glacière (Marré)</td>
+              <td class="target-species">
+                  Quin, Raie, Sole, Otolithe (fetheu), Crustacée, Machoiron
+              </td>
+          </tr>
+          <tr>
+              <td class="pirogue-type">Pirogue à Lignes</td>
+              <td class="target-species">
+                  Thiof, Dorade, Pageot, Vivaneaux, Sompath, Caranx, Baracouda, Calamar, Poulpe
+              </td>
+          </tr>
+      </tbody>
+  </table>
+
+
+                </div>
+              </div>
+              <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_555">
+                <h2 class="text-center">Nombre de pirogues par type</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="evolutionChart" style="width:100%;max-width:400px"></canvas>
+                </div>
+              </div>
+              
+              <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_44">
+                <h2 class="text-center">Répartition de la capture annuelle</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="repartitionChart" style="width:100%;max-width:400px"></canvas>
+                </div>
+              </div>
+              <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_15">
+                <h2 class="text-center">Quantité annuelle débarquée(en kg)</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="qteAnnuelDebarqChart" style="width:100%;max-width:400px"></canvas>
+                </div>
+              </div>
+		
+
+	
+		  
+		  <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_51">
+                <h2 class="text-center">Valeur commerciale des captures (en fcfa)</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="valeurComCaptAnnuelChart" style="width:100%;max-width:400px"></canvas>
+                </div>
+              </div>
+              <!-- Conteneurs de graphiques pour la première section -->
+              <div class="col-md-12 mb-4 chart-container artisanale" id="myCharte">
+                <h2 class="text-center">Valeur commerciale du carburant vendu par année</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="lineChart" style="width:100%;max-width:400px"></canvas>
+                </div>
+              </div>
+            
+              <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_1">
+                <h2 class="text-center">Nombre total de pêcheur recensé</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="myBarChart" style="width:100%;max-width:600px"></canvas>
+                </div>
+              </div>
+              <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_2">
+                <h2 class="text-center">Volume de carburant utilisé (en litres)</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="lineC" style="width:100%;max-width:600px"></canvas>
+                </div>
+              </div>
+              <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_41">
+                <h2 class="text-center">Nombre de pirogues ayant renouvelé leurs permis</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="permis" style="width:100%;max-width:600px"></canvas>
+                </div>
+              </div>
+              <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_3">
+                <h2 class="text-center">Nombre de pirogues immatriculés</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="groupedBarChart" width="400" height="300"></canvas>
+                </div>
+              </div>
+		  
+ <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_150" style="height: 500px;">
+    <h2 class="text-center">Nombre acteurs pêche artisanale par année</h2>
+    <div class="d-flex justify-content-center align-items-center">
+        <canvas id="acteur" style="height: 400px;"></canvas>
+    </div>
+    <div style="margin-top: 50px;">
+        <!-- Boutons pour basculer la visibilité des barres pour chaque année -->
+        <button id="btn2019" onclick="toggleChart(0)">2019</button>
+        <button id="btn2020" onclick="toggleChart(1)">2020</button>
+        <button id="btn2021" onclick="toggleChart(2)">2021</button>
+        <button id="btn2022" onclick="toggleChart(3)">2022</button>
+        <button id="btn2023" onclick="toggleChart(4)">2023</button>
+        <!-- Ajoutez d'autres boutons pour les années supplémentaires ici -->
+    </div>
+</div>
+
+		  <!---script>
+        //Nombre acteurs pêche artisanale par année
+        const djangoData = {
+            labels: [
+                {% for act in acts %}
+                    "{{ act.ActPech_Artisan }}",
+                {% endfor %}
+            ],
+            datasets: [
+                {
+                    label: '2020',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    data: [
+                        {% for act in acts %}
+                            {% if act.annee_modification == 2020 %}
+                                {{ act.NbrActeur }},
+                            {% else %}
+                                0,
+                            {% endif %}
+                        {% endfor %}
+                    ],
+                    hidden: false
+                },
+                {
+                    label: '2021',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    data: [
+                        {% for act in acts %}
+                            {% if act.annee_modification == 2021 %}
+                                {{ act.NbrActeur }},
+                            {% else %}
+                                0,
+                            {% endif %}
+                        {% endfor %}
+                    ],
+                    hidden: true
+                },
+                {
+                    label: '2022',
+                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                    borderColor: 'rgba(255, 206, 86, 1)',
+                    borderWidth: 1,
+                    data: [
+                        {% for act in acts %}
+                            {% if act.annee_modification == 2022 %}
+                                {{ act.NbrActeur }},
+                            {% else %}
+                                0,
+                            {% endif %}
+                        {% endfor %}
+                    ],
+                    hidden: true
+                }
+            ]
+        };
+
+        // Get the canvas element
+        const ctx = document.getElementById('acteur').getContext('2d');
+
+        // Create the chart
+        const acteur = new Chart(ctx, {
+            type: 'bar',
+            data: djangoData,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        // Function to toggle visibility of bars for a specific year
+        function toggleVisibility(yearIndex) {
+            const dataset = acteur.data.datasets[yearIndex];
+            dataset.hidden = !dataset.hidden;
+            acteur.update();
+        }
+  
+    </script--->
+	  
+	  
+	  </div>
+      <div class="tab-pane fade" id="liste-profile" role="tabpanel" aria-labelledby="liste-profile-list">
+	  
+	  
+	   <!-- Conteneurs de graphiques pour la deuxième section -->
+              <div class="col-md-12 mb-4 chart-container transformation" id="myChart">
+                <h2 class="text-center">Quantité totale de produits halieutiques issus de la transformation artisanale (kg)</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="scatterChart" width="400" height="400"></canvas>
+                </div>
+              </div>
+              <div class="col-md-12 mb-4 chart-container transformation" id="myCharteee">
+                <h2 class="text-center">Valeur commerciale de la production totale issue de la transformation artisanale (en fcfa)</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="scatterCharteee" width="400" height="400"></canvas>
+                </div>
+              </div>
+              <div class="col-md-12 mb-4 chart-container transformation" id="Chart_11">
+                <h2 class="text-center">Approvisionnement en poisson frais pour la transformation(kg)</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="financeChart" width="400" height="400"></canvas>
+                
+                </div>
+              </div>
+              <div class="col-md-12 mb-4 chart-container transformation" id="Chart_12">
+                <h2 class="text-center">permis</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="permis" style="width:100%;max-width:600px"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-4 chart-container transformation" id="Chart_13">
+                <h2 class="text-center">Chart test</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="mee" style="width:100%;max-width:600px"></canvas>
+                </div>
+              </div>
+              <div class="col-md-12 mb-4 chart-container transformation" id="Chart_14">
+                <h2 class="text-center">Chart4</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="mChartt" style="width:100%;max-width:600px"></canvas>
+                </div>
+              </div>
+	  
+	  
+	  
+	  </div>
+ 
+    </div>
+  </div>
+</div></div>
+ </div>
+</div>
+</section>
+
+<!-- end Section graphique -->
+
+<!-- end Section graphique -->
+<!-- Section 1 : Google Maps et Contenu -->
+				<div class="containerm">
+  <h5 style="margin-top:20px; font-size: 26px; height:0px; text-align: center;">
+    <strong><span style="color: rgb(0, 0, 0);"></span><span style="color: #1da8dd;">Système d'information géographique de la commune de Joal-Fadiouth</span></strong>
+</h5>
+</div>
+<section class="py-5" id="arg">
+  <div class="container" style="background: #1da8dd; border-radius: 42px;">
+    <div class="container py-5" style="width: 100%; height:700px;">
+      <iframe
+      src="https://www.arcgis.com/apps/instant/interactivelegend/index.html?appid=e10d9414c356458f80b8b1cb45677fda"
+      width="100%"
+      height="100%"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      loading="lazy"
+      style="border: none;"
+    ></iframe>
+  </div>
+
+    </div>
+
+</section>
+		
+<!--section style="margin:5%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+       
+        <div id="map" style="height: 400px;"></div>
+      </div>
+<div class="col-md-4">
+	
+    <div class="location-button" id="Joal" data-lat="14.153601025668094" data-lng="-16.831376575509463" data-image="{% static 'ass/img/joale.png'%}">
+        <img src="{% static 'ass/img/-joal.png'%}" alt="Joal FADIOUTH" style="width: 70px; height: 70px;">
+        <span>Joal FADIOUTH</span>
+    </div><br>
+
+ 
+    
+    <div class="location-button" id="TannTransformation" data-lat="14.185472821210777" data-lng="-16.860383142245805" data-image="{% static 'ass/img/tan.png'%}">
+        <img src="{% static 'ass/img/tann.png'%}" alt="Tann Transformation" style="width: 70px; height: 70px;">
+        <span>Tann Transformation</span>
+    </div><br>
+
+    <div class="location-button" id="KhalkomTransformation" data-lat="14.187012804071246" data-lng="-16.853202263140087" data-image="{% static 'ass/img/khel.png'%}">
+        <img src="{% static 'ass/img/khelcom.png'%}" alt="Khalkom Transformation" style="width: 70px; height: 70px;">
+        <span>Khalkom Transformation</span>
+    </div><br>
+
+    <div class="location-button" id="Quai" data-lat="14.184844718078107" data-lng="-16.860735889002246" data-image="{% static 'ass/img/quai.png'%}">
+        <img src="{% static 'ass/img/quaie.png'%}" alt="Quai de Pêche" style="width: 70px; height: 70px;">
+        <span>Quai de Pêche</span>
+    </div>
+</div>
+
+    </div>
+  </div>
+</section-->
+
+
+<!--script>
+  var map = L.map('map').setView([14.185991646000675, -16.86166202404952],12);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+  }).addTo(map);
+
+  var markersLayer = L.layerGroup().addTo(map);
+
+  function addMarkerWithPopup(latitude, longitude, title, Population,imageUrl,fours,Quai,chartData, chartId) {
+    var marker = L.marker([latitude, longitude]).addTo(markersLayer);
+    //var popupContent = '<div><img src="' + imageUrl + '" alt="Image" width="200" height="200"><h3>' + title + '</h3></div>';
+    var popupContent = '<div><img src="' + imageUrl + '" alt="Image" width="300" height="200"><h3>' + title + '</h3><h4>' + Population+ '</h4><h6>Latitude: ' + latitude + '</h6><h6>Longitude: ' + longitude + '</h6></div>';
+    marker.bindPopup(popupContent);
+  marker.openPopup();
+
+
+    marker.on('mouseover', function() {
+      clearMarkers();
+      displayChart(latitude, longitude, title,Population,fours,Quai,chartData);
+    });
+  }
+
+  function clearMarkers() {
+    markersLayer.clearLayers();
+  }
+// Fonction pour afficher le diagramme
+function displayChart(latitude, longitude, title,chartData) {  
+  var chartContainer = document.createElement('div');
+chartContainer.innerHTML = '<div><canvas id="chartCanvas" width="50" height="50"></canvas></div>';
+
+
+  var chartCanvas = chartContainer.querySelector('#chartCanvas'); 
+  var ctx = chartCanvas.getContext('2d');
+
+  new Chart(ctx, chartData);
+    // Ajustez la largeur et la hauteur du conteneur du diagramme en conséquence
+  chartContainer.style.width = '200px';
+  chartContainer.style.height = '200px';
+
+  L.popup()
+    .setLatLng([latitude, longitude])
+    .setContent(chartContainer)
+    .openOn(map);
+}
+  document.getElementById('Joal').addEventListener('click', function() {
+    clearMarkers();
+    var imageSrc = this.getAttribute('data-image');
+    var chartData = {
+      type: 'bar',
+      data: {
+        labels: ['Acteurs', 'GIE Pêcheur', 'Nbre Associations','Organisations professionnelles','NbreGIEMarey'],
+        datasets: [
+          {
+            label: 'Joal FADIOUTH',
+            data: [{{total_nbr_acteur}},{{total_nbre_gie_pecheur}}, {{total_nbr_associat_pecheur}},{{total_nbr_organi_profess_pecheur}},{{total_nbre_gie_marey}}],
+                   backgroundColor: [
+          'rgba(255, 99, 132, 0.2)', // Couleur du segment 1
+          'rgba(54, 162, 235, 0.2)', // Couleur du segment 2
+          'rgba(255, 206, 86, 0.2)', // Couleur du segment 3
+          'rgba(75, 192, 192, 0.2)', // Couleur du segment 4
+          'rgba(153, 102, 255, 0.2)' // Couleur du segment 5
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)', // Couleur de la bordure du segment 1
+          'rgba(54, 162, 235, 1)', // Couleur de la bordure du segment 2
+          'rgba(255, 206, 86, 1)', // Couleur de la bordure du segment 3
+          'rgba(75, 192, 192, 1)', // Couleur de la bordure du segment 4
+          'rgba(153, 102, 255, 1)' // Couleur de la bordure du segment 5
+        ],
+            borderWidth: 1,
+          },
+        ],
+      },
+    };
+    var chartId = 'chartJoal';
+    addMarkerWithPopup(14.153601025668094,-16.831376575509463, 'Joal FADIOUTH',' Population:45903 habitants', imageSrc, chartData, chartId);
+  });
+
+  document.getElementById('TannTransformation').addEventListener('click', function() {
+    clearMarkers();
+    var imageSrc = this.getAttribute('data-image');
+    var chartData = {
+      type: 'bar',
+      data: {
+        labels: ['Transformateurs', 'Transformatrices', 'Revendeuses'],
+        datasets: [
+          {
+            label: 'Tann Transformation',
+            data: [15, 25, 35],
+            backgroundColor: [
+          'rgba(54, 162, 235, 0.2)', // Couleur du segment 2
+          'rgba(255, 206, 86, 0.2)', // Couleur du segment 3
+          'rgba(75, 192, 192, 0.2)', // Couleur du segment 4
+          
+         ],
+            borderColor: [
+          'rgba(54, 162, 235, 0.2)', // Couleur du segment 2
+          'rgba(255, 206, 86, 0.2)', // Couleur du segment 3
+          'rgba(50, 192, 192, 0.2)', // Couleur du segment 4
+         
+         ],
+            borderWidth: 1,
+          },
+        ],
+      },
+    };
+    var chartId = 'chartTann';
+    addMarkerWithPopup(14.185472821210777, -16.860383142245805, 'Tann Transformation','Nombre de Fours:801', imageSrc, chartData, chartId);
+  });
+
+  document.getElementById('KhalkomTransformation').addEventListener('click', function() {
+    clearMarkers();
+    var imageSrc = this.getAttribute('data-image');
+    var chartData = {
+      type: 'pie',
+      data: {
+        labels: ['Khelcom', 'TANN', 'Femmes coquillages ‎'],
+        datasets: [
+          {
+            label: 'Khalkom Transformation',
+            data: [5, 10, 15],
+              backgroundColor: [
+          'rgba(54, 162, 235, 0.2)', // Couleur du segment 2
+          'rgba(255, 206, 86, 0.2)', // Couleur du segment 3
+          'rgba(50, 176, 192, 0.2)', // Couleur du segment 4
+          
+         ],
+            borderColor: [
+          'rgba(54, 162, 235, 0.2)', // Couleur du segment 2
+          'rgba(255, 206, 86, 0.2)', // Couleur du segment 3
+          'rgba(50, 176, 192, 0.2)', // Couleur du segment 4
+         
+         ],
+            borderWidth: 1,
+          },
+        ],
+      },
+    };
+    var chartId = 'chartKhalkom';
+    addMarkerWithPopup(14.187012804071246, -16.853202263140087, 'Khelcom Transformation','Nombre de Fours:362',imageSrc, chartData, chartId);
+  });
+
+  document.getElementById('Quai').addEventListener('click', function() {
+    clearMarkers();
+    var imageSrc = this.getAttribute('data-image');
+    var chartData = {
+      type: 'bar',
+      data: {
+        labels: ['Label 1', 'Label 2', 'Label 3'],
+        datasets: [
+          {
+            label: 'Quai de Pêche',
+            data: [5, 10, 15],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1,
+          },
+        ],
+      },
+    };
+    var chartId = 'chartQuai';
+    addMarkerWithPopup(14.184829085158327, -16.860778830944188, 'Quai de Pêche','nombre de quai de pêche:1',imageSrc, chartId);
+  });
+
+  // Ajoutez un gestionnaire d'événements pour le nouveau bouton
+</script--->
+
+
+
+{% include 'layout/partial/footer.html' %}
+
+
+
+ <!-- Inclure les fichiers JavaScript supplémentaires -->
+      <script src="{% static 'ass/js/jquery.min.js' %}"></script>
+      <script src="{% static 'ass/bootstrap/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'ass/js/bold-and-bright.js' %}"></script>
+      <script src="{% static 'ass/js/Slider_Carousel_webalgustocom-slider.js' %}"></script>
+    
+      <script>
+  document.getElementById("lireplus").addEventListener("click", function() {
+      window.location.href = "{% url 'com' %}";
+  });
+</script>
+<script>
+  document.getElementById("peche").addEventListener("click", function() {
+      window.location.href = "{% url 'donne' %}";
+  });
+</script>
+
+
+
+<script>
+  $(document).ready(function(){
+    // Cacher tous les diagrammes initialement
+    $(".chart-container").hide();
+
+    // Afficher le diagramme par défaut au chargement de la page pour Select Artisanale
+    var defaultSelectArtisanale = "myCharte"; 
+    $(".chart-container.artisanale").hide(); 
+    $("#" + defaultSelectArtisanale).show(); 
+  
+    // Gérer le changement d'option dans le premier menu déroulant
+    $("#data-select-artisanale").change(function(){
+      var selectedOption = $(this).val();
+      $(".chart-container.artisanale").hide();  // Cacher tous les diagrammes de la première section
+      $("#" + selectedOption).show();  // Afficher le diagramme correspondant à l'option sélectionnée
+    });
+
+    // Gérer le changement d'option dans le deuxième menu déroulant
+    $("#data-select-transformation").change(function(){
+      var selectedOption = $(this).val();
+      $(".chart-container.transformation").hide();  // Cacher tous les diagrammes de la deuxième section
+      $("#" + selectedOption).show();  // Afficher le diagramme correspondant à l'option sélectionnée
+    });
+
+    // Afficher le diagramme par défaut pour Select Transformation au chargement de la page
+    var defaultTransformationOption = "myChart"; // Définir l'ID du diagramme par défaut pour Select Transformation
+    $(".chart-container.transformation").hide(); // Cacher tous les diagrammes de la deuxième section
+    $("#" + defaultTransformationOption).show(); // Afficher le diagramme par défaut pour Select Transformation
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // carburant Valeur commerciale du carburant vendu par Année
+    var years = []; // Remplacez par vos années
+    var valeurCommCarbu = []; // Remplacez par vos données par année
+
+    // Boucle à travers carburant_data pour remplir years et valeurCommCarbu
+    {% for item in carburant_data %}
+      years.push({{ item.annee }});
+      valeurCommCarbu.push({{ item.ValeurCommCarbu }});
+    {% endfor %}
+
+    var ctxLine = document.getElementById('lineChart').getContext('2d');
+    
+    // Vérifiez si years et valeurCommCarbu ont des données
+    if (years.length > 0 && valeurCommCarbu.length > 0) {
+      var lineChart = new Chart(ctxLine, {
+        type: 'bar',
+        data: {
+          labels: years,
+          datasets: [
+            {
+              label: '', // Chaîne vide pour supprimer la légende
+              backgroundColor: '#1da8dd', // Couleur des barres en bleu
+              data: valeurCommCarbu,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          barPercentage: 0.3,
+					   plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            }
+          // Vous pouvez ajouter des options supplémentaires ici si nécessaire
+        },
+
+      });
+    } 
+  });
+</script>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // carburant Valeur commerciale du carburant vendu par Année
+    var years = []; // Replace with your years
+    var volumeCarbu = []; // Replace with your data by year
+
+    // Loop through carburant_data to populate years and valeurCommCarbu
+    {% for item in carb_data %}
+      years.push({{ item.annee }});
+      volumeCarbu.push({{ item.VolumDebitCarb}});
+    {% endfor %}
+
+    var ctxLine = document.getElementById('lineC').getContext('2d');
+    
+    // Check if years and valeurCommCarbu have data
+    if (years.length > 0 && volumeCarbu.length > 0) {
+      var lineC = new Chart(ctxLine, {
+        type: 'bar',
+        data: {
+          labels: years,
+          datasets: [
+            {
+              label: 'Volume de Carburant par Année',
+              backgroundColor: '#1da8dd',
+              data: volumeCarbu,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          barPercentage: 0.2,
+
+          title: {
+            display: true,
+            text: 'Volume de Carburant par Année'
+          },
+            plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            }
+        }
+      });
+    } else {
+      console.error("No data available for the chart.");
+    }
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // carburant Valeur commerciale du carburant vendu par Année
+    var years = []; // Replace with your years
+    var nombre_acteurs = []; // Replace with your data by year
+
+    // Loop through carb_data to populate years and nombre_acteurs
+    {% for item in acteur_data %}
+      years.push({{ item.annee }});
+      nombre_acteurs.push({{ item.NbrPecheurTotRecensmt }});
+    {% endfor %}
+
+    var ctxBar = document.getElementById('myBarChart').getContext('2d');
+
+    // Check if years and nombre_acteurs have data
+    if (years.length > 0 && nombre_acteurs.length > 0) {
+      var myBarChart = new Chart(ctxBar, {
+        type: 'bar', // Change 'line' to 'bar'
+        data: {
+          labels: years,
+          datasets: [
+            {
+              label: 'nombre total d’acteur pêcheur recensement',
+              backgroundColor: '#1da8dd', // Specify the bar color
+              data: nombre_acteurs
+            }
+          ]
+        },
+        options: {
+          barPercentage: 0.2,
+          title: {
+            display: true,
+            text: 'nombre acteurs par Année',
+            
+          },
+	            plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            }
+        }
+      });
+    } else {
+      console.error("No data available for the chart.");
+    }
+  });
+</script>
+<script>
+	// Permis renouveler B+C
+document.addEventListener("DOMContentLoaded", function() {
+
+    var data = {
+        labels: [{% for obj in rnvlle %}"{{ obj.annee_modification }}", {% endfor %}],
+        datasets: [{
+            label: 'Permis renouvele B+C',
+            data: [{% for obj in rnvlle %}{{ obj.NbrPirogRenouvll }}, {% endfor %}],
+            backgroundColor: '#1da8dd', // Rouge
+            borderColor: '#1da8dd', // Rouge
+            borderWidth: 1,
+            pointBackgroundColor: [ // Tableau de couleurs pour les points
+                'rgba(255, 99, 132, 1)', // Rouge
+                'rgba(54, 162, 235, 1)', // Bleu
+                'rgba(255, 206, 86, 1)', // Jaune
+                'rgba(75, 192, 192, 1)' // Vert
+                // Ajoutez autant de couleurs que nécessaire pour chaque point
+            ]
+        }]
+    };
+
+    // Options du graphique
+    var options = {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+           
+    };
+
+    // Création du diagramme en ligne
+    var ctx = document.getElementById('permis').getContext('2d');
+    var lineChart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: options
+    });
+});
+</script>
+
+
+
+
+
+<script>
+  var years = [];
+  var data = [];
+  
+  // Loop through permimt to populate years and counts
+  {% for item in permimt %}
+    var year = {{ item.annee|safe }};
+    
+    // Check if the year already exists in the array
+    var existingYearIndex = years.indexOf(year);
+    
+    if (existingYearIndex === -1) {
+      // Year not found, add it
+      years.push(year);
+      data.push({
+        'type permis B longueur < à 13': {% if item.TypPermis == 'type permis B longueur < à 13' %}{{ item.NbrePiroguImmatPermis }}{% else %}0{% endif %},
+        'type permis C longueur > à 13': {% if item.TypPermis == 'type permis C longueur > à 13' %}{{ item.NbrePiroguImmatPermis }}{% else %}0{% endif %},
+         //'Renouvellement': {% if item.TypPermis == 'A' %}{{ item.NbrePiroguImmatPermis }}{% else %}0{% endif %}
+      });
+    } else {
+      // Year found, update the counts for that year
+      data[existingYearIndex]['type permis B longueur < à 13'] += {% if item.TypPermis == 'type permis B longueur < à 13' %}{{ item.NbrePiroguImmatPermis }}{% else %}0{% endif %};
+      data[existingYearIndex]['type permis C longueur > à 13'] += {% if item.TypPermis == 'type permis C longueur > à 13' %}{{ item.NbrePiroguImmatPermis }}{% else %}0{% endif %};
+       //data[existingYearIndex]['Renouvellement'] += {% if item.TypPermis == 'A' %}{{ item.NbrePiroguImmatPermis }}{% else %}0{% endif %};
+    }
+  {% endfor %}
+
+  // Your Chart.js code using the populated arrays
+  var ctx = document.getElementById('groupedBarChart').getContext('2d');
+  
+  var groupedBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'type permis B longueur < à 13',
+          data: data.map(item => item['type permis B longueur < à 13']),
+          backgroundColor: '#1da8dd'
+        },
+        {
+          label: 'type permis C longueur > à 13',
+          data: data.map(item => item['type permis C longueur > à 13']),
+          backgroundColor: 'green'
+        },
+       
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+
+<script>
+  // Données d'exemple
+  var typesPirogues = ['Type A', 'Type B', 'Type C'];
+  var especesCibles = ['2019', '2020', '2021','2022'];
+
+  var nombrePirogues = [
+    [0, 1050, 380],  // Type A
+    [0, 1050, 380],  // Type B
+    [0, 1050, 380],
+    [0, 1050, 380],    // Type C
+  ];
+
+  // Configuration du graphique
+  var ctx = document.getElementById('groupedBarChart0').getContext('2d');
+  var groupedBarChart0 = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: especesCibles,
+      datasets: typesPirogues.map(function (type, index) {
+        return {
+          label: type,
+          data: nombrePirogues[index],
+          backgroundColor: getBackgroundColor(index),
+          borderColor: getBorderColor(index),
+          borderWidth: 1
+        };
+      })
+    },
+    options: {
+      scales: {
+        x: { stacked: true },
+        y: { stacked: true }
+      }
+    }
+  });
+
+  // Fonction pour obtenir une couleur de fond en fonction de l'indice
+  function getBackgroundColor(index) {
+    var colors = ['red', 'blue', 'green'];
+    return colors[index % colors.length];
+  }
+
+  // Fonction pour obtenir une couleur de bordure en fonction de l'indice
+  function getBorderColor(index) {
+    var colors = ['darkred', 'darkblue', 'darkgreen'];
+    return colors[index % colors.length];
+  }
+</script>
+<script>
+	//Nombre de pirogues par type
+  var pirogueData = [
+    {% for item in pirogue_data %}
+      { TypePirogu: '{{ item.TypePirogu }}', NbrPirogu: {{ item.NbrPirogu }}, Annee: {{ item.annee }} }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ];
+
+  var groupedData = {};
+  pirogueData.forEach(item => {
+    if (!groupedData[item.Annee]) {
+      groupedData[item.Annee] = [];
+    }
+    groupedData[item.Annee].push({ type: item.TypePirogu, count: item.NbrPirogu });
+  });
+
+  var years = Object.keys(groupedData);
+  var types = Array.from(new Set(pirogueData.map(item => item.TypePirogu)));
+
+  // Define an array of colors (you can customize/add more colors as needed)
+  var colors = ['blue', 'green', 'orange', 'red', 'purple', 'yellow'];
+
+  var datasets = types.map((type, index) => ({
+    label: type,
+    data: years.map(year => {
+      var yearData = groupedData[year].find(item => item.type === type);
+      return yearData ? yearData.count : 0;
+    }),
+    backgroundColor: colors[index % colors.length], // Assign colors dynamically
+  }));
+
+  var ctx = document.getElementById('evolutionChart').getContext('2d');
+  
+  var evolutionChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: datasets,
+    },
+    options: {
+      barPercentage: 0.2,
+      scales: {
+        x: {
+          stacked: true,
+        },
+        y: {
+          beginAtZero: true,
+          stacked: true,
+        },
+      },
+		
+    },
+  });
+</script>
+
+
+<script>
+  // Sample data for the total quantity produced by artisanal transformation over the years
+  var years = ['2019', '2020', '2021', '2022'];
+  var quantity = [16676160, 12039982, 6993175, 5326590];
+
+  // Get the canvas element
+  var ctx = document.getElementById('scatterChart').getContext('2d');
+
+  // Create a scatter chart
+  var scatterChart = new Chart(ctx, {
+      type: 'bar',  // Corrected to 'scatter'
+      data: {
+          labels: years,
+          datasets: [{
+              label: 'Quantité totale produite par la transformation artisanale (kg) au fil des années',
+              data: quantity,
+  
+              backgroundColor: '#1da8dd',
+              borderColor: '#1da8dd',
+              borderWidth: 1
+          }]
+      },
+      options: {
+        barPercentage: 0.2,
+
+          scales: {
+              x: {
+                  type: 'category',
+                  position: 'bottom',
+                  title: {
+                      display: true,
+                      text: 'Année'
+                  }
+              },
+              y: {
+                  type: 'linear',
+                  position: 'left',
+                  title: {
+                      display: true,
+                      text: ''
+                  }
+              }
+          }
+      }
+  });
+</script>
+
+<script>
+  // Sample data for the total quantity produced by artisanal transformation over the years
+  var years = ['2019', '2020', '2021', '2022'];
+  var quantity = [8335974700,4957481200,2852495300,2435916700];
+
+  // Get the canvas element
+  var ctx = document.getElementById('scatterCharteee').getContext('2d');
+
+  // Create a scatter chart
+  var scatterCharteee = new Chart(ctx, {
+      type: 'bar',  // Corrected to 'scatter'
+      data: {
+          labels: years,
+          datasets: [{
+              label: 'valeur commerciale de la production totale en(fcfa) par année',
+              data: quantity,
+              backgroundColor: '#1da8dd',
+              borderColor: '#1da8dd',
+              borderWidth: 1
+          }]
+      },
+      options: {
+        barPercentage: 0.2,
+
+          scales: {
+              x: {
+                  type: 'category',
+                  position: 'bottom',
+                  title: {
+                      display: true,
+                      text: 'Année'
+                  }
+              },
+              y: {
+                  type: 'linear',
+                  position: 'left',
+                  title: {
+                      display: true,
+                      text: ''
+                  }
+              }
+          }
+      }
+  });
+</script>
+
+<script>
+  var pirogueData = [
+    {% for item in pirogue_data %}
+      { TypePirogu: '{{ item.TypePirogu }}', NbrPirogu: {{ item.NbrPirogu }}, Annee: {{ item.annee }} }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ];
+
+  var groupedData = {};
+  pirogueData.forEach(item => {
+    if (!groupedData[item.Annee]) {
+      groupedData[item.Annee] = [];
+    }
+    groupedData[item.Annee].push({ type: item.TypePirogu, count: item.NbrPirogu });
+  });
+
+  var years = Object.keys(groupedData);
+  var types = Array.from(new Set(pirogueData.map(item => item.TypePirogu)));
+
+  // Define an array of colors (you can customize/add more colors as needed)
+  var colors = ['blue', 'green', 'orange', 'red', 'purple', 'yellow'];
+
+  var datasets = types.map((type, index) => ({
+    label: type,
+    data: years.map(year => {
+      var yearData = groupedData[year].find(item => item.type === type);
+      return yearData ? yearData.count : 0;
+    }),
+    backgroundColor: colors[index % colors.length], // Assign colors dynamically
+  }));
+
+  var ctx = document.getElementById('evolutionChart').getContext('2d');
+  
+  var evolutionChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: datasets,
+    },
+    options: {
+      barPercentage: 0.2,
+      scales: {
+        x: {
+          stacked: true,
+        },
+        y: {
+          beginAtZero: true,
+          stacked: true,
+        },
+      },
+    },
+  });
+</script>
+
+<script>
+  // Valeur Commerciale Annuelle
+  var annees = [];
+  var CaptAnnuel = [];
+
+  // Loop through CaptAnnuel data to populate years and valeurCommCarbu
+  {% for item in CaptAnnuel %}
+    annees.push({{ item.annee }});
+    CaptAnnuel.push({{ item.ValeurComCaptAnnuel }});
+  {% endfor %}
+
+  var ctx = document.getElementById('valeurComCaptAnnuelChart').getContext('2d');
+
+  var valeurComChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: annees,
+      datasets: [{
+        label: 'Valeur Commerciale Annuelle',
+        data: CaptAnnuel,
+        borderColor: '#1da8dd', // Définir la couleur des bordures à bleu si nécessaire
+        backgroundColor: '#1da8dd', // Définir la couleur de fond à bleu
+        fill: false,
+      }]
+    },
+    options: {
+      
+barPercentage: 0.2,
+      title: {
+        display: true,
+        text: 'Évolution de la Valeur Commerciale Annuelle de la Capture de Poisson',
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+        }
+      },
+            plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            }
+    }
+  });
+</script>
+
+
+<script>
+  // Quantité Annuelle de Débarquement
+  var annees = [];
+  var qteAnnuelDebarq = [];
+  var colors = ['#1da8dd', '#1da8dd', '#1da8dd', '#1da8dd'];
+
+  // Loop through carburant_data to populate years and valeurCommCarbu
+  {% for item in Qteannuel %}
+    annees.push({{ item.annee }});
+    qteAnnuelDebarq.push({{ item.Qteannuel_debarq}});
+  {% endfor %}
+
+  var ctx = document.getElementById('qteAnnuelDebarqChart').getContext('2d');
+
+  var qteAnnuelDebarqChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: annees,
+      datasets: [{
+        label: 'Quantité Annuelle de Débarquement (kg)',
+        data: qteAnnuelDebarq,
+        backgroundColor: colors,
+      }]
+    },
+    options: {
+      barPercentage: 0.2,
+
+      title: {
+        display: true,
+        text: 'Évolution de la Quantité Annuelle de Débarquée de Poisson',
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+        }
+      },
+            plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            }
+    }
+  });
+</script>
+<script>
+  // Répartition de la capture annuelle
+
+  var repartitionData = [
+    {% for item in repartition_data %}
+      { TypRepartiProd: '{{ item.TypRepartiProd }}', QteRepAnnuel: {{ item.QteRepAnnuel }}, Annee: '{{ item.annee }}' }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ];
+
+  var groupedData = {};
+  repartitionData.forEach(item => {
+    if (!groupedData[item.Annee]) {
+      groupedData[item.Annee] = [];
+    }
+    groupedData[item.Annee].push({ type: item.TypRepartiProd, count: item.QteRepAnnuel });
+  });
+
+  var years = Object.keys(groupedData);
+  var types = Array.from(new Set(repartitionData.map(item => item.TypRepartiProd)));
+
+  // Définir un tableau de couleurs pour chaque type
+  var colors = ['blue', 'red', 'green', 'orange', 'purple']; // Ajoutez autant de couleurs que nécessaire
+
+  var datasets = types.map((type, index) => ({
+    label: type,
+    data: years.map(year => {
+      var yearData = groupedData[year].find(item => item.type === type);
+      return yearData ? yearData.count : 0;
+    }),
+    backgroundColor: colors[index % colors.length], // Utilisation de modulo pour répéter les couleurs si nécessaire
+  }));
+
+  var ctx = document.getElementById('repartitionChart').getContext('2d');
+
+  var repartitionChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: datasets,
+    },
+    options: {
+      barPercentage: 0.2,
+
+      title: {
+        display: true,
+        text: 'Stacked Bar Chart for QteRepartiAnnuel',
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+        x: {
+          stacked: true,
+        }
+      },
+    }
+  });
+</script>
+
+
+
+
+<script>
+  var typesPirogue = ['Senne tournante', 'Filet dormant de fond', 'Filet maillant de surface', 'Casier', 'Glacière (marré)', 'À lignes'];
+  var annees = [2019, 2020, 2021, 2022];  // Vous pouvez ajouter plus d'années si nécessaire
+  var donneesPirogues = {
+    'Senne tournante': [145, 220, 255, 166],
+    'Filet dormant de fond': [220, 380, 0, 0],
+    'Filet maillant de surface': [255, 0, 0, 0],
+    'Casier': [166, 0, 0, 0],
+    'Glacière (marré)': [92, 0, 0, 0],
+    'À lignes': [352, 0, 0, 0]
+  };
+
+  var ctxEvolution = document.getElementById('evolutionChart').getContext('2d');
+
+  var evolutionChart = new Chart(ctxEvolution, {
+    type: 'line',
+    data: {
+      labels: annees,
+      datasets: Object.keys(donneesPirogues).map(function(key) {
+        var data = donneesPirogues[key];
+        return {
+          label: key,
+          data: data,
+          fill: false,
+          borderColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',1)'
+        };
+      })
+    },
+    options: {
+      scales: {
+        x: { display: true },
+        y: { display: true, beginAtZero: true }
+      },
+      title: {
+        display: true,
+        text: 'Évolution du nombre de pirogues par type'
+      }
+    }
+  });
+</script>
+
+
+<script>
+  var typesPirogue = ['Senne tournante', 'Filet dormant de fond', 'Filet maillant de surface', 'Casier', 'Glacière (marré)', 'À lignes'];
+  var especesCiblees = ['Sardinelle plate', 'Sardinelle ronde', 'Chinchard noir', 'Chinchard blanc', 'Ethmologe', 'Scomber', 'Sompath', 'Brochet', 'Caranx', 'Pelon', 'Sole', 'Murex', 'Cymbium', 'Langouste', 'Poissons divers', 'Crevettes', 'Ethmalose', 'Mugil', 'Seiche', 'Quin', 'Raie', 'Otolithe (fetheu)', 'Crustacée', 'Machoiron', 'Thiof', 'Dorade', 'Pageot', 'Vivaneaux', 'Sompath', 'Caranx', 'Baracouda', 'Calamar', 'Poulpe'];
+  var annees = [2020];  // Vous pouvez ajouter plus d'années si nécessaire
+
+  // Vous devez ajuster ces données en fonction de votre modèle et de vos données réelles
+  var donneesPirogueEspec = [
+    [145, 0, 0, 0, 0, 0],   // Pirogue senne tournante
+    [0, 220, 0, 0, 0, 0],   // Pirogue filet dormant de fond
+    [0, 0, 255, 0, 0, 0],   // Pirogue filet maillant de surface
+    [0, 0, 0, 166, 0, 0],   // Pirogue casier
+    [0, 0, 0, 0, 92, 0],   // Pirogue glacière (marré)
+    [0, 0, 0, 0, 0, 352]    // Pirogue à lignes
+  ];
+
+  var ctxPirogueEspec = document.getElementById('pirogueEspecChart').getContext('2d');
+
+  var pirogueEspecChart = new Chart(ctxPirogueEspec, {
+    type: 'bar',
+    data: {
+      labels: typesPirogue,
+      datasets: especesCiblees.map(function(espece, index) {
+        return {
+          label: espece,
+          data: donneesPirogueEspec.map(function(row) {
+            return row[index];
+          }),
+          backgroundColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',0.7)'
+        };
+      })
+    },
+    options: {
+      scales: {
+        x: { display: true },
+        y: { display: true, beginAtZero: true }
+      },
+      title: {
+        display: true,
+        text: 'Répartition du Type de Pirogue par Espèce Ciblée'
+      }
+    }
+  });
+</script>
+		
+<script>
+    // Sample data for the quantity of fresh fish over the years
+    var years = ['2019','2020','2021','2022'];
+    var quantity = [50029980, 36119946, 19582233, 15979770];
+
+    // Get the canvas element
+    var ctx = document.getElementById('financeChart').getContext('2d');
+
+    // Create a line chart
+    var financeChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: years,
+            datasets: [{
+                label: 'Quantité d approvisionnement en poisson frais',
+                data: quantity,
+                borderColor: '#1da8dd',
+                backgroundColor: '#1da8dd',
+                borderWidth: 2,
+                pointRadius: 5,
+                pointBackgroundColor: '#1da8dd',
+            }]
+        },
+        options: {
+          barPercentage: 0.2,
+
+            scales: {
+                x: {
+                    type: 'category',  // Set the x-axis type to 'category'
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Années'
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: ''
+                    }
+                }
+            }
+        }
+    });
+</script>
+<script>
+			//nombre acteur de pêche 
+		
+
+ const labels = [
+                    {% for act in acts %}
+                        "{{ act.ActPech_Artisan }}",
+                    {% endfor %}
+                ];
+				const data2019 = [
+    {% for act in acts %}
+        {% if act.annee_modification == 2019 %}
+            {{ act.NbrActeur }},
+        {% else %}
+            0,
+        {% endif %}
+    {% endfor %}
+];
+            
+                const data2020 = [
+                    {% for act in acts %}
+                        {% if act.annee_modification == 2020 %}
+                            {{ act.NbrActeur }},
+                        {% else %}
+                            0,
+                        {% endif %}
+                    {% endfor %}
+                ];
+            
+                const data2021 = [
+                    {% for act in acts %}
+                        {% if act.annee_modification == 2021 %}
+                            {{ act.NbrActeur }},
+                        {% else %}
+                            0,
+                        {% endif %}
+                    {% endfor %}
+                ];
+            
+                const data2022 = [
+                    {% for act in acts %}
+                        {% if act.annee_modification == 2022 %}
+                            {{ act.NbrActeur }},
+                        {% else %}
+                            0,
+                        {% endif %}
+                    {% endfor %}
+                ];
+            
+                const data2023 = [
+                    {% for act in acts %}
+                        {% if act.annee_modification == 2023 %}
+                            {{ act.NbrActeur }},
+                        {% else %}
+                            0,
+                        {% endif %}
+                    {% endfor %}
+                ];
+            
+
+            
+                // Configuration du graphique
+                const config = {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+										// Ajoutez une nouvelle série de données pour l'année 2019 dans le tableau datasets
+{
+    label: 'Nombre d\'acteurs 2019',
+    data: data2019,
+    backgroundColor: '#1da8dd', // Couleur de fond des barres
+    borderColor: '#1da8dd', // Couleur de la bordure des barres
+    borderWidth: 1,
+    hidden: true // Masquer par défaut
+},
+                            {
+                                label: 'Nombre d\'acteurs 2020',
+                                data: data2020,
+                                backgroundColor: '#1da8dd', // Couleur de fond des barres
+                                borderColor: '#1da8dd', // Couleur de la bordure des barres
+                                borderWidth: 1,
+                                showLine: false, // Désactiver l'affichage de la ligne de légende
+                                fill: false // Ne pas remplir la légende
+                            },
+                            {
+                                label: 'Nombre d\'acteurs 2021',
+                                data: data2021,
+                                backgroundColor: '#1da8dd', // Couleur de fond des barres
+                                borderColor: '#1da8dd', // Couleur de la bordure des barres
+                                borderWidth: 1,
+                                hidden: true // Masquer par défaut
+                            },
+                            {
+                                label: 'Nombre d\'acteurs 2022',
+                                data: data2022,
+                                backgroundColor: '#1da8dd', // Couleur de fond des barres
+                                borderColor: '#1da8dd', // Couleur de la bordure des barres
+                                borderWidth: 1,
+                                hidden: true // Masquer par défaut
+                            },
+                            {
+                                label: 'Nombre d\'acteurs 2023',
+                                data: data2023,
+                                backgroundColor: '#1da8dd', // Couleur de fond des barres
+                                borderColor: '#1da8dd', // Couleur de la bordure des barres
+                                borderWidth: 1,
+                                hidden: true // Masquer par défaut
+                            },
+                          
+                        ]
+                    },
+                    options: {
+						
+                      scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false // Désactiver l'affichage de la légende globale
+                        }
+                    }
+                }
+                };
+            
+                // Création du graphique
+                var acteur = new Chart(
+                    document.getElementById('acteur'),
+                    config
+                );
+            
+                // Fonction pour basculer entre les graphiques
+                function toggleChart(index) {
+                    acteur.data.datasets.forEach((dataset, i) => {
+                        dataset.hidden = i !== index;
+                    });
+                    acteur.update();
+                }
+  
+
+</script>
+
+	
+	<script>
+  document.getElementById("indi").addEventListener("click", function() {
+      window.location.href = "{% url 'donne' %}";
+  });
+</script>
+
+<script>
+  var currentSlide = 0;
+  var slidesPerPage = calculateSlidesPerPage(); // Initial value based on screen width
+  var currentYear = ""; // Variable to keep track of the currently selected year
+
+  function calculateSlidesPerPage() {
+      // Adjust the number of slides based on the screen width
+      return window.innerWidth <= 768 ? 1 : 4; // Adjust 768 as needed
+  }
+
+  function showSlides(tabId) {
+      console.log(`Showing slides for tab ${tabId} for year ${currentYear}`);
+      var sections = document.querySelectorAll(`#${tabId} .l-2up__col[data-year='${currentYear}']`);
+
+      sections.forEach(function(section, index) {
+          if (index >= currentSlide && index < currentSlide + slidesPerPage) {
+              section.classList.remove('hidden');
+          } else {
+              section.classList.add('hidden');
+          }
+      });
+  }
+
+  function updatePagination(tabId) {
+      // Update pagination by calling showSlides
+      showSlides(tabId);
+  }
+
+  function nextSlide(tabId) {
+      var totalSlides = document.querySelectorAll(`#${tabId} .l-2up__col[data-year='${currentYear}']`).length;
+      var maxSlide = totalSlides - slidesPerPage; // Maximum slide index
+
+      // Check if we have reached the end of the slides for the selected year
+      if (currentSlide < maxSlide) {
+          // Advance by one page
+          currentSlide += slidesPerPage;
+          console.log(`Next slide clicked for tab ${tabId}. Current slide: ${currentSlide}`);
+          updatePagination(tabId);
+      } else {
+          // If we are at the end, do nothing
+          console.log("Already at the last page for the selected year.");
+      }
+  }
+
+  function prevSlide(tabId) {
+      currentSlide = Math.max(currentSlide - slidesPerPage, 0);
+      console.log(`Previous slide clicked for tab ${tabId}. Current slide: ${currentSlide}`);
+      updatePagination(tabId);
+  }
+
+  // Initial display for both tabs
+  document.addEventListener("DOMContentLoaded", function() {
+      // Hide all slides initially
+      var allSlides = document.querySelectorAll('.l-2up__col');
+      allSlides.forEach(function(slide) {
+          slide.classList.add('hidden');
+      });
+
+      // Show the first 4 slides for the default year (2019)
+      var defaultYearSlides = document.querySelectorAll('.l-2up__col[data-year="2019"]');
+      for (var i = 0; i < Math.min(defaultYearSlides.length, 4); i++) {
+          defaultYearSlides[i].classList.remove('hidden');
+      }
+
+      // Update currentYear variable
+      currentYear = "2019";
+
+      // Update the slidesPerPage value
+      slidesPerPage = calculateSlidesPerPage();
+
+      // Update the pagination
+      showSlides('artisanale');
+      showSlides('transformation');
+  });
+
+  // Update slides on window resize
+  window.addEventListener('resize', function() {
+      slidesPerPage = calculateSlidesPerPage();
+      showSlides('artisanale'); // You may need to update both tabs if needed
+      showSlides('transformation');
+  });
+
+
+  // Fonction pour détecter le changement d'année dans le menu déroulant "Pêche artisanale"
+document.getElementById("year-select-artisanale").addEventListener("change", function() {
+  var selectedYear = this.value; // Récupère l'année sélectionnée
+  currentYear = selectedYear; // Met à jour la variable currentYear
+
+  // Cache toutes les données initialement
+  var allDataBlocks = document.querySelectorAll(".l-2up__col");
+  allDataBlocks.forEach(function(block) {
+      block.classList.add("hidden");
+  });
+
+  // Affiche uniquement les 4 premiers blocs de données correspondant à l'année sélectionnée
+  var dataBlocksToShow = document.querySelectorAll(`.l-2up__col[data-year='${selectedYear}']`);
+  for (var i = 0; i < Math.min(dataBlocksToShow.length, 4); i++) {
+      dataBlocksToShow[i].classList.remove("hidden");
+  }
+
+  // Réinitialise currentSlide à 0 lors du changement d'année
+  currentSlide = 0;
+  showSlides('artisanale'); // Affiche les diapositives mises à jour
+  showSlides('transformation');
+});
+
+// Fonction pour détecter le changement d'année dans le menu déroulant "Pêche Transformation artisanale"
+document.getElementById("year-select-transformation").addEventListener("change", function() {
+  var selectedYear = this.value; // Récupère l'année sélectionnée
+  currentYear = selectedYear; // Met à jour la variable currentYear
+
+  // Cache toutes les données initialement
+  var allDataBlocks = document.querySelectorAll(".l-2up__col");
+  allDataBlocks.forEach(function(block) {
+      block.classList.add("hidden");
+  });
+
+  // Affiche uniquement les 4 premiers blocs de données correspondant à l'année sélectionnée
+  var dataBlocksToShow = document.querySelectorAll(`.l-2up__col[data-year='${selectedYear}']`);
+  for (var i = 0; i < Math.min(dataBlocksToShow.length, 4); i++) {
+      dataBlocksToShow[i].classList.remove("hidden");
+  }
+
+  // Réinitialise currentSlide à 0 lors du changement d'année
+  currentSlide = 0;
+  showSlides('artisanale'); // Affiche les diapositives mises à jour
+  showSlides('transformation');
+});
+
+</script>
+
+	
+
+
+{% endblock %}
+</html>

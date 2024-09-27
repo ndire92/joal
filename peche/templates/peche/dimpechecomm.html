@@ -1,0 +1,200 @@
+
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-wrapper">
+   <div class="row">
+      <div class="col-sm-12">
+         <div class="card">
+            <div class="card-body">
+               <form method="post" action="" enctype="multipart/form-data">
+                  {% csrf_token %}
+                     <div class="col-12">
+                        <h5 class="form-title"><span>Formulaire dimension Peche commerce</span></h5>
+                     </div>
+
+                     {% include 'includes/messages.html' %}	
+
+                <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.codeCommune.label_tag }}
+                             {{ form.codeCommune }}
+                         </div>
+                     </div>
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.nomCommune.label_tag }}
+                             {{ form.nomCommune }}
+                         </div>
+                     </div>
+                  </div>
+                  
+                 <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.ProdVendType.label_tag }}
+                          {{ form.ProdVendType }}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.ProdVendCampgnInterSais.label_tag }}
+                          {{ form.ProdVendCampgnInterSais }}
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.ProdVendCampgnHiver.label_tag }}
+                          {{ form.ProdVendCampgnHiver }}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.ProdVendCampSaisFroid.label_tag }}
+                          {{ form.ProdVendCampSaisFroid }}
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.ProdVendCampPrintem.label_tag }}
+                          {{ form.ProdVendCampPrintem }}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.Type_VentPech.label_tag }}
+                          {{ form.Type_VentPech}}
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.PriVentMoy_Prod.label_tag }}
+                          {{ form.PriVentMoy_Prod}}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.Mod_ecoulement.label_tag }}
+                          {{ form.Mod_ecoulement }}
+                      </div>
+                  </div>
+              </div>
+				      <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          {{ form.ClientPech.label_tag }}
+                          {{ form.ClientPech}}
+                      </div>
+                  </div>
+                  
+              </div>
+          <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.date.label_tag }}
+                             {{ form.date }}
+                         </div>
+                     </div>
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.date_modification.label_tag }}
+                             {{ form.date_modification }}
+                         </div>
+                     </div>
+                  </div>
+		 
+            </div>
+                  
+                   <br>
+                     <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                     </div>
+
+               </form>
+            </div>
+         </div>
+      </div>
+      
+<div >
+ <div class="content container-fluid">
+   <div class="page-header">
+      <div class="row align-items-center">
+      </div>
+   </div>
+   {% include 'includes/messages.html' %}
+   <div class="row">
+      <div class="col-sm-12">
+         <div class="card card-table">
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table id="table_id" class="table table-hover table-center mb-0">
+                     <thead>
+                        <tr>
+                           <th>Id</th>
+                           <th>Code Commune</th>
+                           <th>Nom Commune</th>
+                           <th>Production vendue (en tonne) par type de produit</th>
+                           <th>Production vendue (en tonne) par campagne Inter-saison (Looly)</th>
+                           <th>Production vendue (en tonne) par campagne Hivernage (saison chaude):</th>
+                           <th>Production vendue (en tonne) par campagne Saison froide (Nör)</th>
+                           <th>Production vendue (en tonne) par campagne Printemps (Thiorone-inter-saison):</th>
+                           <th>Type de vente:</th>
+                           <th>Prix Vendre Moyenne Produit</th>
+                           <th>Mode d’écoulementt</th>
+                           <th>Client Pêche</th>
+                           <th>Date Début</th>
+                           <th>Date de Modification</th>
+                           <th class="text-right">Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {% for stud in dataObject %}
+                        <tr>
+                         
+                           <td>{{ stud.id}}</td>
+                           <td>{{ stud.codeCommune }}</td>
+                           <td>{{ stud.nomCommune }}</td>
+                           <td>{{ stud.ProdVendType }}</td>
+                           <td>{{ stud.ProdVendCampgnInterSais }}</td>
+                           <td>{{ stud.ProdVendCampgnHiver }}</td>
+                           <td>{{ stud.ProdVendCampSaisFroid }}</td>
+                           <td>{{ stud.ProdVendCampPrintem }}</td>
+                           <td>{{ stud.Type_VentPech }}</td>
+                           <td>{{ stud.PrixVentMoyProdTA}}</td>
+                           <td>{{ stud.Mod_ecoulement }}</td>
+                           <td>{{ stud.ClientPech }}</td>
+                           <td>{{ stud.date}}</td>
+                           <td>{{ stud.date_modification }}</td>		
+                           <td class="text-right">
+                              <div class="actions">
+                                 <a href="{% url 'peche:up_com' stud.id %}" class="btn btn-sm bg-success-light mr-2">
+                                 <i class="fas fa-pen"></i>
+                                 </a>
+                                 <a href="{% url 'peche:de_com' stud.id %}" class="btn btn-sm bg-danger-light">
+                                 <i class="fas fa-trash"></i>
+                                 </a>
+                              </div>
+                           </td>
+                        </tr>
+                        {% endfor %}
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   
+</div>
+{% endblock %}	

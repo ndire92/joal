@@ -1,0 +1,132 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-wrapper">
+   <div class="row">
+      <div class="col-sm-12">
+         <div class="card">
+            <div class="card-body">
+               <form method="post" action="">
+                  {% csrf_token %}
+                  <div class="col-12">
+                     <h5 class="form-title"><span>Formulaire Dimension Type de Produit par Niveau</span></h5>
+                  </div>
+                  {% include 'includes/messages.html' %}	
+                  <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.TypeProdHalieuPeriod.label_tag }}
+                             {{ form.TypeProdHalieuPeriod }}
+                         </div>
+                     </div>
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.TypeProdHalieuHiver.label_tag }}
+                             {{ form.TypeProdHalieuHiver}}
+                         </div>
+                     </div>
+                  </div>
+                  
+                 <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.NivCaptMoyenSortTypProd.label_tag }}
+                          {{ form.NivCaptMoyenSortTypProd}}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.NivPertPostCaptTypProd.label_tag }}
+                          {{ form.NivPertPostCaptTypProd}}
+                      </div>
+                  </div>
+              </div>
+                
+                  <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.annee.label_tag }}
+                             {{ form.annee }}
+                         </div>
+                     </div>
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.annee_modification.label_tag }}
+                             {{ form.annee_modification }}
+                         </div>
+                     </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary" style="background-color: #1da8dd;">Envoyer</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Tableau pour afficher les données -->
+   <div class="content container-fluid">
+      <div class="page-header">
+         <div class="row align-items-center">
+         </div>
+      </div>
+      {% include 'includes/messages.html' %}
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="card card-table">
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table id="table_id" class="table table-hover table-center mb-0">
+                        <thead>
+                           <tr>
+                              <!-- Entêtes du tableau -->
+                              <th>Id</th>
+                          
+                             
+                           <th>Type de produit hal par period</th>
+                           <th>Type Prod Halieu Hiver</th>
+                           <th>Niv Cap tMoyenSortTypProd</th>
+                           <th>NivPertPostCaptTypProd</th>
+                   
+                           
+                           <th>Annee</th>
+                           <th>Annee_modification</th>
+                           
+                              <th class="text-right">Action</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           {% for stud in dataObject %}
+                           <tr>
+                              <!-- Données de la boucle for -->
+                              <td>{{ stud.id }}</td>
+                              <td>{{ stud.TypeProdHalieuPeriod}}</td>
+                              <td>{{ stud.TypeProdHalieuHiver}}</td>
+                              <td>{{ stud.NivCaptMoyenSortTypProd}}</td>
+                              <td>{{ stud.NivPertPostCaptTypProd}}</td>
+                          
+                              <td>{{ stud.annee }}</td>
+                              <td>{{ stud.annee_modification }}</td>	
+                              <td class="text-right">
+                                 <div class="actions">
+                                    <a href="{% url 'peche:up_niv' stud.id %}" class="btn btn-sm bg-success-light mr-2">
+                                    <i class="fas fa-pen"></i>
+                                    </a>
+                                    <a href="{% url 'peche:de_niv' stud.id %}" class="btn btn-sm bg-danger-light">
+                                    <i class="fas fa-trash"></i>
+                                    </a>
+                                 </div>
+                              </td>
+                           </tr>
+                           {% endfor %}
+                        </tbody>
+                     </table>
+              </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+{% endblock %}

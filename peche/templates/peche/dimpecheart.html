@@ -1,0 +1,494 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-wrapper">
+   <div class="row">
+      <div class="col-sm-12">
+         <div class="card">
+            <div class="card-body">
+               <form method="post" action="">
+                  {% csrf_token %}
+                  <div class="col-12">
+                     <h5 class="form-title"><span>Formulaire Dimension Peche Artisanale</span></h5>
+                  </div>
+                  {% include 'includes/messages.html' %}	
+                  <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.codeCommune.label_tag }}
+                             {{ form.codeCommune }}
+                         </div>
+                     </div>
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.nomCommune.label_tag }}
+                             {{ form.nomCommune }}
+                         </div>
+                     </div>
+                  </div>
+                  
+                 <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.ActPech_Artisan.label_tag }}
+                          {{ form.ActPech_Artisan }}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.NbrActeur.label_tag }}
+                          {{ form.NbrActeur }}
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.GroupPecheur.label_tag }}
+                          {{ form.GroupPecheur }}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.NbreGIEPecheur.label_tag }}
+                          {{ form.NbreGIEPecheur }}
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.NbrOrganiProfessPecheur.label_tag }}
+                          {{ form.NbrOrganiProfessPecheur }}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.Nbr_AssociatPecheur.label_tag }}
+                          {{ form.Nbr_AssociatPecheur }}
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.GroupMareyeur.label_tag }}
+                          {{ form.GroupMareyeur }}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.NbreGIEMarey.label_tag }}
+                          {{ form.NbreGIEMarey }}
+                      </div>
+                  </div>
+              </div>
+          
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.NbrOrganiProfessMarey.label_tag }}
+                          {{ form.NbrOrganiProfessMarey }}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="form-group">
+                         {{ form.Nbr_AssociatMarey.label_tag }}
+                         {{ form.Nbr_AssociatMarey }}
+                     </div>
+                 </div>
+              </div>
+                  <!-- Ajoutez d'autres champs de la même manière -->
+                  <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.NbreQuaiPech.label_tag }}
+                             {{ form.NbreQuaiPech }}
+                         </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form.NbrPirogBois.label_tag }}
+                            {{ form.NbrPirogBois }}
+                        </div>
+                    </div>
+                 </div>
+                                   <!-- Ajoutez d'autres champs de la même manière -->
+                                   <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{ form.NbrePirogFibVer.label_tag }}
+                                            {{ form.NbrePirogFibVer}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="form-group">
+                                           {{ form.NbrPirogAlumin.label_tag }}
+                                           {{ form.NbrPirogAlumin }}
+                                       </div>
+                                   </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{ form.NbrePirogImmatri.label_tag }}
+                                            {{ form.NbrePirogImmatri}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <div class="form-group">
+                                           {{ form.TypePirogu.label_tag }}
+                                           {{ form.TypePirogu }}
+                                       </div>
+                                   </div>
+                                </div>
+                 
+                 <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.TypProdPechPirogBois.label_tag }}
+                          {{ form.TypProdPechPirogBois }}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="form-group">
+                         {{ form.TypProdPechPirogFibr.label_tag }}
+                         {{ form.TypProdPechPirogFibr }}
+                     </div>
+                 </div>
+              </div>
+              <div class="row">
+               <div class="col-md-6">
+                   <div class="form-group">
+                       {{ form.TypProdPechPirogAlumin.label_tag }}
+                       {{ form.TypProdPechPirogAlumin}}
+                   </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="form-group">
+                      {{ form.TypeProdHalieuHiver.label_tag  }}
+                      {{ form.TypeProdHalieuHiver }}
+                  </div>
+              </div>
+           </div><div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form.TypeProdHalieuInterSaison.label_tag }}
+                    {{ form.TypeProdHalieuInterSaison }}
+                </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                   {{ form.TypeProdHalieuSaisFroid.label_tag }}
+                   {{ form.TypeProdHalieuSaisFroid }}
+               </div>
+           </div>
+        </div><div class="row">
+         <div class="col-md-6">
+             <div class="form-group">
+                 {{ form.TypeProdHalieuPrimptem.label_tag }}
+                 {{ form.TypeProdHalieuPrimptem }}
+             </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group">
+                {{ form.IntrantPech.label_tag }}
+                {{ form.IntrantPech }}
+            </div>
+        </div>
+     </div>
+     <div class="row">
+      <div class="col-md-6">
+          <div class="form-group">
+              {{ form.MatUtilisePech.label_tag }}
+              {{ form.MatUtilisePech }}
+          </div>
+      </div>
+      <div class="col-md-6">
+         <div class="form-group">
+             {{ form.SourcApprovis_Intran.label_tag }}
+             {{ form.SourcApprovis_Intran }}
+         </div>
+     </div>
+  </div>
+                 
+                  <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.TypeProdHalieuInterSaison.label_tag }}
+                             {{ form.TypeProdHalieuInterSaison }}
+                         </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form.TypeProdHalieuSaisFroid.label_tag }}
+                            {{ form.TypeProdHalieuSaisFroid }}
+                        </div>
+                    </div>
+                 </div><div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          {{ form.TypeProdHalieuPrimptem.label_tag }}
+                          {{ form.TypeProdHalieuPrimptem }}
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="form-group">
+                         {{ form.IntrantPech.label_tag }}
+                         {{ form.IntrantPech }}
+                     </div>
+                 </div>
+              </div><div class="row">
+               <div class="col-md-6">
+                   <div class="form-group">
+                       {{ form.MatUtilisePech.label_tag }}
+                       {{ form.MatUtilisePech }}
+                   </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="form-group">
+                      {{ form.SourcApprovis_Intran.label_tag }}
+                      {{ form.SourcApprovis_Intran }}
+                  </div>
+              </div>
+           </div><div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form.SourcApprovis_Materiel.label_tag }}
+                    {{ form.SourcApprovis_Materiel }}
+                </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                   {{ form.Qteannuel_debarq.label_tag }}
+                   {{ form.Qteannuel_debarq }}
+               </div>
+           </div>
+        </div><div class="row">
+         <div class="col-md-6">
+             <div class="form-group">
+                 {{ form.NivCaptMoyenHiver.label_tag }}
+                 {{ form.NivCaptMoyenHiver }}
+             </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group">
+                {{ form.NivCaptMoyenInterSaison.label_tag }}
+                {{ form.NivCaptMoyenInterSaison }}
+            </div>
+        </div>
+     </div><div class="row">
+      <div class="col-md-6">
+          <div class="form-group">
+              {{ form.NivCaptMoyenSaisFroid.label_tag }}
+              {{ form.NivCaptMoyenSaisFroid}}
+          </div>
+      </div>
+      <div class="col-md-6">
+         <div class="form-group">
+             {{ form.NivCaptMoyenPrintem.label_tag }}
+             {{ form.NivCaptMoyenPrintem}}
+         </div>
+     </div>
+  </div><div class="row">
+   <div class="col-md-6">
+       <div class="form-group">
+           {{ form.NivCaptMoyenSortTypProd.label_tag }}
+           {{ form.NivCaptMoyenSortTypProd}}
+       </div>
+   </div>
+   <div class="col-md-6">
+      <div class="form-group">
+          {{ form.NivPertPostCaptHiver.label_tag }}
+          {{ form.NivPertPostCaptHiver }}
+      </div>
+  </div>
+</div><div class="row">
+   <div class="col-md-6">
+       <div class="form-group">
+           {{ form.NivPertPostCaptInterSaison.label_tag }}
+           {{ form.NivPertPostCaptInterSaison }}
+       </div>
+   </div>
+   <div class="col-md-6">
+      <div class="form-group">
+          {{ form.NivPertPostCaptSaisFroid.label_tag }}
+          {{ form.NivPertPostCaptSaisFroid}}
+      </div>
+  </div>
+</div><div class="row">
+   <div class="col-md-6">
+       <div class="form-group">
+           {{ form.NivPertPostCaptPrintem.label_tag }}
+           {{ form.NivPertPostCaptPrintem }}
+       </div>
+   </div>
+   <div class="col-md-6">
+      <div class="form-group">
+          {{ form.NivPertPostCaptTypProd.label_tag }}
+          {{ form.NivPertPostCaptTypProd }}
+      </div>
+  </div>
+</div>
+
+                  <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.date.label_tag }}
+                             {{ form.date }}
+                         </div>
+                     </div>
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.date_modification.label_tag }}
+                             {{ form.date_modification }}
+                         </div>
+                     </div>
+                  </div>
+{{total_qteannuel_debarq}}
+                  <button type="submit" class="btn btn-primary" style="background-color: #1da8dd;">Envoyer</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Tableau pour afficher les données -->
+   <div class="content container-fluid">
+      <div class="page-header">
+         <div class="row align-items-center">
+         </div>
+      </div>
+      {% include 'includes/messages.html' %}
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="card card-table">
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table id="table_id" class="table table-hover table-center mb-0">
+                        <thead>
+                           <tr>
+                              <!-- Entêtes du tableau -->
+                              <th>Id</th>
+                              <th>codeCommune</th>
+                              <th>nomCommune</th>
+                             
+                           <th>ActPech_Artisan </th>
+                           <th>NbrActeur</th>
+                           <th>GroupPecheur </th>
+                           <th>NbreGIEPecheur</th>
+                           <th>NbrOrganiProfessPecheur</th>
+                           <th>Nbr_AssociatPecheur</th>
+                           <th>GroupMareyeur </th>
+                           <th>NbreGIEMarey</th>
+                           <th>NbrOrganiProfessMarey</th>
+                           <th>Nbr_AssociatMarey</th>
+                           <th>NbreQuaiPech</th>
+                           <th>NbrePirogbois</th>
+                           <th>NbrePirogFibVer</th>
+                           <th>NbrPirogAlumin</th>
+                           <th>NbrePirogImmatri</th>
+                           <th>TypePirogu </th>
+                           <th>TypProdPechPirogBois </th>
+                           <th>TypProdPechPirogFibr </th>
+                           <th>TypProdPechPirogAlumin </th>
+                           <th>TypeProdHalieuHiver </th>
+                           
+                           <th>TypeProdHalieuInterSaison </th>
+                           <th>TypeProdHalieuSaisFroid </th>
+                           <th>TypeProdHalieuPrimptem </th>
+                           <th>IntrantPech </th>
+                           <th>MatUtilisePech </th>
+                           <th>SourcApprovis_Intran </th>
+                           <th>SourcApprovis_Materiel </th>
+                           <th>Qteannuel_debarq</th>
+                           <th>NivCaptMoyenHiver </th>
+                           <th>NivCaptMoyenInterSaison </th>
+                           <th>NivCaptMoyenSaisFroid </th>
+                           <th>NivCaptMoyenPrintem </th>
+                           <th>NivCaptMoyenSortTypProd </th>
+                           <th>NivPertPostCaptHiver </th>
+                           <th>NivPertPostCaptInterSaison </th>
+                           <th>NivPertPostCaptSaisFroid </th>
+                           <th>NivPertPostCaptPrintem </th>
+                           <th>NivPertPostCaptTypProd </th>
+                           
+                           <th>date</th>
+                           <th>date_modification</th>
+                           
+                              <th class="text-right">Action</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           {% for stud in dataObject %}
+                           <tr>
+                              <!-- Données de la boucle for -->
+                              <td>{{ stud.id }}</td>
+                              <td>{{ stud.codeCommune }}</td>
+                              <td>{{ stud.nomCommune }}</td>
+                              <td>{{ stud.ActPech_Artisan  }}</td>
+                              <td>{{ stud.NbrActeur }}</td>
+                              <td>{{ stud.GroupPecheur  }}</td>
+                              <td>{{ stud.NbreGIEPecheur }}</td>
+                              <td>{{ stud.NbrOrganiProfessPecheur }}</td>
+                              <td>{{ stud.Nbr_AssociatPecheur }}</td>
+                              <td>{{ stud.GroupMareyeur  }}</td>
+                              <td>{{ stud.NbreGIEMarey }}</td>
+                              <td>{{ stud.NbrOrganiProfessMarey }}</td>
+                              <td>{{ stud.Nbr_AssociatMarey }}</td>
+                              <td>{{ stud.NbreQuaiPech }}</td>
+                               <td>{{ stud.NbrPirogBois }}</td>
+                                <td>{{ stud.NbrePirogFibVer }}</td>
+                                 <td>{{ stud.NbrPirogAlumin }}</td>
+                              <td>{{ stud.NbrePirogImmatri}}</td>
+                              <td>{{ stud.TypePirogu  }}</td>
+                              <td>{{ stud.TypProdPechPirogBois  }}</td>
+                              <td>{{ stud.TypProdPechPirogFibr  }}</td>
+                              <td>{{ stud.TypProdPechPirogAlumin  }}</td>
+                              <td>{{ stud.TypeProdHalieuHiver  }}</td>
+                              <td>{{ stud.TypeProdHalieuInterSaison  }}</td>
+                              <td>{{ stud.TypeProdHalieuSaisFroid  }}</td>
+                              <td>{{ stud.TypeProdHalieuPrimptem  }}</td>
+                              <td>{{ stud.IntrantPech  }}</td>
+                              <td>{{ stud.MatUtilisePech  }}</td>
+                              <td>{{ stud.SourcApprovis_Intran  }}</td>
+                              <td>{{ stud.SourcApprovis_Materiel  }}</td>
+                              <td>{{ stud.Qteannuel_debarq }}</td>
+                              <td>{{ stud.NivCaptMoyenHiver  }}</td>
+                              <td>{{ stud.NivCaptMoyenInterSaison  }}</td>
+                              <td>{{ stud.NivCaptMoyenSaisFroid  }}</td>
+                              <td>{{ stud.NivCaptMoyenPrintem  }}</td>
+                              <td>{{ stud.NivCaptMoyenSortTypProd  }}</td>
+                              <td>{{ stud.NivPertPostCaptHiver  }}</td>
+                              <td>{{ stud.NivPertPostCaptInterSaison  }}</td>
+                              <td>{{ stud.NivPertPostCaptSaisFroid  }}</td>
+                              <td>{{ stud.NivPertPostCaptPrintem  }}</td>
+                              <td>{{ stud.NivPertPostCaptTypProd  }}</td>
+                              
+                              <td>{{ stud.date }}</td>
+                              <td>{{ stud.date_modification }}</td>	
+                              <td class="text-right">
+                                 <div class="actions">
+                                    <a href="{% url 'peche:up_ar' stud.id %}" class="btn btn-sm bg-success-light mr-2">
+                                    <i class="fas fa-pen"></i>
+                                    </a>
+                                    <a href="{% url 'peche:de_ar' stud.id %}" class="btn btn-sm bg-danger-light">
+                                    <i class="fas fa-trash"></i>
+                                    </a>
+                                 </div>
+                              </td>
+                           </tr>
+                           {% endfor %}
+                        </tbody>
+                     </table>
+              </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

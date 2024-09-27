@@ -1,0 +1,22 @@
+
+{% extends 'pages/base.html' %}
+{% load static %}
+
+
+{% block content  %}
+<div class="page-wrapper">
+   <div class="row">
+      <div class="col-sm-12">
+         <div class="card">
+            <div class="card-body">
+               <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+              
+                  <button type="submit">{% if form.instance.pk %}Modifier{% else %}Ajouter{% endif %} le profil</button>
+                </form>
+            </div>
+         </div>
+      </div>
+   </div>
+{% endblock %}

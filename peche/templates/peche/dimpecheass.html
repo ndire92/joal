@@ -1,0 +1,253 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-wrapper">
+   <div class="row">
+      <div class="col-sm-12">
+         <div class="card">
+            <div class="card-body">
+               <form method="post" action="" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="col-12">
+                     <h5 class="form-title"><span>Formulaire dimension Pêche Assurance</span></h5>
+                  </div>
+
+                  {% include 'includes/messages.html' %}	
+
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           {{ form.codeCommune.label_tag }}
+                           {{ form.codeCommune }}
+                        </div>
+                     </div>
+
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           {{ form.nomCommune.label_tag }}
+                           {{ form.nomCommune }}
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           {{ form.OffreAssureExistPech.label_tag }}
+                           {{ form.OffreAssureExistPech }}
+                        </div>
+                     </div>
+
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           {{ form.TypeAssurancPech.label_tag }}
+                           {{ form.TypeAssurancPech }}
+                        </div>
+                     </div>
+                  </div>
+				              <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.NbreSouscripPech.label_tag }}
+                             {{ form.NbreSouscripPech }}
+                         </div>
+                     </div>
+						
+					
+                 
+                  <div class="col-md-6">
+                      <div class="form-group">
+                             {{ form.NbrePrimePech.label_tag }}
+                             {{ form.NbrePrimePech }}
+                      </div>
+                  </div>
+                  
+              </div>
+	                     <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.BesoinFormatPech.label_tag }}
+                             {{ form.BesoinFormatPech }}
+                         </div>
+                     </div>
+						
+					
+                 
+                  <div class="col-md-6">
+                      <div class="form-group">
+                             {{ form.ActeurSensibilisePech.label_tag }}
+                             {{ form.ActeurSensibilisePech }}
+                      </div>
+                  </div>
+                  
+              </div>
+				    <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.ActeurFormatPech.label_tag }}
+                             {{ form.ActeurFormatPech }}
+                         </div>
+                     </div>
+						
+					
+                 
+                  <div class="col-md-6">
+                      <div class="form-group">
+                             {{ form.BesoinSensibilisePech.label_tag }}
+                             {{ form.BesoinSensibilisePech }}
+                      </div>
+                  </div>
+                  
+              </div>
+	                     <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.ContraintGlobPech.label_tag }}
+                             {{ form.ContraintGlobPech }}
+                         </div>
+                     </div>
+						
+					
+                 
+                  <div class="col-md-6">
+                      <div class="form-group">
+                             {{ form.ContrainMajFilier.label_tag }}
+                             {{ form.ContrainMajFilier}}
+                      </div>
+                  </div>
+                  
+              </div>
+				
+				               <div class="row">
+                     <div class="col-md-6">
+                         <div class="form-group">
+                             {{ form.NbrInfrastruStokCondition.label_tag }}
+                             {{ form.NbrInfrastruStokCondition }}
+                         </div>
+                     </div>
+						
+					
+                 
+                  <div class="col-md-6">
+                      <div class="form-group">
+                             {{ form.NbrFourniEmblag.label_tag }}
+                             {{ form.NbrFourniEmblag }}
+                      </div>
+                  </div>
+                  
+              </div>
+	                   <div class="row">
+                     <div class="col-md-12">
+                         <div class="form-group">
+                             {{ form.NbrProdLabel.label_tag }}
+                             {{ form.NbrProdLabel }}
+                         </div>
+                     </div>
+						
+					</div>
+
+                  <!-- Continuez à ajouter d'autres champs de formulaire ici -->
+
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           {{ form.annee.label_tag }}
+                           {{ form.annee }}
+                        </div>
+                     </div>
+
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           {{ form.annee_modification.label_tag }}
+                           {{ form.annee_modification }}
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-12">
+                     <button type="submit" class="btn btn-primary">Ajouter</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="content container-fluid">
+      <div class="page-header">
+         <div class="row align-items-center">
+         </div>
+      </div>
+      {% include 'includes/messages.html' %}
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="card card-table">
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table id="table_id" class="table table-hover table-center mb-0">
+                        <thead>
+                           <tr>
+                              <th>Id</th>
+                              <th>Code Commune</th>
+                              <th>Nom Commune</th>
+                              <th>Offreurs d’assurance Existant ou Non existant</th>
+                              <th>Type d’assurance</th>
+                              <th>Nombre de souscription</th>
+                              <th>Niveau des primes (cout de la souscription)</th>
+                              <th>Besoins en formation </th>
+                              <th>Acteurs à la sensibilisation</th>
+                              <th>Acteurs à la formation</th>
+                              <th>Besoin en sensibilisation</th>
+                              <th>Contraintes globales sur la pêche</th>
+                              <th>Contraintes majeures par filière</th>
+                              <th>Nombre d’Infrastructures de stockage et de conditionnement (aires)</th>
+                              <th>Nombre de Fournisseurs d’emballage</th>
+                              <th>Nombre de Label (produits labellisés)</th>
+                              <th>Date Début</th>
+                              <th>Date de Modification</th>
+                              <th class="text-right">Action</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           {% for stud in dataObject %}
+                           <tr>
+                              <td>{{ stud.id}}</td>
+                              <td>{{ stud.codeCommune }}</td>	
+                              <td>{{ stud.nomCommune }}</td>	
+                              <td>{{ stud.OffreAssureExistPech }}</td>	
+                              <td>{{ stud.TypeAssurancPech }}</td>	
+                              <td>{{ stud.NbreSouscripPech }}</td>	
+                              <td>{{ stud.NbrePrimePech }}</td>	
+                              <td>{{ stud.BesoinFormatPech }}</td>	
+                              <td>{{ stud.ActeurSensibilisePech }}</td>	
+                              <td>{{ stud.ActeurFormatPech }}</td>	
+                              <td>{{ stud.BesoinSensibilisePech }}</td>	
+                              <td>{{ stud.ContraintGlobPech }}</td>	
+                              <td>{{ stud.ContrainMajFilier }}</td>	
+                              <td>{{ stud.NbrInfrastruStokCondition }}</td>	
+                              <td>{{ stud.NbrFourniEmblag }}</td>	
+                              <td>{{ stud.NbrProdLabel }}</td>	
+                              <td>{{ stud.date }}</td>
+                              <td>{{ stud.date_modification }}</td>		
+                              <td class="text-right">
+                                 <div class="actions">
+                                    <a href="{% url 'peche:up_ass' stud.id %}" class="btn btn-sm bg-success-light mr-2">
+                                    <i class="fas fa-pen"></i>
+                                    </a>
+                                    <a href="{% url 'peche:de_ass' stud.id %}" class="btn btn-sm bg-danger-light">
+                                    <i class="fas fa-trash"></i>
+                                    </a>
+                                 </div>
+                              </td>
+                           </tr>
+                           {% endfor %}
+                        </tbody>
+                     </table>
+                  </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

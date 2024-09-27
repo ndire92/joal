@@ -1,0 +1,1610 @@
+{% extends 'layout/base.html'%}
+{% load static %}
+
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>precvadi joal</title>
+
+    <!-- Inclure le fichier CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css"> 
+   
+    <!-- Inclure les fichiers CSS statiques -->
+    <!-- ... (vos liens CSS) -->
+   
+    <!-- Inclure les fichiers CSS statiques -->
+    <!-- ... (vos liens CSS) -->
+
+
+   
+
+<script src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#table_id').DataTable();
+    });
+</script>
+</head>
+<body>
+    {% include 'layout/partial/header.html' %}
+    {% block body  %}
+  
+    <!-- Sélecteur pour les données -->
+
+        <div class="container">
+			 <div class="col-md-12">
+                <div>
+                    <img class="w-100 d-block" src="  {% static 'ass/img/BANIÈRE.png'%}" alt="Slide Image">
+                  </div>
+            </div>
+           
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h5 style="margin-top: 30px; font-size: 34px; text-align: center;">
+                    <strong><span style="color: rgb(0, 0, 0);"></span><span style="color:#1da8dd;">  Pêche et transformation artisanales</span></strong>
+                </h5>
+            </div>
+           
+        
+        </div>
+ 
+    <section >
+        <div class="container" style="background: #1da8dd; border-radius: 42px">
+          <section class="py-5 mt-5">
+            <div class="container">
+              <div class="row">
+                <!--div class="col-md-3">
+                  <button id="button1" class="btn btn-primary btn-block mb-2">Pêche artisanale</button>
+                  <select class="form-select form-select-lg mb-3" id="data-select-artisanale" onchange="updateDiagram(this.value)" style="font-size:15px;">
+                    <option selected disabled>Sélectionnez un indicateur</option>
+                    <option value="myCharte">Valeur commerciale du carburant vendu par Année</option>
+                    <option value="Chart_1">Nombre d’acteur pêcheur</option>
+                    <option value="Chart_2">Volume débité en carburant (en litres) au fil des années</option>
+                    <option value="Chart_3"> Nombre de types de permis par année</option>
+                    <option value="Chart_4">Type de Pirogue et type de pêcheur par année</option>
+                    <option value="Chart_41">Nombre de pirogue ayant Renouvelé(B+C)</option>
+                    <option value="Chart_555">Nombre de pirogue Annuel par type</option>
+                    <option value="Chart_444">Type de pirogue et les especes ciblées</option>
+                    <option value="Chart_51">la valeur commerciale de la capture annuelle (en FCFA)‎</option>
+                    <option value="Chart_44">Repartition de la capture annuelle </option>
+                    <option value="Chart_15">Quantité annuelle débarquée </option>
+                 
+                  </select>
+                  
+                  <!--select class="form-select form-select-sm" id="year-select-artisanale" aria-label="Select 2">
+                    <option selected disabled>Année</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                  </select>
+                </div-->
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_444">
+                      <h2 class="text-center">Type de pirogue et espèces ciblées</h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                      
+                        
+          <table>
+            <thead>
+                <tr>
+                    <th>Type de Pirogue</th>
+                    <th>Espèces Ciblées</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="pirogue-type">Pirogue Senne Tournante</td>
+                    <td class="target-species">
+                        Sardinelle plate, Sardinelle ronde, Chinchard noir, Chinchard blanc, Ethmolose, Scomber, Sompath, Brochet, Caranx, Pelon
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pirogue-type">Pirogue Filet Dormant de Fond</td>
+                    <td class="target-species">
+                        Sole, Murex, Cymbium, Langouste, Poissons divers, Crevettes
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pirogue-type">Pirogue Filet Maillant de Surface</td>
+                    <td class="target-species">
+                        Sardinelle plate, Sardinelle ronde, Ethmalose, Mugil
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pirogue-type">Pirogue Casier</td>
+                    <td class="target-species">
+                        Seiche
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pirogue-type">Pirogue Glacière (Marré)</td>
+                    <td class="target-species">
+                        Quin, Raie, Sole, Otolithe (fetheu), Crustacée, Machoiron
+                    </td>
+                </tr>
+                <tr>
+                    <td class="pirogue-type">Pirogue à Lignes</td>
+                    <td class="target-species">
+                        Thiof, Dorade, Pageot, Vivaneaux, Sompath, Caranx, Baracouda, Calamar, Poulpe
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      
+      
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_555">
+                      <h2 class="text-center">Nombre de pirogues par type </h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <canvas id="evolutionChart" style="width:100%;max-width:400px"></canvas>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_44">
+                      <h2 class="text-center">Répartition de la capture annuelle</h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <canvas id="repartitionChart" style="width:100%;max-width:400px"></canvas>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_15">
+                      <h2 class="text-center">Quantité annuelle de poissons débarquée(captures) par année (en kg)</h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <canvas id="qteAnnuelDebarqChart" style="width:100%;max-width:400px"></canvas>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_51">
+                      <h2 class="text-center">Valeur commerciale des captures par année (en fcfa)</h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <canvas id="valeurComCaptAnnuelChart" style="width:100%;max-width:400px"></canvas>
+                      </div>
+                    </div>
+                    <!-- Conteneurs de graphiques pour la première section -->
+					<div class="col-md-12 mb-4 chart-container artisanale" id="Chart_2">
+                      <h2 class="text-center">Volume de carburant (litres) débité par année‎</h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <canvas id="lineC" style="width:100%;max-width:600px"></canvas>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-4 chart-container artisanale" id="myCharte">
+                      <h2 class="text-center">Valeur commerciale du carburant vendu par année</h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <canvas id="lineChart" style="width:100%;max-width:400px"></canvas>
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_1">
+                      <h2 class="text-center">Nombre total de pêcheurs recensés par année</h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <canvas id="myBarChart" style="width:100%;max-width:600px"></canvas>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_41">
+                      <h2 class="text-center">Nombre de pirogues ayant renouvelé leurs permis par année</h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <canvas id="permis" style="width:100%;max-width:600px"></canvas>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-4 chart-container artisanale" id="Chart_3">
+                      <h2 class="text-center">Nombre de pirogues immatriculées de type permis B et C par année</h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <canvas id="groupedBarChart" width="400" height="300"></canvas>
+                      </div>
+                    </div>
+<div class="col-md-12 mb-4 chart-container artisanale" id="Chart_150" style="height: 500px;">
+    <h2 class="text-center">Nombre et type d'acteurs de la pêche artisanale par année</h2>
+    <div class="d-flex justify-content-center align-items-center">
+        <canvas id="acteur" style="height: 400px;"></canvas>
+    </div>
+    <div style="margin-top: 50px;">
+        <!-- Boutons pour basculer la visibilité des barres pour chaque année -->
+        <button id="btn2019" onclick="toggleChart(0)">2019</button>
+        <button id="btn2020" onclick="toggleChart(1)">2020</button>
+        <button id="btn2021" onclick="toggleChart(2)">2021</button>
+        <button id="btn2022" onclick="toggleChart(3)">2022</button>
+        <button id="btn2023" onclick="toggleChart(4)">2023</button>
+        <!-- Ajoutez d'autres boutons pour les années supplémentaires ici -->
+    </div>
+</div>
+
+             
+                    <!--div class="col-md-12 mb-4 chart-container artisanale" id="Chart_4">
+                      <h2 class="text-center">Chart test</h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <canvas id="yChart" style="width:100%;max-width:600px"></canvas>
+                      </div>
+                    </div-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="container">
+              <div class="row">
+                <!--div class="col-md-3">
+                  <button id="button2" class="btn btn-primary btn-block mb-2">Pêche Transformation artisanale</button>
+                  <select class="form-select form-select-lg mb-3" id="data-select-transformation" onchange="updateDiagram(this.value)" style="font-size:15px;">
+                    <option selected disabled>Sélectionnez un indicateur</option>
+                    <option value="myChart">Commercialisation et Production</option>
+                    <option value="Chart_11">informations financières</option>
+                    <!--option value="Chart_12">permis</option>
+                    <option value="Chart_13">NbreGIEMarey</option>
+                    <option value="Chart_14">Nbre</option>
+                  </select>
+                  <!--select class="form-select form-select-sm" id="year-select-transformation" aria-label="Select 2">
+                    <option selected disabled>Année</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                  </select>
+                </div-->
+                <div class="col-md-12">
+                  <div class="row">
+                    <!-- Conteneurs de graphiques pour la deuxième section -->
+                    <div class="col-md-12 mb-4 chart-container transformation" id="myChart">
+                      <h2 class="text-center">Quantité totale de produits transformés par année (kg)</h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <canvas id="scatterChart" width="400" height="400"></canvas>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-4 chart-container transformation" id="Chart_11">
+                      <h2 class="text-center">Quantité totale de poisson frais utilisée pour la transformation (kg)</h2>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <canvas id="financeChart" width="400" height="400"></canvas>
+                      
+                      </div>
+                    </div>
+					    <div class="col-md-12 mb-4 chart-container transformation" id="myCharteee">
+                <h2 class="text-center">Valeur commerciale des produits transformés par année (en fcfa) </h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <canvas id="scatterCharteee" width="400" height="400"></canvas>
+                </div>
+              </div>
+			
+					  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+<div style="display: flex; justify-content: space-between;">
+    <div id="myPlot1" style="width: 45%;"></div>
+    <div id="myPlot2" style="width: 45%;"></div>
+
+
+</div>
+
+       {% for entry in dataObject %}
+{{ entry.Nbr_AssociatPecheur}}{{ entry.NbrePrimePech }}
+{% endfor %}
+
+    <!-- Incluez le script JavaScript pour créer le graphique interactif -->
+    <!-- script src="https://cdn.plot.ly/plotly-latest.min.js"></script-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var chartTypeButtons = document.querySelectorAll('.chart-button');
+            var dataSelect = document.getElementById('data-select');
+            var chartDiv = document.getElementById('interactive-chart');
+            var yearSelect = document.getElementById('year-select');
+        
+            // Récupérez les données de Django en JavaScript (assurez-vous que ces données correspondent à votre modèle Django)
+            var xData = JSON.parse('{{ graph_data.x_data|escapejs }}');
+            var yDataGroupMareyeur = JSON.parse('{{ graph_data.y_data_group_mareyeur|escapejs }}');
+            var yDataNbrActeur = JSON.parse('{{ graph_data.y_data_nbr_acteur|escapejs }}');
+            var yDataNbreGIEMarey = JSON.parse('{{ graph_data.y_data_NbreGIEMarey|escapejs }}');
+            var dates = JSON.parse('{{ graph_data.dates|escapejs }}');
+        
+            // Fonction pour créer un graphique à barres
+            function createBarChart(xData, yData) {
+                var data = [{
+                    x: xData,
+                    y: yData,
+                    type: 'bar'
+                }];
+                var layout = {
+                    title: 'Bar Chart',
+                    xaxis: {
+                        title: 'Acteurs',
+                        type: 'category'
+                    },
+                    yaxis: {
+                        title: 'Nombre acteur'
+                    }
+                };
+        
+                Plotly.newPlot(chartDiv, data, layout);
+            }
+        
+            // Fonction pour créer un graphique circulaire (pie chart)
+            function createPieChart(labels, values) {
+                var data = [{
+                    labels: labels,
+                    values: values,
+                    type: 'pie'
+                }];
+        
+                var layout = {
+                    title: 'Pie Chart'
+                };
+        
+                Plotly.newPlot(chartDiv, data, layout);
+            }
+        
+            // Écouteur d'événement pour le changement de sélecteur de données
+            dataSelect.addEventListener('change', function () {
+                var selectedData = dataSelect.value;
+                var selectedChartType = document.querySelector('.chart-button.active').getAttribute('data-chart-type');
+                var xData;
+                var yData;
+        
+                if (selectedData === 'GroupMareyeur') {
+                    xData = xData;
+                    yData = yDataGroupMareyeur;
+                } else if (selectedData === 'NbrActeur') {
+                    xData = xData;
+                    yData = yDataNbrActeur;
+                } else if (selectedData === 'NbreGIEMarey') {
+                    xData = xData;
+                    yData = yDataNbreGIEMarey;
+                }
+        
+                if (selectedChartType === 'bar') {
+                    createBarChart(xData, yData);
+                } else if (selectedChartType === 'pie') {
+                    createPieChart(xData, yData);
+                }
+            });
+        
+            // Écouteur d'événement pour le changement de l'année sélectionnée
+            yearSelect.addEventListener('change', function () {
+                var selectedYear = yearSelect.value;
+                var selectedData = dataSelect.value;
+                var selectedChartType = document.querySelector('.chart-button.active').getAttribute('data-chart-type');
+                var xData;
+                var yData;
+        
+                // Logique de récupération des données en fonction de l'année sélectionnée (personnalisez selon vos besoins)
+                if (selectedYear === '2024') {
+                    xData = ['Label1', 'Label2', 'Label3'];
+                    yData = [10, 20, 30];
+                } else if (selectedYear === '2023') {
+                    xData = ['Label1', 'Label2', 'Label3'];
+                    yData = [15, 25, 35];
+                }else if (selectedYear === '2022') {
+                    xData = ['Label1', 'Label2', 'Label3'];
+                    yData = [25, 15, 45];
+                } else if (selectedYear === '2021') {
+                    xData = ['Label1', 'Label2', 'Label3'];
+                    yData = [5, 15, 25];
+                } else if (selectedYear === '2020') {
+                    xData = ['Label1', 'Label2', 'Label3'];
+                    yData = [45, 35, 25];
+                }
+            
+        
+                // Mettez à jour le graphique avec les données récupérées
+                if (selectedChartType === 'bar') {
+                    createBarChart(xData, yData);
+                } else if (selectedChartType === 'pie') {
+                    createPieChart(xData, yData);
+                }
+            });
+              // Écouteurs d'événement pour les boutons de type de graphique
+        chartTypeButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                // Remove the 'active' class from all buttons
+                chartTypeButtons.forEach(function (btn) {
+                    btn.classList.remove('active');
+                });
+
+                // Add the 'active' class to the clicked button
+                button.classList.add('active');
+
+                // Trigger the change event on the dataSelect element
+                dataSelect.dispatchEvent(new Event('change'));
+            });
+        });
+        
+            // Initialisez le graphique avec le type de graphique par défaut et les données par défaut
+            dataSelect.dispatchEvent(new Event('change'));
+        });
+    </script>
+    <script>
+    // Récupérer les données JSON depuis le contexte
+    var jsonData = {{ data|safe }};
+
+    // Extraire les données nécessaires du JSON
+    var years = jsonData.map(function(entry) { return entry.fields.date; });
+    var nbrActeurs = jsonData.map(function(entry) { return entry.fields.NbrActeur; });
+    var totalNbrActeur = nbrActeurs.reduce(function(a, b) { return a + b; }, 0);
+
+    var nbrGIEPecheur = jsonData.map(function(entry) { return entry.fields.NbreGIEPecheur; });
+    var totalNbreGIEPecheur = nbrGIEPecheur.reduce(function(a, b) { return a + b; }, 0);
+    var NbrOrganiProfessPecheur = jsonData.map(function(entry) { return entry.fields.NbrOrganiProfessPecheur; });
+    var totalNbrOrganiProfessPecheur=NbrOrganiProfessPecheur.reduce(function(a, b) { return a + b; }, 0);
+    var NbrAssociatPecheur = jsonData.map(function(entry) { return entry.fields.Nbr_AssociatPecheur; });
+    var totalNbrAssociatPecheur=NbrAssociatPecheur.reduce(function(a, b) { return a + b; }, 0);
+    
+    // Ajouter les totaux des autres catégories
+  
+    var NbrGIE_Marey = jsonData.map(function(entry) { return entry.fields.NbreGIE_Marey; });
+    var totalNbrGIE_Marey=NbrGIE_Marey.reduce(function(a, b) { return a + b; }, 0);
+    var NbrOrganiProfessMarey = jsonData.map(function(entry) { return entry.fields.NbrOrganiProfessMarey; });
+    var totalNbrOrganiProfessMarey=NbrOrganiProfessMarey.reduce(function(a, b) { return a + b; }, 0);
+    var NbrAssociatMarey = jsonData.map(function(entry) { return entry.fields.Nbr_AssociatMarey; });
+    var totalNbrAssociatMarey=NbrAssociatMarey.reduce(function(a, b) { return a + b; }, 0);
+    var NbrQuaiPech = jsonData.map(function(entry) { return entry.fields.NbreQuaiPech; });
+    var totalNbrQuaiPech=NbrQuaiPech.reduce(function(a, b) { return a + b; }, 0);
+    var QteannuelDebarq = jsonData.map(function(entry) { return entry.fields.Qteannuel_debarq; });
+    var totalQteannuelDebarq=QteannuelDebarq.reduce(function(a, b) { return a + b; }, 0);
+
+    // Préparer les données pour le diagramme
+   var plotData1= [
+        {
+            x: years,
+            y: nbrActeurs,
+            type: 'bar',
+            text: 'Nombre d\'acteurs',
+            marker: { color: 'rgba(75, 192, 192, 0.2)' },
+            name: 'Nombre d\'acteurs'
+        },
+        {
+            x: years,
+            y: nbrGIEPecheur,
+            type: 'bar',
+            text: 'Nombre de GIE Pecheur',
+            marker: { color: 'rgba(255, 0, 0, 0.2)' },
+            name: 'Nombre de GIE Pecheur'
+        },
+        {
+            x: years,
+            y: NbrOrganiProfessPecheur,
+            type: 'bar',
+            text: 'Nombre organisation Profess',
+            marker: { color: 'rgba(75, 192, 192, 0.2)' },
+            name: 'Nombre organisation Profess'
+        },
+        {
+            x: years,
+            y: NbrAssociatPecheur,
+            type: 'bar',
+            text: 'Association Pecheur',
+            marker: { color: 'rgba(255, 0, 0, 0.2)' },
+            name: 'Association Pecheur'
+        },
+        
+                {
+            x: years,
+            y: NbrGIE_Marey,
+            type: 'bar',
+            text: 'Nombre GIE marey',
+            marker: { color: 'rgba(75, 192, 192, 0.2)' },
+            name: 'Nombre GIE marey'
+        },
+        {
+            x: years,
+            y: NbrOrganiProfessMarey,
+            type: 'bar',
+            text: 'Nombre org prof marey',
+            marker: { color: 'rgba(255, 0, 0, 0.2)' },
+            name: 'Nombre org prof marey'
+        },
+        {
+            x: years,
+            y: NbrAssociatMarey,
+            type: 'bar',
+            text: 'Nombre asso marey',
+            marker: { color: 'rgba(75, 192, 192, 0.2)' },
+            name: 'Nombre asso marey'
+        },
+        {
+            x: years,
+            y: QteannuelDebarq,
+            type: 'bar',
+            text: 'Quantité débarque',
+            marker: { color: 'rgba(255, 0, 0, 0.2)' },
+            name: 'Quantité débarque'
+        },
+         ];
+        function toggleDiagrams() {
+        var categorySelect = document.getElementById("category");
+        var diagramContainer = document.getElementById("diagramContainer");
+
+        // Si l'option sélectionnée est "Acteur", afficher les diagrammes, sinon les masquer
+        if (categorySelect.value === "acteur") {
+            diagramContainer.style.display = "flex";
+        } else {
+            diagramContainer.style.display = "none";
+        }
+    }
+      //fin bar
+          // Préparer les données pour le deuxième diagramme
+var plotData2 = [
+    {
+        x: years,
+        y: nbrActeurs,
+        type: 'line',
+        text: totalNbrActeur.toString(), // Affichez le nombre total au survol
+        name: 'Total Acteurs'
+    },
+    {
+        x: years,
+        y: nbrGIEPecheur,
+        type: 'line',
+        text: totalNbreGIEPecheur.toString(), // Affichez le nombre total au survol
+        name: 'Total GIE Pecheur'
+    },
+    // Ajoutez les totaux des autres catégories de données avec le texte approprié ici
+    {
+        x: years,
+        y: NbrOrganiProfessPecheur,
+        type: 'line',
+        text: totalNbrOrganiProfessPecheur.toString(), // Affichez le nombre total au survol
+        name: 'Total org proff'
+    },
+    {
+        x: years,
+        y: NbrAssociatPecheur,
+        type: 'line',
+        text: totalNbrAssociatPecheur.toString(), // Affichez le nombre total au survol
+        name: 'Total Association Pecheur'
+    },
+    // Autres catégories de données avec le texte approprié
+    {
+        x: years,
+        y: NbrGIE_Marey,
+        type: 'line',
+        text: totalNbrGIE_Marey.toString(), // Affichez le nombre total au survol
+        name: 'Total GIE Marey'
+    },
+    {
+        x: years,
+        y: NbrOrganiProfessMarey,
+        type: 'histogram',
+        text: totalNbrOrganiProfessMarey.toString(), // Affichez le nombre total au survol
+        name: 'Total Org Prof Marey'
+    },
+    {
+        x: years,
+        y: NbrAssociatMarey,
+        type: 'line',
+        text: totalNbrAssociatMarey.toString(), // Affichez le nombre total au survol
+        name: 'Total Associat Marey'
+    },
+    {
+        x: years,
+        y: QteannuelDebarq,
+        type: 'line',
+        text: totalQteannuelDebarq.toString(), // Affichez le nombre total au survol
+        name: 'Total Quantité débarquée'
+    },
+];
+
+
+    var layout = {
+        title: 'Données par catégorie par année',
+        xaxis: {
+            title: 'Année'
+        },
+        yaxis: {
+            title: 'Valeurs'
+        }
+    };
+    // Créer le premier graphique Plotly
+    Plotly.newPlot('myPlot1', plotData1, layout);
+
+    // Créer le deuxième graphique Plotly
+    Plotly.newPlot('myPlot2', plotData2, layout);
+</script>
+<!-- IDiagramme charts -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // carburant Valeur commerciale du carburant vendu par Année
+    var years = []; // Remplacez par vos années
+    var valeurCommCarbu = []; // Remplacez par vos données par année
+
+    // Boucle à travers carburant_data pour remplir years et valeurCommCarbu
+    {% for item in carburant_data %}
+      years.push({{ item.annee }});
+      valeurCommCarbu.push({{ item.ValeurCommCarbu }});
+    {% endfor %}
+
+    var ctxLine = document.getElementById('lineChart').getContext('2d');
+    
+    // Vérifiez si years et valeurCommCarbu ont des données
+    if (years.length > 0 && valeurCommCarbu.length > 0) {
+      var lineChart = new Chart(ctxLine, {
+        type: 'bar',
+        data: {
+          labels: years,
+          datasets: [
+            {
+              label: '', // Chaîne vide pour supprimer la légende
+              backgroundColor: '#1da8dd', // Couleur des barres en bleu
+              data: valeurCommCarbu,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          barPercentage: 0.3,
+					   plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            }
+          // Vous pouvez ajouter des options supplémentaires ici si nécessaire
+        },
+
+      });
+    } 
+  });
+</script>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // carburant Valeur commerciale du carburant vendu par Année
+    var years = []; // Replace with your years
+    var volumeCarbu = []; // Replace with your data by year
+
+    // Loop through carburant_data to populate years and valeurCommCarbu
+    {% for item in carb_data %}
+      years.push({{ item.annee }});
+      volumeCarbu.push({{ item.VolumDebitCarb}});
+    {% endfor %}
+
+    var ctxLine = document.getElementById('lineC').getContext('2d');
+    
+    // Check if years and valeurCommCarbu have data
+    if (years.length > 0 && volumeCarbu.length > 0) {
+      var lineC = new Chart(ctxLine, {
+        type: 'bar',
+        data: {
+          labels: years,
+          datasets: [
+            {
+              label: 'Volume de Carburant par Année',
+              backgroundColor: '#1da8dd',
+              data: volumeCarbu,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          barPercentage: 0.2,
+
+          title: {
+            display: true,
+            text: 'Volume de Carburant par Année'
+          },
+            plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            }
+        }
+      });
+    } else {
+      console.error("No data available for the chart.");
+    }
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // carburant Valeur commerciale du carburant vendu par Année
+    var years = []; // Replace with your years
+    var nombre_acteurs = []; // Replace with your data by year
+
+    // Loop through carb_data to populate years and nombre_acteurs
+    {% for item in acteur_data %}
+      years.push({{ item.annee }});
+      nombre_acteurs.push({{ item.NbrPecheurTotRecensmt }});
+    {% endfor %}
+
+    var ctxBar = document.getElementById('myBarChart').getContext('2d');
+
+    // Check if years and nombre_acteurs have data
+    if (years.length > 0 && nombre_acteurs.length > 0) {
+      var myBarChart = new Chart(ctxBar, {
+        type: 'bar', // Change 'line' to 'bar'
+        data: {
+          labels: years,
+          datasets: [
+            {
+              label: 'nombre total d’acteur pêcheur recensement',
+              backgroundColor: '#1da8dd', // Specify the bar color
+              data: nombre_acteurs
+            }
+          ]
+        },
+        options: {
+          barPercentage: 0.2,
+          title: {
+            display: true,
+            text: 'nombre acteurs par Année',
+            
+          },
+	            plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            }
+        }
+      });
+    } else {
+      console.error("No data available for the chart.");
+    }
+  });
+</script>
+<script>
+	// Permis renouveler B+C
+document.addEventListener("DOMContentLoaded", function() {
+
+    var data = {
+        labels: [{% for obj in rnvlle %}"{{ obj.annee_modification }}", {% endfor %}],
+        datasets: [{
+            label: 'Permis renouvele B+C',
+            data: [{% for obj in rnvlle %}{{ obj.NbrPirogRenouvll }}, {% endfor %}],
+            backgroundColor: '#1da8dd', // Rouge
+            borderColor: '#1da8dd', // Rouge
+            borderWidth: 1,
+            pointBackgroundColor: [ // Tableau de couleurs pour les points
+                'rgba(255, 99, 132, 1)', // Rouge
+                'rgba(54, 162, 235, 1)', // Bleu
+                'rgba(255, 206, 86, 1)', // Jaune
+                'rgba(75, 192, 192, 1)' // Vert
+                // Ajoutez autant de couleurs que nécessaire pour chaque point
+            ]
+        }]
+    };
+
+    // Options du graphique
+    var options = {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+            plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            }
+    };
+
+    // Création du diagramme en ligne
+    var ctx = document.getElementById('permis').getContext('2d');
+    var lineChart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: options
+    });
+});
+</script>
+
+
+
+
+
+<script>
+  var years = [];
+  var data = [];
+  
+  // Loop through permimt to populate years and counts
+  {% for item in permimt %}
+    var year = {{ item.annee|safe }};
+    
+    // Check if the year already exists in the array
+    var existingYearIndex = years.indexOf(year);
+    
+    if (existingYearIndex === -1) {
+      // Year not found, add it
+      years.push(year);
+      data.push({
+        'type permis B longueur < à 13': {% if item.TypPermis == 'type permis B longueur < à 13' %}{{ item.NbrePiroguImmatPermis }}{% else %}0{% endif %},
+        'type permis C longueur > à 13': {% if item.TypPermis == 'type permis C longueur > à 13' %}{{ item.NbrePiroguImmatPermis }}{% else %}0{% endif %},
+         //'Renouvellement': {% if item.TypPermis == 'A' %}{{ item.NbrePiroguImmatPermis }}{% else %}0{% endif %}
+      });
+    } else {
+      // Year found, update the counts for that year
+      data[existingYearIndex]['type permis B longueur < à 13'] += {% if item.TypPermis == 'type permis B longueur < à 13' %}{{ item.NbrePiroguImmatPermis }}{% else %}0{% endif %};
+      data[existingYearIndex]['type permis C longueur > à 13'] += {% if item.TypPermis == 'type permis C longueur > à 13' %}{{ item.NbrePiroguImmatPermis }}{% else %}0{% endif %};
+       //data[existingYearIndex]['Renouvellement'] += {% if item.TypPermis == 'A' %}{{ item.NbrePiroguImmatPermis }}{% else %}0{% endif %};
+    }
+  {% endfor %}
+
+  // Your Chart.js code using the populated arrays
+  var ctx = document.getElementById('groupedBarChart').getContext('2d');
+  
+  var groupedBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'type permis B longueur < à 13',
+          data: data.map(item => item['type permis B longueur < à 13']),
+          backgroundColor: '#1da8dd'
+        },
+        {
+          label: 'type permis C longueur > à 13',
+          data: data.map(item => item['type permis C longueur > à 13']),
+          backgroundColor: 'green'
+        },
+       
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+
+<script>
+  // Données d'exemple
+  var typesPirogues = ['Type A', 'Type B', 'Type C'];
+  var especesCibles = ['2019', '2020', '2021','2022'];
+
+  var nombrePirogues = [
+    [0, 1050, 380],  // Type A
+    [0, 1050, 380],  // Type B
+    [0, 1050, 380],
+    [0, 1050, 380],    // Type C
+  ];
+
+  // Configuration du graphique
+  var ctx = document.getElementById('groupedBarChart0').getContext('2d');
+  var groupedBarChart0 = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: especesCibles,
+      datasets: typesPirogues.map(function (type, index) {
+        return {
+          label: type,
+          data: nombrePirogues[index],
+          backgroundColor: getBackgroundColor(index),
+          borderColor: getBorderColor(index),
+          borderWidth: 1
+        };
+      })
+    },
+    options: {
+      scales: {
+        x: { stacked: true },
+        y: { stacked: true }
+      }
+    }
+  });
+
+  // Fonction pour obtenir une couleur de fond en fonction de l'indice
+  function getBackgroundColor(index) {
+    var colors = ['red', 'blue', 'green'];
+    return colors[index % colors.length];
+  }
+
+  // Fonction pour obtenir une couleur de bordure en fonction de l'indice
+  function getBorderColor(index) {
+    var colors = ['darkred', 'darkblue', 'darkgreen'];
+    return colors[index % colors.length];
+  }
+</script>
+<script>
+	//Nombre de pirogues par type
+  var pirogueData = [
+    {% for item in pirogue_data %}
+      { TypePirogu: '{{ item.TypePirogu }}', NbrPirogu: {{ item.NbrPirogu }}, Annee: {{ item.annee }} }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ];
+
+  var groupedData = {};
+  pirogueData.forEach(item => {
+    if (!groupedData[item.Annee]) {
+      groupedData[item.Annee] = [];
+    }
+    groupedData[item.Annee].push({ type: item.TypePirogu, count: item.NbrPirogu });
+  });
+
+  var years = Object.keys(groupedData);
+  var types = Array.from(new Set(pirogueData.map(item => item.TypePirogu)));
+
+  // Define an array of colors (you can customize/add more colors as needed)
+  var colors = ['blue', 'green', 'orange', 'red', 'purple', 'yellow'];
+
+  var datasets = types.map((type, index) => ({
+    label: type,
+    data: years.map(year => {
+      var yearData = groupedData[year].find(item => item.type === type);
+      return yearData ? yearData.count : 0;
+    }),
+    backgroundColor: colors[index % colors.length], // Assign colors dynamically
+  }));
+
+  var ctx = document.getElementById('evolutionChart').getContext('2d');
+  
+  var evolutionChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: datasets,
+    },
+    options: {
+      barPercentage: 0.2,
+      scales: {
+        x: {
+          stacked: true,
+        },
+        y: {
+          beginAtZero: true,
+          stacked: true,
+        },
+      },
+		  plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            },
+		
+    },
+  });
+</script>
+
+
+<script>
+  // Sample data for the total quantity produced by artisanal transformation over the years
+  var years = ['2019', '2020', '2021', '2022'];
+  var quantity = [16676160, 12039982, 6993175, 5326590];
+
+  // Get the canvas element
+  var ctx = document.getElementById('scatterChart').getContext('2d');
+
+  // Create a scatter chart
+  var scatterChart = new Chart(ctx, {
+      type: 'bar',  // Corrected to 'scatter'
+      data: {
+          labels: years,
+          datasets: [{
+              label: 'Quantité totale produite par la transformation artisanale (kg) au fil des années',
+              data: quantity,
+  
+              backgroundColor: '#1da8dd',
+              borderColor: '#1da8dd',
+              borderWidth: 1
+          }]
+      },
+      options: {
+        barPercentage: 0.2,
+
+          scales: {
+              x: {
+                  type: 'category',
+                  position: 'bottom',
+                  title: {
+                      display: true,
+                      text: 'Année'
+                  }
+              },
+              y: {
+                  type: 'linear',
+                  position: 'left',
+                  title: {
+                      display: true,
+                      text: ''
+                  }
+              }
+          }
+      }
+  });
+</script>
+
+<script>
+  // Sample data for the total quantity produced by artisanal transformation over the years
+  var years = ['2019', '2020', '2021', '2022'];
+  var quantity = [8335974700,4957481200,2852495300,2435916700];
+
+  // Get the canvas element
+  var ctx = document.getElementById('scatterCharteee').getContext('2d');
+
+  // Create a scatter chart
+  var scatterCharteee = new Chart(ctx, {
+      type: 'bar',  // Corrected to 'scatter'
+      data: {
+          labels: years,
+          datasets: [{
+              label: 'valeur commerciale de la production totale en(fcfa) par année',
+              data: quantity,
+              backgroundColor: '#1da8dd',
+              borderColor: '#1da8dd',
+              borderWidth: 1
+          }]
+      },
+      options: {
+        barPercentage: 0.2,
+
+          scales: {
+              x: {
+                  type: 'category',
+                  position: 'bottom',
+                  title: {
+                      display: true,
+                      text: 'Année'
+                  }
+              },
+              y: {
+                  type: 'linear',
+                  position: 'left',
+                  title: {
+                      display: true,
+                      text: ''
+                  }
+              }
+          }
+      }
+  });
+</script>
+
+<script>
+  var pirogueData = [
+    {% for item in pirogue_data %}
+      { TypePirogu: '{{ item.TypePirogu }}', NbrPirogu: {{ item.NbrPirogu }}, Annee: {{ item.annee }} }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ];
+
+  var groupedData = {};
+  pirogueData.forEach(item => {
+    if (!groupedData[item.Annee]) {
+      groupedData[item.Annee] = [];
+    }
+    groupedData[item.Annee].push({ type: item.TypePirogu, count: item.NbrPirogu });
+  });
+
+  var years = Object.keys(groupedData);
+  var types = Array.from(new Set(pirogueData.map(item => item.TypePirogu)));
+
+  // Define an array of colors (you can customize/add more colors as needed)
+  var colors = ['blue', 'green', 'orange', 'red', 'purple', 'yellow'];
+
+  var datasets = types.map((type, index) => ({
+    label: type,
+    data: years.map(year => {
+      var yearData = groupedData[year].find(item => item.type === type);
+      return yearData ? yearData.count : 0;
+    }),
+    backgroundColor: colors[index % colors.length], // Assign colors dynamically
+  }));
+
+  var ctx = document.getElementById('evolutionChart').getContext('2d');
+  
+  var evolutionChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: datasets,
+    },
+    options: {
+      barPercentage: 0.2,
+      scales: {
+        x: {
+          stacked: true,
+        },
+        y: {
+          beginAtZero: true,
+          stacked: true,
+        },
+      },
+    },
+  });
+</script>
+
+<script>
+  // Valeur Commerciale Annuelle
+  var annees = [];
+  var CaptAnnuel = [];
+
+  // Loop through CaptAnnuel data to populate years and valeurCommCarbu
+  {% for item in CaptAnnuel %}
+    annees.push({{ item.annee }});
+    CaptAnnuel.push({{ item.ValeurComCaptAnnuel }});
+  {% endfor %}
+
+  var ctx = document.getElementById('valeurComCaptAnnuelChart').getContext('2d');
+
+  var valeurComChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: annees,
+      datasets: [{
+        label: 'Valeur Commerciale Annuelle',
+        data: CaptAnnuel,
+        borderColor: '#1da8dd', // Définir la couleur des bordures à bleu si nécessaire
+        backgroundColor: '#1da8dd', // Définir la couleur de fond à bleu
+        fill: false,
+      }]
+    },
+    options: {
+      
+barPercentage: 0.2,
+      title: {
+        display: true,
+        text: 'Évolution de la Valeur Commerciale Annuelle de la Capture de Poisson',
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+        }
+      },
+            plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            }
+    }
+  });
+</script>
+
+
+<script>
+  // Quantité Annuelle de Débarquement
+  var annees = [];
+  var qteAnnuelDebarq = [];
+  var colors = ['#1da8dd', '#1da8dd', '#1da8dd', '#1da8dd'];
+
+  // Loop through carburant_data to populate years and valeurCommCarbu
+  {% for item in Qteannuel %}
+    annees.push({{ item.annee }});
+    qteAnnuelDebarq.push({{ item.Qteannuel_debarq}});
+  {% endfor %}
+
+  var ctx = document.getElementById('qteAnnuelDebarqChart').getContext('2d');
+
+  var qteAnnuelDebarqChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: annees,
+      datasets: [{
+        label: 'Quantité Annuelle de Débarquement (kg)',
+        data: qteAnnuelDebarq,
+        backgroundColor: colors,
+      }]
+    },
+    options: {
+      barPercentage: 0.2,
+
+      title: {
+        display: true,
+        text: 'Évolution de la Quantité Annuelle de Débarquée de Poisson',
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+        }
+      },
+            plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            }
+    }
+  });
+</script>
+<script>
+  // Répartition de la capture annuelle
+
+  var repartitionData = [
+    {% for item in repartition_data %}
+      { TypRepartiProd: '{{ item.TypRepartiProd }}', QteRepAnnuel: {{ item.QteRepAnnuel }}, Annee: '{{ item.annee }}' }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ];
+
+  var groupedData = {};
+  repartitionData.forEach(item => {
+    if (!groupedData[item.Annee]) {
+      groupedData[item.Annee] = [];
+    }
+    groupedData[item.Annee].push({ type: item.TypRepartiProd, count: item.QteRepAnnuel });
+  });
+
+  var years = Object.keys(groupedData);
+  var types = Array.from(new Set(repartitionData.map(item => item.TypRepartiProd)));
+
+  // Définir un tableau de couleurs pour chaque type
+  var colors = ['blue', 'red', 'green', 'orange', 'purple']; // Ajoutez autant de couleurs que nécessaire
+
+  var datasets = types.map((type, index) => ({
+    label: type,
+    data: years.map(year => {
+      var yearData = groupedData[year].find(item => item.type === type);
+      return yearData ? yearData.count : 0;
+    }),
+    backgroundColor: colors[index % colors.length], // Utilisation de modulo pour répéter les couleurs si nécessaire
+  }));
+
+  var ctx = document.getElementById('repartitionChart').getContext('2d');
+
+  var repartitionChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: datasets,
+    },
+    options: {
+      barPercentage: 0.2,
+
+      title: {
+        display: true,
+        text: 'Stacked Bar Chart for QteRepartiAnnuel',
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+        x: {
+          stacked: true,
+        }
+      },
+	 plugins: {
+                legend: {
+                    display: false // Supprimer la légende
+                }
+            }
+    }
+  });
+</script>
+
+
+
+
+<script>
+  var typesPirogue = ['Senne tournante', 'Filet dormant de fond', 'Filet maillant de surface', 'Casier', 'Glacière (marré)', 'À lignes'];
+  var annees = [2019, 2020, 2021, 2022];  // Vous pouvez ajouter plus d'années si nécessaire
+  var donneesPirogues = {
+    'Senne tournante': [145, 220, 255, 166],
+    'Filet dormant de fond': [220, 380, 0, 0],
+    'Filet maillant de surface': [255, 0, 0, 0],
+    'Casier': [166, 0, 0, 0],
+    'Glacière (marré)': [92, 0, 0, 0],
+    'À lignes': [352, 0, 0, 0]
+  };
+
+  var ctxEvolution = document.getElementById('evolutionChart').getContext('2d');
+
+  var evolutionChart = new Chart(ctxEvolution, {
+    type: 'line',
+    data: {
+      labels: annees,
+      datasets: Object.keys(donneesPirogues).map(function(key) {
+        var data = donneesPirogues[key];
+        return {
+          label: key,
+          data: data,
+          fill: false,
+          borderColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',1)'
+        };
+      })
+    },
+    options: {
+      scales: {
+        x: { display: true },
+        y: { display: true, beginAtZero: true }
+      },
+      title: {
+        display: true,
+        text: 'Évolution du nombre de pirogues par type'
+      }
+    }
+  });
+</script>
+
+
+<script>
+  var typesPirogue = ['Senne tournante', 'Filet dormant de fond', 'Filet maillant de surface', 'Casier', 'Glacière (marré)', 'À lignes'];
+  var especesCiblees = ['Sardinelle plate', 'Sardinelle ronde', 'Chinchard noir', 'Chinchard blanc', 'Ethmologe', 'Scomber', 'Sompath', 'Brochet', 'Caranx', 'Pelon', 'Sole', 'Murex', 'Cymbium', 'Langouste', 'Poissons divers', 'Crevettes', 'Ethmalose', 'Mugil', 'Seiche', 'Quin', 'Raie', 'Otolithe (fetheu)', 'Crustacée', 'Machoiron', 'Thiof', 'Dorade', 'Pageot', 'Vivaneaux', 'Sompath', 'Caranx', 'Baracouda', 'Calamar', 'Poulpe'];
+  var annees = [2020];  // Vous pouvez ajouter plus d'années si nécessaire
+
+  // Vous devez ajuster ces données en fonction de votre modèle et de vos données réelles
+  var donneesPirogueEspec = [
+    [145, 0, 0, 0, 0, 0],   // Pirogue senne tournante
+    [0, 220, 0, 0, 0, 0],   // Pirogue filet dormant de fond
+    [0, 0, 255, 0, 0, 0],   // Pirogue filet maillant de surface
+    [0, 0, 0, 166, 0, 0],   // Pirogue casier
+    [0, 0, 0, 0, 92, 0],   // Pirogue glacière (marré)
+    [0, 0, 0, 0, 0, 352]    // Pirogue à lignes
+  ];
+
+  var ctxPirogueEspec = document.getElementById('pirogueEspecChart').getContext('2d');
+
+  var pirogueEspecChart = new Chart(ctxPirogueEspec, {
+    type: 'bar',
+    data: {
+      labels: typesPirogue,
+      datasets: especesCiblees.map(function(espece, index) {
+        return {
+          label: espece,
+          data: donneesPirogueEspec.map(function(row) {
+            return row[index];
+          }),
+          backgroundColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',0.7)'
+        };
+      })
+    },
+    options: {
+      scales: {
+        x: { display: true },
+        y: { display: true, beginAtZero: true }
+      },
+      title: {
+        display: true,
+        text: 'Répartition du Type de Pirogue par Espèce Ciblée'
+      }
+    }
+  });
+</script>
+		
+<script>
+    // Sample data for the quantity of fresh fish over the years
+    var years = ['2019','2020','2021','2022'];
+    var quantity = [50029980, 36119946, 19582233, 15979770];
+
+    // Get the canvas element
+    var ctx = document.getElementById('financeChart').getContext('2d');
+
+    // Create a line chart
+    var financeChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: years,
+            datasets: [{
+                label: 'Quantité d approvisionnement en poisson frais',
+                data: quantity,
+                borderColor: '#1da8dd',
+                backgroundColor: '#1da8dd',
+                borderWidth: 2,
+                pointRadius: 5,
+                pointBackgroundColor: '#1da8dd',
+            }]
+        },
+        options: {
+          barPercentage: 0.2,
+
+            scales: {
+                x: {
+                    type: 'category',  // Set the x-axis type to 'category'
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Années'
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: ''
+                    }
+                }
+            }
+        }
+    });
+</script>
+<script>
+			//nombre acteur de pêche 
+		
+
+ const labels = [
+                    {% for act in acts %}
+                        "{{ act.ActPech_Artisan }}",
+                    {% endfor %}
+                ];
+				const data2019 = [
+    {% for act in acts %}
+        {% if act.annee_modification == 2019 %}
+            {{ act.NbrActeur }},
+        {% else %}
+            0,
+        {% endif %}
+    {% endfor %}
+];
+            
+                const data2020 = [
+                    {% for act in acts %}
+                        {% if act.annee_modification == 2020 %}
+                            {{ act.NbrActeur }},
+                        {% else %}
+                            0,
+                        {% endif %}
+                    {% endfor %}
+                ];
+            
+                const data2021 = [
+                    {% for act in acts %}
+                        {% if act.annee_modification == 2021 %}
+                            {{ act.NbrActeur }},
+                        {% else %}
+                            0,
+                        {% endif %}
+                    {% endfor %}
+                ];
+            
+                const data2022 = [
+                    {% for act in acts %}
+                        {% if act.annee_modification == 2022 %}
+                            {{ act.NbrActeur }},
+                        {% else %}
+                            0,
+                        {% endif %}
+                    {% endfor %}
+                ];
+            
+                const data2023 = [
+                    {% for act in acts %}
+                        {% if act.annee_modification == 2023 %}
+                            {{ act.NbrActeur }},
+                        {% else %}
+                            0,
+                        {% endif %}
+                    {% endfor %}
+                ];
+            
+
+            
+                // Configuration du graphique
+                const config = {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [
+										// Ajoutez une nouvelle série de données pour l'année 2019 dans le tableau datasets
+{
+    label: 'Nombre d\'acteurs 2019',
+    data: data2019,
+    backgroundColor: '#1da8dd', // Couleur de fond des barres
+    borderColor: '#1da8dd', // Couleur de la bordure des barres
+    borderWidth: 1,
+    hidden: true // Masquer par défaut
+},
+                            {
+                                label: 'Nombre d\'acteurs 2020',
+                                data: data2020,
+                                backgroundColor: '#1da8dd', // Couleur de fond des barres
+                                borderColor: '#1da8dd', // Couleur de la bordure des barres
+                                borderWidth: 1,
+                                showLine: false, // Désactiver l'affichage de la ligne de légende
+                                fill: false // Ne pas remplir la légende
+                            },
+                            {
+                                label: 'Nombre d\'acteurs 2021',
+                                data: data2021,
+                                backgroundColor: '#1da8dd', // Couleur de fond des barres
+                                borderColor: '#1da8dd', // Couleur de la bordure des barres
+                                borderWidth: 1,
+                                hidden: true // Masquer par défaut
+                            },
+                            {
+                                label: 'Nombre d\'acteurs 2022',
+                                data: data2022,
+                                backgroundColor: '#1da8dd', // Couleur de fond des barres
+                                borderColor: '#1da8dd', // Couleur de la bordure des barres
+                                borderWidth: 1,
+                                hidden: true // Masquer par défaut
+                            },
+                            {
+                                label: 'Nombre d\'acteurs 2023',
+                                data: data2023,
+                                backgroundColor: '#1da8dd', // Couleur de fond des barres
+                                borderColor: '#1da8dd', // Couleur de la bordure des barres
+                                borderWidth: 1,
+                                hidden: true // Masquer par défaut
+                            },
+                          
+                        ]
+                    },
+                    options: {
+						
+                      scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false // Désactiver l'affichage de la légende globale
+                        }
+                    }
+                }
+                };
+            
+                // Création du graphique
+                var acteur = new Chart(
+                    document.getElementById('acteur'),
+                    config
+                );
+            
+                // Fonction pour basculer entre les graphiques
+                function toggleChart(index) {
+                    acteur.data.datasets.forEach((dataset, i) => {
+                        dataset.hidden = i !== index;
+                    });
+                    acteur.update();
+                }
+  
+
+</script>
+
+  <style>
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    color: #333;
+    border: 1px solid #ddd;
+  }
+  
+  .pirogue-type {
+    font-weight: bold;
+    color: #0066cc;
+  }
+  
+  .target-species {
+    color: #009900;
+  }
+    /* Add this style to set a white background and a border for the chart containers */
+    .chart-container {
+        background-color: #ffffff; /* White background color */
+        border: 1px solid #dddddd; /* Border color */
+        border-radius: 10px; /* Border radius for rounded corners */
+        padding: 15px; /* Padding inside the container */
+        margin-bottom: 20px; /* Margin at the bottom to separate containers */
+        border: 1px solid #dddddd; /* Border color */
+        border-radius: 10px; /* Border radius for rounded corners */
+        padding: 20px; /* Padding inside the container */
+        margin-bottom: 20px; /* Margin at the bottom to separate containers */
+        max-width: 600px; /* Maximum width for the chart container */
+        margin: 0 auto; /* Center the container on the page */
+      }
+</style>
+
+    {% endblock %}
+</html>

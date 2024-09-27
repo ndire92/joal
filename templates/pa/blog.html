@@ -1,0 +1,86 @@
+{% extends 'layout/base.html'%}
+
+{% load static %}
+<title>{% block title%}My block{%endblock%}</title>
+
+
+    <header>
+        {% include 'layout/partial/header.html' %}
+    </header>
+
+<div class="body container">
+    {% block body  %}
+
+<center><h2 style=" color: #258baf; margin:6%;"></h2></center>
+
+  <div class="row row-cols-md-3 row-cols-sm-6" style="margin:6%">
+    {% for post in posts %}
+    <div class="col">
+        <div class="custom-card card mb-3 shadow" style="display: flex; flex-direction: column; width: 300px;">
+            {% if post.image %}
+            <img src="{{ post.image.url }}" class="card-img-top card-img-custom" alt="...">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title" style="color: #000;text-align: center">{{ post.title }}</h5>
+                <p class="card-text"style="color:#fff;font-size: 20px;" >{{ post.content|truncatechars:"70"|safe }}</p>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'detail' post.id %}" class="btn btn-primary" style="background-color: #258baf; color: #fff;">Savoir Plus</a>
+                {% if post.user == request.user %}
+                <a href="{% url 'update_post' post.id %}" class="btn btn-info">Update</a>
+                <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+                {% endif %}&nbsp;&nbsp;&nbsp;&nbsp;
+                <b style="color: #000;">{{ post.date_en }}</b>
+                <b style="color: #258baf;">{{ post.user.username }}</b>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+<nav aria-label="Pagination">
+    <hr class="my-0" />
+    <ul class="pagination justify-content-center my-4">
+        {% if posts.has_previous %}
+            <li class="page-item "><a class="page-link" href="?page={{posts.previous_page_number}}" tabindex="-1" aria-disabled="true">Previous</a></li>
+        {% endif %}
+        <li class="page-item active" aria-current="page"><a class="page-link" href="#!">{{posts.number}}</a></li>
+        {% if posts.paginator.num_pages != posts.number %}
+            <li class="page-item"><a class="page-link" href="#!">of</a></li>
+            <li class="page-item"><a class="page-link" href="#!">{{posts.paginator.num_pages}}</a></li>
+        {% endif %}
+        {% if posts.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{posts.next_page_number}}">Next</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+
+  <style>
+          .card-img-custom {
+        height: 200px;
+        border-radius: 5px;
+       /* Set the desired height for the images */
+        object-fit: cover; /* This property ensures the image scales uniformly */
+    }
+      .card {
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         margin: 10px;
+        background: linear-gradient(180deg, #258baf 42.86%, rgba(217, 217, 217, 0));
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .card-body {
+         padding: 20px;
+         
+      }
+
+
+   </style>
+
+
+    {% endblock %}
+
+   <div>

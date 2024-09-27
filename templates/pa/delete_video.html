@@ -1,0 +1,32 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+<title>{% block title%}Confirmation de Suppression{% endblock %}</title>
+
+<header>
+    {% include 'layout/partial/header.html' %}
+</header>
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    Confirmation de Suppression
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Voulez-vous vraiment supprimer la vidéo "{{ video.title }}" ?</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+                            <a href="{% url 'b' %}" class="btn btn-secondary">Annuler</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

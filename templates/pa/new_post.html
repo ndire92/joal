@@ -1,0 +1,95 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}post{% endblock %}
+
+{% block body %}
+
+
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Nouveau blog</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ post_form.as_p }}
+                <button type="submit">Enregistrer </button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>Nouvelle Vidéo</h2>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ video_form.as_p }}
+                <button type="submit">Enregistrer la Vidéo</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</div>
+
+<style>
+/* Styliser les boutons */
+button[type="submit"] {
+    background-color: #557029;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #3d4c1e; /* Légèrement plus foncé au survol */
+  }
+  
+  /* Styliser les titres */
+  h1, h2 {
+    color: #557029;
+  }
+  
+  /* Styliser les conteneurs */
+  .container {
+    margin-top: 20px;
+  }
+  
+  /* Styliser les colonnes */
+  .col-md-6 {
+    margin-bottom: 20px;
+  }
+  
+  /* Ajouter une bordure autour des formulaires */
+  form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  /* Styliser les champs de formulaire */
+  input[type="text"], input[type="file"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Styliser les étiquettes de formulaire */
+  label {
+    font-weight: bold;
+  }
+  
+  /* Redimensionner les vidéos pour qu'elles s'adaptent à la largeur de la colonne */
+  video {
+    width: 100%;
+  }
+  
+</style>
+
+{% endblock %}

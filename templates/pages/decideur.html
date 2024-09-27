@@ -1,0 +1,716 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Precvadi - Joal</title>
+
+    <!-- Inclure le fichier CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Inclure les fichiers CSS statiques -->
+    <link rel="stylesheet" href="{% static 'ass/css/Abril%20Fatface.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Advent%20Pro.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Alatsi.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Inter.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/fonts/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Bold-BS4-Footer-Big-Logo.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Google-Map-With-Full-Wide.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom-animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/untitled.css' %}">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <script src="{% static 'assets/plugins/datatables/datatables.min.js'%}"></script>
+      <script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+    <!-- Inclure jQuery avant Bootstrap.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <link rel="stylesheet" href="{% static 'ass/css/index.css' %}">
+
+
+    <!-- Inclure Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'ass/fonts/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+    <link href="  https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css"> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Initialisez le menu déroulant après que le document soit prêt
+  $(document).ready(function() {
+    $('.dropdown-toggle').dropdown();
+  });
+
+$(document).ready(function() {
+    $('#table_id').DataTable({
+      paging: true,
+      ordering: true,
+      searching: true,  // This option should enable the search feature
+    });
+});
+</script>
+
+    
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'as/fonts/flaticon.css '%}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+    
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+  {% include 'layout/partial/header.html' %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    {% block body  %}
+          <div class="container">
+			 <div class="col-md-12">
+                <div>
+                    <img class="w-100 d-block" src="  {% static 'ass/img/BANIÈRE.png'%}" alt="Slide Image">
+                  </div>
+            </div>
+           
+        </div>
+    <div class="containerv">
+  <h5 style="margin-top: 47px; font-size: 30px; height: 47.8px; text-align: center;">
+    <strong><span style="color: rgb(0, 0, 0);"></span><span style="color: #1da8dd;">Visualisation des données de la pêche et de la transformation artisanales</span></strong>
+</h5>
+</div>
+    <!-- Sélecteur pour les données -->
+    <!-- section class="py-5">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 d-flex align-items-center">
+                    <label for="data-select">Sélectionnez les données :</label>
+                    <select class="form-select" id="data-select">
+                        <option selected>Indicateur</option>
+                        <option value="GroupMareyeur">GroupMareyeur</option>
+                        <option value="NbrActeur">NbrActeur</option>
+                        <option value="NbreGIEMarey">NbreGIEMarey</option>
+                    </select>
+                </div>
+                <div class="col-md-3 d-flex align-items-center mx-2">
+                    <select class="form-select" id="year-select" aria-label="Select 2">
+                        <option selected>Année</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                    </select>
+                </div>
+                
+            </div>
+        </div>
+    </!-->
+    
+    <section class="py-3 mt-3">
+  <div class="container" style="background: #1da8dd; border-radius: 42px">
+    <div class="container">
+      <div class="row">
+        <div class="row custom-margin">
+          <div class="col-12 col-md-4">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-action" style="font-size: 30px; color: #1da8dd; text-align: center; font-weight: bold;">DOMAINE PECHE</a>
+          
+              <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home" style="font-size: 20px;text-align: center; font-weight: bold;">Pêche artisanale
+                  <label for="year-select-artisanale" style="font-size: 16px; text-align: center;">
+                  Sélectionnez une année:
+                  <select id="year-select-artisanale" style="font-size: 16px; padding: 5px; margin: 10px;">
+                      {% for year in data_by_year %}
+                      <option value="{{ year }}">{{ year }}</option>
+                      {% endfor %}
+                  </select>
+              </label>
+              </a>
+          
+            
+          
+              <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages" style="font-size: 20px;text-align: center; font-weight: bold;">Pêche Transformation artisanale
+                       
+              <label for="year-select-transformation" style="font-size: 16px; text-align: center;">
+                  Sélectionnez une année:
+                  <select id="year-select-transformation" style="font-size: 16px; padding: 5px; margin: 10px;">
+                      {% for year in data_by_year %}
+                      <option value="{{ year }}">{{ year }}</option>
+                      {% endfor %}
+                  </select>
+              </label>       
+              
+              </a>
+       
+              <!--a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">Tableaux</a-->
+          </div>
+          
+        </div>
+       
+          <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+
+              <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"> <section id="artisanale">
+                <article>
+                  <!-- Ajoutez des boutons ici avec les liens appropriés -->
+                  <div class="buttons-container">
+                      <a href="{% url 'donne'%}" class="button button--secondary--fill">Vue Pêche artisanale Dashboard</a>
+                      <a href="#diagram" class="button" onclick="toggleDiagram()">Diagrammes</a>
+                      <a href="#arg" class="button">Map</a>
+                  </div>
+              
+                  <div id="carousel-container-peche-artisanale">
+				  
+				  
+                    {% for year, data in data_by_year.items %}
+                    {% with source=sources_by_year %}
+                
+                    <div class="l-4up">
+                        <!-- Bloc pour le Nombre GIE Pêcheurs -->
+                        <div class="l-2up__col" data-year="{{ year }}">
+                            <div class="spotlight__stat">
+                                <h3 class="spotlight__stat-heading">Nombre GIE Pêcheurs
+                                    <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                      <i class="fas fa-info-circle update-info" title="Source: {{ source }}"></i>
+                                    </span>
+                                </h3>
+                                <p class="spotlight__stat-data">{{ data.0.NbreGIEPecheur }}</p>
+                            </div>
+                        </div>
+                        <!-- Bloc pour le Nombre Organisations professionnelles Pêcheurs -->
+                        <div class="l-2up__col" data-year="{{ year }}">
+                            <div class="spotlight__stat">
+                                <h3 class="spotlight__stat-heading">Nombre Organisations professionnelles Pêcheurs
+                                    <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                        <i class="fas fa-info-circle update-info" title="Source: {{ source }}"></i>
+                             
+                                    </span>
+                                </h3>
+                                <p class="spotlight__stat-data">{{ data.0.NbrOrganiProfessPecheur }}</p>
+                            </div>
+                        </div>
+                    
+                
+                        <div class="l-2up__col">
+                          <div class="spotlight__stat">
+                              <h3 class="spotlight__stat-heading"> Nombre Associations Pêcheurs
+                                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                              </span>
+                              </h3>
+                              <p class="spotlight__stat-data">{{data.0.Nbr_AssociatPecheur}}</p>
+                          </div>
+                      </div>
+                      <div class="l-2up__col">
+                        <div class="spotlight__stat">
+                            <h3 class="spotlight__stat-heading"> Nombre GIE Mareyeurs 
+                                  <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                              </span>
+                            </h3>
+                            <p class="spotlight__stat-data">{{data.0.NbreGIEMarey}}</p>
+                        </div>
+                    </div>
+                   
+                      <!-- Add similar blocks for other statistics -->
+                      <div class="l-2up__col">
+                        <div class="spotlight__stat">
+                         <h3 class="spotlight__stat-heading"> Nombre Organisations professionnelles Mareyeurs
+                         <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                         </span>
+                      </h3>
+                      <p class="spotlight__stat-data">{{data.0.NbrOrganiProfessMarey}}</p>
+                      </div>
+                    </div> 
+                    <div class="l-2up__col">
+                      <div class="spotlight__stat">
+                          <h3 class="spotlight__stat-heading"> Nombre Associations Mareyeurs
+                            <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                              <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                          </span>
+                          </h3>
+                          <p class="spotlight__stat-data">{{data.0.Nbr_AssociatMarey}}</p>
+                      </div>
+                  </div>
+                  <div class="l-2up__col">
+                      <div class="spotlight__stat">
+                          <h3 class="spotlight__stat-heading"> Nombre de Quai de pêche 
+                            <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                              <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                          </span>
+                          </h3>
+                          <p class="spotlight__stat-data">{{data.0.NbreQuaiPech}}</p>
+                      </div>
+                  </div> 
+                  <div class="l-2up__col hidden" data-year="{{ year }}">
+                    <div class="spotlight__stat">
+                        <h3 class="spotlight__stat-heading"> Quantité débarquée par année 
+                          <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                            <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                        </span>
+                        </h3>
+                        <p class="spotlight__stat-data">{{ data.0.Qteannuel_debarq }}</p>
+                    </div>
+                </div> 
+                <div class="l-2up__col hidden" data-year="{{ year }}">
+                  <div class="spotlight__stat">
+                    <h3 class="spotlight__stat-heading"> Nombre de Pirogues en bois 
+                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                      <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                    </span>
+                    </h3>
+                    <p class="spotlight__stat-data">{{data.0.NbrPirogBois}}</p>
+                  </div>
+                </div> 
+                <div class="l-2up__col hidden" data-year="{{ year }}">
+                  <div class="spotlight__stat">
+                      <h3 class="spotlight__stat-heading"> Nombre de Pirogues en verre
+                        <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                      </span>
+                      </h3>
+                      <p class="spotlight__stat-data">{{data.0.NbrePirogFibVer}}</p>
+                  </div>
+                </div>
+                <div class="l-2up__col hidden" data-year="{{ year }}">
+                  <div class="spotlight__stat">
+                      <h3 class="spotlight__stat-heading">Nombre de Pirogues en Aluminium
+                        <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                      </span>
+                      </h3>
+                      <p class="spotlight__stat-data">{{data.0.NbrPirogAlumin}}</p>
+                  </div>
+                </div> 
+                <div class="l-2up__col hidden" data-year="{{ year }}">
+                <div class="spotlight__stat">
+                    <h3 class="spotlight__stat-heading"> Nombre de Pirogues immatriculées
+                     
+                        <span class="spotlight__stat-icon css-4po351" aria-describedby="popup-2">
+                           <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                        </span>
+                    </h3>
+                    <p class="spotlight__stat-data">{{data.0.NbrePirogImmatri}}</p>
+                </div>
+                </div> 
+                <div class="l-2up__col hidden" data-year="{{ year }}">
+                  <div class="spotlight__stat">
+                      <h3 class="spotlight__stat-heading">Valeur commerciale de la capture annuelle (fcfa)
+                        <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                      </span>
+                      </h3>
+                      <p class="spotlight__stat-data">{{data.0.ValeurComCaptAnnuel}}</p>
+                  </div>
+              </div>
+              <div class="l-2up__col hidden" data-year="{{ year }}">
+                <div class="spotlight__stat">
+                <h3 class="spotlight__stat-heading"> Volume débité en carburant (litre)
+                <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                </span>
+                </h3>
+                
+                <p class="spotlight__stat-data">{{data.0.VolumDebitCarb}}</p>
+                </div>
+            </div> 
+            <div class="l-2up__col hidden" data-year="{{ year }}">
+              <div class="spotlight__stat">
+              <h3 class="spotlight__stat-heading"> Nombre total de Stations de Carburant
+                <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+              </span>
+              </h3>
+              <p class="spotlight__stat-data">{{data.0.TotStatCarbu}}</p>
+              </div>
+              </div> 
+			  <div class="l-2up__col hidden" data-year="{{ year }}">
+                <div class="spotlight__stat">
+                <h3 class="spotlight__stat-heading">Nombre total de fabriques de glace
+                  <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                    <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                </span>
+                </h3>
+                <p class="spotlight__stat-data">{{data.0.NbrTotFabriqGlace}}</p>
+                </div>
+                </div> 
+                 <div class="l-2up__col hidden" data-year="{{ year }}">
+                  <div class="spotlight__stat">
+                  <h3 class="spotlight__stat-heading"> Nombre total de mareyeurs déclarés
+                    <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                      <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                  </span>
+                  </h3>
+                  <p class="spotlight__stat-data">{{data.0.NbrMareyTotDeclare}}</p>
+                  </div>
+                  </div> 
+                   <div class="l-2up__col hidden" data-year="{{ year }}">
+                    <div class="spotlight__stat">
+                    <h3 class="spotlight__stat-heading"> Nombre total de mareyeurs recensés
+                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                        <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                    </span>
+                    </h3>
+                    <p class="spotlight__stat-data">{{data.0.NbrMareyTotRecensmt}}</p>
+                    </div>
+                    </div> 
+                     <div class="l-2up__col hidden" data-year="{{ year }}">
+                      <div class="spotlight__stat">
+                      <h3 class="spotlight__stat-heading">Nombre total de pêcheurs recensés
+                        <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                      </span>
+                      </h3>
+                      <p class="spotlight__stat-data">{{data.0.NbrPecheurTotRecensmt}}</p>
+                      </div>
+                      </div>
+            
+                          <!-- Ajoutez d'autres blocs pour d'autres statistiques ici -->
+                      </div>
+                      {% endwith %}
+                      {% endfor %}
+                  </div>
+              </article>
+              
+            <div class="carousel-navigation">
+              <button onclick="prevSlide('artisanale')">Précédent</button>
+              <button onclick="nextSlide('artisanale')">Suivant</button>
+          </div>
+          </section>
+        </div>
+              <div class="tab-pane fade" id="" role="tabpanel" aria-labelledby="">
+               
+          </div>
+              <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">  
+                <section id="transformation">
+                <article>
+                  <div class="buttons-container">
+                    <a href="{% url 'donne'%}" class="button button--secondary--fill">Vue Pêche artisanale Dashboard</a>
+                    <a href="#diagram" class="button" onclick="toggleDiagram()">Diagrammes</a>
+                    <a href="#arg" class="button">Map</a>
+                </div>
+                <div class="tabs__content__header">
+                    <div class="css-aoc9mf">
+                        <div class="css-1kibl69">
+                            <span class="css-33iqer"> </span>
+                            <b class="css-1rkunny"></b>
+                            <span class="spotlight__stat-icon css-4po351" aria-describedby="popup-7">
+                                <i role="presentation" aria-hidden="true" class="ico ico--12 ico-info-slate css-1n3lmup"></i>
+                            </span>
+                            <a href="" class="button button--secondary--fill">Pêche Transformation artisanale</a>
+                        </div>
+                    </div>
+                </div>
+                <section>
+                  <div id="carousel-container-peche-tran">
+                    
+                  {% for year, data in data_by_year.items %}
+                      <div class="l-4up">
+                          <!-- Ajoutez des blocs similaires pour d'autres statistiques -->
+                          <div class="l-2up__col" data-year="{{ year }}">
+                              <div class="spotlight__stat">
+                                  <h3 class="spotlight__stat-heading">Nombre d'acteurs de la transformation artisanale recensés
+                                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                          <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                                      </span>
+                                  </h3>
+                                  <p class="spotlight__stat-data">1112</p>
+                              </div>
+                          </div>
+                          <div class="l-2up__col" data-year="{{ year }}">
+                            <div class="spotlight__stat">
+                                <h3 class="spotlight__stat-heading"> Nombre de fours de la transformation artisanale
+                                        <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                    <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                                </span>
+                                </h3>
+                                <p class="spotlight__stat-data">1163</p>
+                            </div>
+                        </div>
+                        <div class="l-2up__col" data-year="{{ year }}">
+                          <div class="spotlight__stat">
+                              <h3 class="spotlight__stat-heading"> Quantité totale produite par la transformation artisanale (kg) 
+                                      <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                              </span>
+                              </h3>
+                              <p class="spotlight__stat-data">5326590</p>
+                          </div>
+                      </div>
+                      <div class="l-2up__col" data-year="{{ year }}">
+                        <div class="spotlight__stat">
+                            <h3 class="spotlight__stat-heading"> Valeur commerciale de la production totale en (fcfa) 
+                                  <span class="spotlight__stat-icon css-4po351 info-icon" aria-describedby="popup-2">
+                                  <i class="fas fa-info-circle update-info" title="Dernière mise à jour en {{year}}"></i>
+                              </span>
+                            </h3>
+                            <p class="spotlight__stat-data">2435916700</p>
+                        </div>
+                    </div>
+                   
+                      <!-- Add similar blocks for other statistics -->
+                    
+                  
+            
+                          <!-- Ajoutez d'autres blocs pour d'autres statistiques ici -->
+                      </div>
+                      {% endfor %}
+  
+    </div> 
+            </article>
+            <div class="carousel-navigation">
+              <div class="carousel-navigation">
+                <button onclick="prevSlide('transformation')">Précédent</button>
+                <button onclick="nextSlide('transformation')">Suivant</button>
+              </div>
+            </div>
+          </section>
+         </div>
+              <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">..</div>
+            </div>
+          </div>
+        </div>
+
+</div>
+</section>
+    <!-- Boutons pour la sélection du type de graphique -->
+
+<!-- Tableau pour afficher les données -->
+   <div class="content container-fluid">
+      <div class="page-header">
+         <div class="row align-items-center">
+         </div>
+      </div>
+     				<div class="containerm">
+  <h5 style="margin-top:20px; font-size: 30px; height:0px; text-align: center;">
+    <strong><span style="color: rgb(0, 0, 0);"></span><span style="color: #1da8dd;">Système d'information géographique de la commune de Joal-Fadiouth</span></strong>
+</h5>
+</div>
+<section class="py-5" id="arg">
+  <div class="container" style="background: #1da8dd; border-radius: 42px;">
+    <div class="container py-5" style="width: 100%; height:700px;">
+      <iframe
+      src="https://www.arcgis.com/apps/instant/interactivelegend/index.html?appid=1af95edbbb334dd48c457929625c7f82"
+      width="100%"
+      height="100%"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      loading="lazy"
+      style="border: none;"
+    ></iframe>
+  </div>
+
+    </div>
+
+</section>
+
+
+   
+    
+    <!-- Incluez le script JavaScript pour créer le graphique interactif -->
+
+    <script>
+  var currentSlide = 0;
+  var slidesPerPage = calculateSlidesPerPage(); // Initial value based on screen width
+  var currentYear = ""; // Variable to keep track of the currently selected year
+
+  function calculateSlidesPerPage() {
+      // Adjust the number of slides based on the screen width
+      return window.innerWidth <= 768 ? 1 : 4; // Adjust 768 as needed
+  }
+
+  function showSlides(tabId) {
+      console.log(`Showing slides for tab ${tabId} for year ${currentYear}`);
+      var sections = document.querySelectorAll(`#${tabId} .l-2up__col[data-year='${currentYear}']`);
+
+      sections.forEach(function(section, index) {
+          if (index >= currentSlide && index < currentSlide + slidesPerPage) {
+              section.classList.remove('hidden');
+          } else {
+              section.classList.add('hidden');
+          }
+      });
+  }
+
+  function updatePagination(tabId) {
+      // Update pagination by calling showSlides
+      showSlides(tabId);
+  }
+
+  function nextSlide(tabId) {
+      var totalSlides = document.querySelectorAll(`#${tabId} .l-2up__col[data-year='${currentYear}']`).length;
+      var maxSlide = totalSlides - slidesPerPage; // Maximum slide index
+
+      // Check if we have reached the end of the slides for the selected year
+      if (currentSlide < maxSlide) {
+          // Advance by one page
+          currentSlide += slidesPerPage;
+          console.log(`Next slide clicked for tab ${tabId}. Current slide: ${currentSlide}`);
+          updatePagination(tabId);
+      } else {
+          // If we are at the end, do nothing
+          console.log("Already at the last page for the selected year.");
+      }
+  }
+
+  function prevSlide(tabId) {
+      currentSlide = Math.max(currentSlide - slidesPerPage, 0);
+      console.log(`Previous slide clicked for tab ${tabId}. Current slide: ${currentSlide}`);
+      updatePagination(tabId);
+  }
+
+  // Initial display for both tabs
+  document.addEventListener("DOMContentLoaded", function() {
+      // Hide all slides initially
+      var allSlides = document.querySelectorAll('.l-2up__col');
+      allSlides.forEach(function(slide) {
+          slide.classList.add('hidden');
+      });
+
+      // Show the first 4 slides for the default year (2019)
+      var defaultYearSlides = document.querySelectorAll('.l-2up__col[data-year="2019"]');
+      for (var i = 0; i < Math.min(defaultYearSlides.length, 4); i++) {
+          defaultYearSlides[i].classList.remove('hidden');
+      }
+
+      // Update currentYear variable
+      currentYear = "2019";
+
+      // Update the slidesPerPage value
+      slidesPerPage = calculateSlidesPerPage();
+
+      // Update the pagination
+      showSlides('artisanale');
+      showSlides('transformation');
+  });
+
+  // Update slides on window resize
+  window.addEventListener('resize', function() {
+      slidesPerPage = calculateSlidesPerPage();
+      showSlides('artisanale'); // You may need to update both tabs if needed
+      showSlides('transformation');
+  });
+
+
+  // Fonction pour détecter le changement d'année dans le menu déroulant "Pêche artisanale"
+document.getElementById("year-select-artisanale").addEventListener("change", function() {
+  var selectedYear = this.value; // Récupère l'année sélectionnée
+  currentYear = selectedYear; // Met à jour la variable currentYear
+
+  // Cache toutes les données initialement
+  var allDataBlocks = document.querySelectorAll(".l-2up__col");
+  allDataBlocks.forEach(function(block) {
+      block.classList.add("hidden");
+  });
+
+  // Affiche uniquement les 4 premiers blocs de données correspondant à l'année sélectionnée
+  var dataBlocksToShow = document.querySelectorAll(`.l-2up__col[data-year='${selectedYear}']`);
+  for (var i = 0; i < Math.min(dataBlocksToShow.length, 4); i++) {
+      dataBlocksToShow[i].classList.remove("hidden");
+  }
+
+  // Réinitialise currentSlide à 0 lors du changement d'année
+  currentSlide = 0;
+  showSlides('artisanale'); // Affiche les diapositives mises à jour
+  showSlides('transformation');
+});
+
+// Fonction pour détecter le changement d'année dans le menu déroulant "Pêche Transformation artisanale"
+document.getElementById("year-select-transformation").addEventListener("change", function() {
+  var selectedYear = this.value; // Récupère l'année sélectionnée
+  currentYear = selectedYear; // Met à jour la variable currentYear
+
+  // Cache toutes les données initialement
+  var allDataBlocks = document.querySelectorAll(".l-2up__col");
+  allDataBlocks.forEach(function(block) {
+      block.classList.add("hidden");
+  });
+
+  // Affiche uniquement les 4 premiers blocs de données correspondant à l'année sélectionnée
+  var dataBlocksToShow = document.querySelectorAll(`.l-2up__col[data-year='${selectedYear}']`);
+  for (var i = 0; i < Math.min(dataBlocksToShow.length, 4); i++) {
+      dataBlocksToShow[i].classList.remove("hidden");
+  }
+
+  // Réinitialise currentSlide à 0 lors du changement d'année
+  currentSlide = 0;
+  showSlides('artisanale'); // Affiche les diapositives mises à jour
+  showSlides('transformation');
+});
+
+</script>
+
+      <!-- Inclure les fichiers JavaScript supplémentaires -->
+      <script src="{% static 'ass/js/jquery.min.js' %}"></script>
+      <script src="{% static 'ass/bootstrap/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'ass/js/bold-and-bright.js' %}"></script>
+      <script src="{% static 'ass/js/Slider_Carousel_webalgustocom-slider.js' %}"></script>
+      <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+      <script src="chemin_vers_jquery-3.6.0.min.js" type="text/javascript"></script>
+<script src="{% static 'assets/js/datatables.js' %}"></script>
+
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<style>
+  /* Style pour le tableau */
+#table_id {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+#table_id th, #table_id td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#table_id th {
+    background-color: #f2f2f2;
+}
+
+#table_id tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#table_id tr:hover {
+    background-color: #ddd;
+}
+
+/* Style pour les boutons d'action */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.actions a {
+    margin-left: 10px;
+    text-decoration: none;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.actions a:hover {
+    background-color: #f2f2f2;
+}
+
+</style>
+      {% include 'layout/partial/footer.html' %}
+    {% endblock %}
+</html>

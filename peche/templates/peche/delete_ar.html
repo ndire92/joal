@@ -1,0 +1,43 @@
+
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-wrapper">
+   <div class="row">
+      <div class="col-sm-12">
+         <div class="card">
+            <div class="card-body">
+            </div>
+         </div>
+      </div>
+      <section class="hero is-dark is-fullheight">
+        <div class="hero-body">
+          <div class="container" style =" padding-left: 250px;">
+            <div class="columns is-centered">
+
+                        
+
+                                        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                                              <div class="bg-light rounded h-100 p-4">
+                                              <div class="card card-body">
+                                            <h5>Voulez-vous supprimer cette enregistrement</h5>
+                                          <form action="{% url 'peche:de_ar' item.id %}" method="Post">
+                                                  {% csrf_token %}
+                                                 <a class="btn btn-warning" href="{% url 'peche:dimpecart'%}">Annuler</a>
+                                                    <input class="btn btn-danger" type="submit" name="Supprimer">
+                                          </form>
+                                       </div>
+                                      </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                 </section>
+<div >
+ </div>
+   
+</div>
+{% endblock %}	
+
+

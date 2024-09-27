@@ -1,0 +1,202 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Precvadi - Joal</title>
+
+    <!-- Inclure le fichier CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <!-- Inclure les fichiers CSS statiques -->
+    <link rel="stylesheet" href="{% static 'ass/css/Abril%20Fatface.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Advent%20Pro.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Alatsi.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Inter.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/fonts/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Bold-BS4-Footer-Big-Logo.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Google-Map-With-Full-Wide.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom-animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/untitled.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Inclure jQuery avant Bootstrap.js -->
+       <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+
+
+    <!-- Inclure Chart.js -->
+    <!-- script src="https://cdn.jsdelivr.net/npm/chart.js"></script -->
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'ass/fonts/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+    <link href="  https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'ass/css/index.css' %}">
+   
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+
+    <script>
+      // Initialisez le menu déroulant après que le document soit prêt
+      $(document).ready(function() {
+        $('.dropdown-toggle').dropdown();
+      });
+    </script>
+
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'as/fonts/flaticon.css '%}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+    
+
+  {% include 'layout/partial/header.html' %}
+  <!---script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script--->
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+{% block body %}
+
+<div class="container mt-15">
+    <h3 class="page-title">Page d'administration du site web</h3>
+    <div class="row">
+        <div class="col-4">
+            <div class="text-center">
+                <a href="{% url 'home' %}" class="btn btn-primary">Gestionnaire</a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="text-center">
+                <a href="{% url 'decideur' %}" class="btn btn-success">Décideur</a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="text-center">
+              <a href="{% url 'register' %}" class="btn btn-info">
+                <i class="fas fa-user-plus"></i> Ajoutez utilisateur
+            </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rest of your code -->
+</div>
+
+
+      <div class="container mt-15">
+  <div class="table-responsive">
+    <table class="table table-hover table-center mb-0 datatable">
+      <thead>
+        <tr>
+          <th>ID</th>
+        <th>Photo de profil</th>
+           <th>Nom d'utilisateur</th>
+           <th>E-mail</th>
+           <th>Prénom</th>
+           <th>Nom de famille</th>
+          <th>Description</th>
+          <th>Adresse</th>
+          <th>Téléphone</th>
+          <th class="text-right">Action</th>
+        </tr>
+      </thead>
+      <!-- Corps du tableau avec les données -->
+      <tbody>
+        {% for profile in profiles %}
+        <tr>
+          <td>{{ profile.id }}</td>
+          <td>
+            <img
+              src="{{ profile.profile_picture.url }}"
+              alt=""
+              width="50"
+              height="50"
+            />
+          </td>
+          <td>{{ profile.user.username }}</td>
+          <td>{{ profile.email }}</td>
+          <td>{{ profile.first_name }}</td>
+          <td>{{ profile.last_name }}</td>
+          <td>{{ profile.description }}</td>
+          <td>{{ profile.address }}</td>
+          <td>{{ profile.phone_number }}</td>
+          <td class="text-right">
+            <div class="actions">
+              {% if request.user == profile.user %}
+              <a
+                href="{% url 'profile_detail' %}"
+                class="btn btn-primary btn-sm mr-2"
+                >View</a
+              >
+              <a
+                href="{% url 'update_profile' %}"
+                class="btn btn-success btn-sm mr-2"
+              >
+                <i class="fas fa-pen"></i> Modifier
+              </a>
+              <form
+                action="{% url 'delete_profile' %}"
+                method="POST"
+                style="display: inline"
+              >
+                {% csrf_token %}
+                <input
+                  type="submit"
+                  value="Delete"
+                  class="btn btn-danger btn-sm"
+                />
+              </form>
+              {% endif %}
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% include 'layout/partial/footer.html' %}
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<!-- script src="{% static 'js/main.js' %}"></script-->
+
+<!-- diagramme -->
+<style>
+    /* Définir la couleur personnalisée pour le bouton */
+    .custom-btn {
+      background-color: #1a8fc8;
+      border-color:#1a8fc8;
+      color: #fff; /* Couleur du texte du bouton */
+    }
+    .custom-btn-right {
+        background-color:#1a8fc8;
+        border-color:#1a8fc8;
+        color: #fff;
+        /* Ajoutez ici d'autres styles personnalisés pour le bouton de droite */
+    }
+  </style>
+{% endblock %}

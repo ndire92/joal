@@ -1,0 +1,508 @@
+
+
+{% load static %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <!-- Mirrored from preschool.dreamguystech.com/html-template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Oct 2021 11:11:39 GMT -->
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+   <title>PRECVADI </title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- Bootstrap CSS --> 
+   <link rel="stylesheet" href="{% static 'as/css/bootstrap.min.css '%}">
+   <!-- Animate Min CSS -->
+   <link rel="stylesheet" href="{% static 'as/css/animate.min.css '%}">
+   <!-- Flaticon CSS -->
+   <link rel="stylesheet" href="{% static 'as/fonts/flaticon.css '%}">
+   <!-- Boxicons CSS -->
+   <link rel="stylesheet" href="{% static 'as/css/boxicons.min.css '%}">
+   <!-- Owl Carousel Min CSS --> 
+   <link rel="stylesheet" href="{% static 'as/css/owl.carousel.min.css '%}">
+   <link rel="stylesheet" href="{% static 'as/css/owl.theme.default.min.css '%}">
+   <!-- Nice Select Min CSS --> 
+   <link rel="stylesheet" href="{% static 'as/css/nice-select.min.css '%}">
+   <!-- Meanmenu CSS -->
+   <link rel="stylesheet" href="{% static 'as/css/meanmenu.css '%}">
+   <!-- Style CSS -->
+   <link rel="stylesheet" href="{% static 'as/css/style.css '%}">
+   <link rel="stylesheet" href="{% static 'as/css/style.scss '%}">
+   <!-- Responsive CSS -->
+   <link rel="stylesheet" href="{% static 'as/css/responsive.css '%}">
+   <!-- Theme Dark CSS -->
+   <link rel="stylesheet" href="{% static 'as/css/theme-dark.css '%}">
+
+<!-- Vendor CSS Files -->
+<link href="{% static 'as/vendor/aos/aos.css'%}" rel="stylesheet">
+<link href="{% static 'as/vendor/bootstrap/css/bootstrap.min.css '%}" rel="stylesheet">
+<link href="{% static 'as/vendor/bootstrap-icons/bootstrap-icons.css '%}" rel="stylesheet">
+<link href="{% static 'as/vendor/boxicons/css/boxicons.min.css '%}" rel="stylesheet">
+<link href="{% static 'as/vendor/glightbox/css/glightbox.min.css '%}" rel="stylesheet">
+<link href="{% static 'as/vendor/swiper/swiper-bundle.min.css '%}" rel="stylesheet">
+<link rel="shortcut icon" href="{% static 'assets/img/favicon.png' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap">
+<link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/fontawesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/plugins/fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+<!--  datatable --><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+<!-- Our project just needs Font Awesome Free's Solid and Brand files -->
+<link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">   
+<!-- Add Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- Template Main CSS File -->
+<link href="{% static 'as/css/style.css '%}" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="{% static 'as/apexchart/apexcharts.min.js' %}"></script>
+<script src="{% static 'as/apexchart/chart-data.js' %}"></script>
+<script type="text/javascript">
+
+<script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+<script src="{% static 'assets/plugins/apexchart/apexcharts.min.js' %}"></script>
+<script src="{% static 'assets/plugins/apexchart/chart-data.js' %}"></script>
+<script src="{% static 'assets/js/script.js' %}"></script>
+
+<script src="{% static 'assets/plugins/datatables/datatables.min.js'%}"></script>
+<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+</head>
+
+<nav class="navbar navbar-expand-md navbar-light navbar-dark fixed-top" style="position: absolute;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'acceueil' %}">
+      <img src="{% static 'imge/logo.jpg' %}" alt="Logo" style="position: absolute; top: 47px; left: 121px; width: 76px; height: 89px; overflow: hidden; cursor: pointer;" />
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center text-center" id="navbarSupportedContent" style="position: absolute; top: 60px; left: 271px; border-radius: var(--br-481xl); background-color: #1da8dd; width: 816px; height: 48px;">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'acceueil' %}">
+            <i class="fa-solid fa-house"></i> Acceuil
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'commune' %}"><i class="fas fa-map-marker-alt"></i>Commune</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'ressource' %}">
+            <i class="fa-solid fa-book"></i> Ressources
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'post' %}">
+            <i class="fa-solid fa-info"></i> Blog
+          </a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a href="{% url 'new_post' %}" class="nav-link">Nouveau Poste</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'logout' %}" class="nav-link">Déconnexion</a>
+        </li>
+        {% else %}
+        <!-- Additional items here for non-authenticated users -->
+        {% endif %}
+        <!-- "Plateform" button as a separate li element -->
+        <li class="nav-item ml-auto">
+          {% if request.user.is_authenticated %}
+          <!-- User menu for authenticated users -->
+          <ul class="nav user-menu">
+            <!-- User menu items go here -->
+          </ul>
+         
+        </li>
+      </ul>
+    </div>
+  </div>
+   {% else %}
+          <!-- Plateform button for non-authenticated users -->
+          <a class="btn btn-primary" href="{% url 'login' %}" style="position: absolute;
+top:0px;
+left: 867px;
+border-radius:100px;
+background-color:#1da8dd;
+
+box-sizing: border-box;
+width: 184px;
+height: 48px;
+overflow: hidden;
+cursor: pointer;
+
+color: #fff;"><i class="fa-regular fa-user fa-2xl" style="color: #ffffff;left: 3.26%;"></i>&nbsp;&nbsp;&nbsp;Plateform</a>
+          {% endif %}
+           <ul class="nav user-menu" style="position: absolute;
+top:60px;
+left:1200px;">
+   {% if not request.user.userprofile %}
+   <li>
+     <a href="{% url 'create_profile' %}"></a>
+   </li>
+   {% endif %} {% if request.user.is_authenticated %}
+   <li class="nav-item dropdown has-arrow">
+     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+       <span class="user-img">
+         <img
+           src="{{ request.user.userprofile.profile_picture.url }}"
+           alt="User Image"
+           width="50"
+           height="50"
+         />
+       </span>
+     </a>
+     <div class="dropdown-menu">
+       <div class="user-header">
+         <div class="avatar avatar-sm">
+           <span class="user-img">
+             <img
+               src="{{ request.user.userprofile.profile_picture.url }}"
+               alt="User Image"
+               width="30"
+               height="30"
+             />
+           </span>
+         </div>
+         <div class="user-text">
+           <h6>
+             {{ request.user.userprofile.first_name }}
+             {{request.user.userprofile.last_name }}
+           </h6>
+         </div>
+       </div>
+       {% if not request.user.userprofile %}
+       <a class="dropdown-item" href="{% url 'create_profile' %}"
+         >Ajouter un Profil</a
+       >
+       {% else %}
+       <a class="dropdown-item" href="{% url 'profile_list' %}">Profil</a>
+       {% endif %}
+       <a class="dropdown-item" href="{% url 'logout' %}">Se déconnecter</a>
+     </div>
+   </li>
+   {% endif %}
+ </ul>
+</nav>
+
+ 
+        <link rel="stylesheet" href="{% static 'csss/style.css'%}"/>
+      
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700;1,800&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Source Sans Pro:wght@700&display=swap"
+        />
+      </head>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <header>
+
+    </header>
+
+   <body>
+	<div class="commune18">
+		<div class="commune-inner">
+		  <div class="frame-child56"></div>
+		</div>
+		<div class="commune-child"></div>
+		<div class="commune-item"></div>
+		<div class="commune-child1"></div>
+		<div class="commune-child2"></div>
+		<div class="commune-de-joal-fadiouth-parent">
+		  <div class="commune-de-joal-container3">
+			<span>COMMUNE DE </span>
+			<span class="joal-fadiouth2">
+			  <b>JOAL FADIOUTH</b>
+			  <span class="span1"> </span>
+			</span>
+		  </div>
+		  <img class="group-icon13" alt="" src="{% static '/public/group8.svg' %}" />
+  
+		  <img class="group-icon14" alt="" src="{% static '/public/group9.svg' %}" />
+  
+		  <div class="superficie-5-container1">
+			<b class="superficie1">Superficie :</b>
+			<span class="ha1"> 5 035 ha</span>
+		  </div>
+		  <div class="dpartement-mbour-container1">
+			<b class="superficie1">Département :</b>
+			<span class="ha1"> Mbour</span>
+		  </div>
+		</div>
+		<div class="img-1427-1-parent" style="left: 0px;">
+		  <img class="img-1427-1-icon" alt="" src="{% static '/public/img-1427-1@2x.png' %}" />
+  
+		  <img class="img-1440-2-icon" alt="" src="{% static '/public/img-1440-2@2x.png' %}" />
+  
+		  <img class="img-1433-icon" alt="" src="{% static '/public/img-1433@2x.png' %}" />
+		</div>
+		<div class="quai-de-pche-joal-parent">
+		  <i class="quai-de-pche1">Quai de Pêche Joal</i>
+		  <i class="la-pche-constitue"style="width:1180px";
+		  >la pêche constitue la principale activité économique. Le centre de
+			pêche de Joal, de par son volume des mises à terre annuelles est le
+			premier quai de débarquement de la pêche artisanale au Sénégal. La
+			pêche mobilise en moyenne 650 pirogues par an et 7 700 pécheurs, pour
+			une moyenne annuelle des mises à terre de 150 000 tonnes et une valeur
+			commerciale moyenne annuelle estimée à 17 milliards de F CFA.</i
+		  >
+		</div>
+		<div class="img-1410-parent" style="left: 39.4px;">
+		  <img class="img-1410-icon" alt="" src="{% static '/public/img-1410@2x.png' %}" />
+  
+		  <img class="img-1407-icon" alt="" src="{% static '/public/img-1407@2x.png' %}" />
+  
+		  <img class="img-1405-icon" alt="" src="{% static '/public/img-1405@2x.png' %}" />
+		</div>
+		<div class="site-de-transformation-khelcom-parent">
+		  <i class="site-de-transformation">Site de transformation khelcom</i>
+		  <i class="khelcom-la-cit"
+			>Khelcom, la cité de transformation des produits halieutiques de Joal,
+			est l’un des poumons économiques de la commune. Ce site arpenté à
+			longueur d’année par des centaines de femmes est dans un état de
+			délabrement avancé. Les transformatrices de poissons demandent l’aide
+			de l’Etat.</i
+		  >
+		</div>
+		<div class="img-1353-parent">
+		  <img class="img-1353-icon" alt="" src="{% static '/public/img-1353@2x.png' %}" />
+  
+		  <img class="img-1393-icon" alt="" src="{% static '/public/img-1393@2x.png' %}" />
+  
+		  <img class="img-1360-icon" alt="" src="{% static '/public/img-1360@2x.png' %}" />
+		</div>
+		<div class="site-de-transformation-de-tann-parent" >
+		  <i class="site-de-transformation1">Site de transformation de TANN</i>
+		  <i class="joal-est-un" 
+			>Joal est un hub de transformation de produits halieutiques. Le fait
+			se justifie par la présence de ressortissants de pays limitrophes du
+			Mali, du Burkina-Faso, de la Gambie, de la Côte d'Ivoire et du Togo.
+			Le site construit vient à son heure et participe à l'amélioration de
+			la qualité des produits transformés</i
+		  >
+		</div>
+		<div class="frame-parent14">
+		  <div class="rectangle-parent4">
+			<div class="frame-child57"></div>
+			<img
+			  class="img-1236-1-icon"
+			  alt=""
+			  src="{% static '/public/img-1236-1@2x.png' %}"
+			/>
+		  </div>
+		  <div class="la-commune-de-joal-fadiouth-group" >
+			<i class="la-commune-de">La commune de Joal-Fadiouth </i>
+			<i class="est-situe1"
+			  >est située à l'extrémité de la petite-côte, au sud de la capitale
+			  Dakar. Joal-Fadiouth est la réunion de deux villages, Joal, plus
+			  vaste et sur le littoral et Fadiouth, plus visité par les touristes.
+			  Fadiouth est aussi une île artificielle et relié à Joal par un pont
+			  de bois. Fadiouth est le village de naissance du président poète,
+			  Léopold Sédar Senghor.La commune de Joal – Fadiouth est caractérisée
+			  par trois grandes zones. Un première zone qui correspond à Joal et
+			  qui regroupe les services administratifs et municipaux. Une deuxième
+			  zone plutôt commerciale qui coïncide avec la zone du port. Une
+			  troisième zone dédiées aux unités de transformation des produits de
+			  la pêche dans les tannes.</i
+			>
+		  </div>
+		</div>
+		<div class="frame-parent15">
+		  <div class="rectangle-parent5">
+			<div class="frame-child58"></div>
+			<img
+			  class="img-1236-3-icon"
+			  alt=""
+			  src="{% static '/public/img-1236-1@2x.png' %}"
+			/>
+  
+			<img
+			  class="x630-pont-rejoignant-l-ile-de-icon"
+			  alt=""
+			  src="{% static '/public/5709601260x630pontrejoignantliledefadiouthjoalfadiouthsenegal-1@2x.png' %}"
+			/>
+		  </div>
+		  <div class="population-parent">
+			<i class="population">POPULATION :</i>
+			<i class="cadre-physique">CADRE PHYSIQUE :</i>
+			<div class="au-dernier-recensement"style="font-size: 17px;" >
+			  Au dernier recensement de 2013 (ANSD, 2014), la commune comptait 39
+			  078 habitants. La densité moyenne est de 776,1/km² (ANSD, 2014).
+			  Lees ethnies sérères surtout Niominka, Lébous et Guet Ndariens et
+			  les wolofs sont les ethnies ou sous ethnies dominantes. Certains
+			  sont attirées par la mer et sont des pêcheurs itinérants.
+			</div>
+			<div class="le-climat-est" style="font-size: 17px;">
+			  Le Climat est de type semi-aride, sec et chaud. La commune de Joal –
+			  Fadiouth se retrouve sur une longue plaine et se dresse entre
+			  l’Océan Atlantique, le bras de mer de Mama NGethie et les tannes.
+			  Les températures annuelles fluctuent entre 15 et 34°C.
+			</div>
+		  </div>
+		</div>
+		<div class="frame-parent16">
+		  <div class="contraintes-parent">
+			<i class="contraintes">CONTRAINTES :</i>
+			<div class="contraintesles-contraintes-ma-container" >
+			  <p class="contraintesles-contraintes-ma"style="font-size: 15px;" >
+				Contraintes:Les contraintes majeure sont d’ordre technique,
+				foncière, écologique et naturelles. Le manque d’espaces urbains
+				rend très difficile l'extension de la ville. Cet extension de
+				pourra se faire qu’au détriment d’autres communes voisines et des
+				formations forestières.
+			  </p>
+			  <p class="contraintesles-contraintes-ma"style="font-size: 17px;">
+				Les inondations sont fréquentes dans la commune. Le document du
+				Plan Directeur d’urbanisme de la commune de Joal - Fadiouth
+				Horizon 2022 estime que 60 % de la superficie de la commune est
+				inondable durant la saison des pluies.Ces problèmes d’inondation
+				s’explique par les faibles dénivellations dans l'estuaire et les
+				sols argileux peu perméables et qui favorisent très peu
+				l’infiltration des eaux de ruissellement.Les contraintes de la
+				commune se structure surtout dans la planification de politiques
+				publiques étatiques ou avec des partenaires au développement et
+				basée sur des données probantes. Les données infranationales ne
+				sont pas centralisées. Elles sont détenues par des services
+				techniques locaux et nationaux et des groupements d’acteurs et
+				ceux-ci ne sont pas reliés dans un cadre d’échanges ou de
+				co-publication des données.C’est ce qui donne au projet de «
+				Renforcement de Chaînes de Valeurs de données Infranationales en
+				Afrique Subsaharienne (PRECVADI) » tout son sens et sa pertinence.
+			  </p>
+			</div>
+		  </div>
+		  <div class="rectangle-parent4">
+			<div class="frame-child57"></div>
+			<img class="icon" alt="" src="{% static '/public/980431-1@2x.png' %}" />
+		  </div>
+		</div>
+		<div class="frame-parent17">
+		  <div class="lhistoire-de-la-commune-est-d-parent">
+			<div class="lhistoire-de-la">
+			  L’histoire de la commune est diversement racontée par les historiens
+			  et leaders traditionnels. La commune est majoritairement habitée par
+			  des Sérères, contraints par la percée des Almoravides et qui ont
+			  quitté la vallée du Fleuve Sénégal pour s’installer dans la petite
+			  côte et le Sine. Pour d’autres, Joal et Fadiouth furent fonder par
+			  les Guelwar chassés du royaume du Gabou. Joal a enregistré, durant
+			  la période coloniale, l’arrivée successive des Portugais,
+			  Hollandais, Français et Anglais et a été un grand comptoir
+			  commercial du Sénégal.
+			</div>
+			<i class="histoire-de-la">Histoire de la commune :</i>
+			<i class="atouts">ATOUTS :</i>
+			<div class="la-commune-regorge">
+			  La commune regorge d’importantes potentialités agricoles,
+			  halieutiques et touristiques. Du fait de sa position géographique,
+			  la ville recèle d’une longue côte et très poissonneuse, d’une mer
+			  relativement calme et de belles plages de sable. Il s’y développe
+			  une florissante pêche artisanale et de la transformation artisanale
+			  de produits de mer. Les activités de pêche et de transformation
+			  artisanale halieutiques sont des sources de revenus pour la plupart
+			  des populations autochtones et allochtones. Elles jouent un rôle
+			  important dans l’économie locale et nationale.La commune de Joal -
+			  Fadiouth constitue le premier port de pêche artisanale du pays avec
+			  un quai équipé. Elle constitue également un lieu touristique et
+			  attire par ses sites et monuments historiques dans la commune et ses
+			  traditions culturelles et socio-économiques.
+			</div>
+		  </div>
+		  <div class="rectangle-parent7">
+			<div class="frame-child60"></div>
+			<img
+			  class="excursion-joal-fadiouth-r32-2-icon"
+			  alt=""
+			  src="{% static '/public/excursionjoalfadiouthr322-1@2x.png' %}"
+			/>
+		  </div>
+		</div>
+	
+	  </div>
+   <footer style="background-color: #000;">
+   <div class="container">
+     <div class="row">
+       <div class="col-xl-4 col-sm-6 col-12 footer-column">
+         <div class="footer-links">
+           <ul style="font-size:20px; color: #fff;">
+             <li><a href="{% url 'acceueil' %}" style="color:#fff;"><i class="fa-solid fa-house"></i> &nbsp;&nbsp;&nbsp;Accueil</a></li><br>
+             <li><a href="{% url 'commune' %}" style="color:#fff;"><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;Commune</a></li><br>
+             <li><a href="{% url 'ressource' %}" style="color:#fff;"><i class="fa-solid fa-book"></i>&nbsp;&nbsp;&nbsp;Ressources</a></li><br>
+             <li><a href="{% url 'post' %}" style="color:#fff;"><i class="fa-solid fa-info"></i> &nbsp;&nbsp;&nbsp;Blog</a></li>
+           </ul>
+   
+      
+         </div>
+       </div>
+     <div class="col-xl-4 col-sm-6 col-12 footer-column">
+  <div class="column" style="margin-right: 30px;">
+    <p style="color:#1da8dd; font-size: 20px;">Nombre total de visites : {{ request.session.visits }}</p>
+    <h6><p style="color: #fff; font-size: 20px;">Mairie de Joal-Fadiouth</p></h6>
+    <p style="color: #fff; font-size: 20px;"><i class="fa-regular fa-envelope"></i> &nbsp;&nbsp;communejf@yahoo.com</p>
+    <p style="color: #fff; font-size: 20px;"><i class="fa-solid fa-phone"></i>&nbsp;&nbsp;+221 33 957 61 04</p>
+	           <p style="color: #fff; font-size: 17px;">Copyright © 2023 Precvadi <span style="color:#1da8dd; font-size: 20px;">ENSA-APHRC</span></p>
+  </div>
+</div>
+
+       <div class="col-xl-4 col-sm-6 col-12 footer-column">
+         <div class="column" style="margin-left: 50px;">
+           <h3 style="color: #fff;">Suivez-nous</h3>
+           <ul style="color: #fff;">
+             <li><i class="fa-brands fa-facebook" style="color: #ffffff;"></i>&nbsp;&nbsp;&nbsp;<a href="#" style="color: #fff;font-size: 20px;">Facebook</a></li><br>
+             <li><i class="fa-brands fa-twitter" style="color: #ffffff;"></i>&nbsp;&nbsp;&nbsp;<a href="#" style="color: #fff;font-size: 20px;">Twitter</a></li><br>
+             <li><i class="fa-brands fa-linkedin" style="color: #ffffff;"></i>&nbsp;&nbsp;&nbsp;<a href="#" style="color: #fff;font-size: 20px;">LinkedIn</a></li>
+           </ul>
+         </div>
+       </div>
+     </div>
+         
+   </div>
+ </footer>
+ <style>
+   .footer-column {
+   
+     padding-right: 0px; /* Espace entre la bordure et le contenu de chaque colonne */
+   }
+ 
+   /* Pour la dernière colonne, supprimez la bordure de droite pour éviter un double trait */
+   .footer-column:last-child {
+     border-right: none;
+   }
+	 .footer-column {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+ </style>
+</body>

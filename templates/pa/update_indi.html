@@ -1,0 +1,107 @@
+
+{% extends 'layout/base.html'%}
+{% load static %}
+
+<title>{% block title%}documents{%endblock%}</title>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="{% static 'csss/style.css'%}"/>
+    <header>
+        {% include 'layout/partial/header.html' %}
+    </header>
+    {% block body  %}
+<body>
+
+
+  <div class="page-wrapper" style="margin-left:0px;">
+        <div class="content container-fluid">
+           <div class="page-header">
+              <div class="row align-items-center">
+                 <div class="col">
+             <h3 class="page-title">
+                        
+                    </h3>
+                    <ul class="breadcrumb">
+
+                    </ul>
+                 </div>
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-sm-12">
+                 <div class="card">
+                    <div class="card-body">
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                          <div class="row">
+                             <div class="col-12">
+                                <h5 class="form-title"><span>Indicateur</span></h5>
+                             </div>
+
+                  <div class="col-12 col-sm-6">
+                    <div class="form-group" >
+                       <label> Titre</label>
+                       {{ form.title }}
+                    </div>
+                 </div>
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Mot Clés</label>
+                       {{ form.mot_cle}}
+                    </div>
+                 </div>
+
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                       <label>Date</label>
+                       <div>
+                        {{ form.date_en}}
+                       </div>
+                    </div>
+                 </div>
+
+
+
+
+
+                 <div class="col-12 col-sm-6">
+                    <div class="form-group" >
+                       <label>Action</label>
+                       {{ form.action}}
+                    </div>
+                 </div>
+                 <div class="text-right">
+                  <button type="submit" class="btn btn-success">Ajouter</button>
+                </div>
+                          </div>
+                       </form>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+
+    
+            <style>
+                .content {
+                    text-align: center;
+                }
+    
+                .card {
+                    border: 1px solid #ccc;
+                    border-radius: 30px;
+                    margin: 10px;
+                  
+                    background: linear-gradient(180deg, #a3bc1c, rgba(217, 217, 217, 0));
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+    
+                .card-body {
+                    padding: 20px;
+                }
+            </style>
+        </div>
+    </div>
+    
+    {% endblock %}

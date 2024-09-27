@@ -1,0 +1,133 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Precvadi - Joal</title>
+
+    <!-- Inclure le fichier CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <!-- Inclure les fichiers CSS statiques -->
+    <link rel="stylesheet" href="{% static 'ass/css/Abril%20Fatface.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Advent%20Pro.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Alatsi.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Inter.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/fonts/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Bold-BS4-Footer-Big-Logo.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Google-Map-With-Full-Wide.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom-animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/Slider_Carousel_webalgustocom.css' %}">
+    <link rel="stylesheet" href="{% static 'ass/css/untitled.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Inclure jQuery avant Bootstrap.js -->
+       <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+
+
+
+    <!-- Inclure Chart.js -->
+    <!-- script src="https://cdn.jsdelivr.net/npm/chart.js"></script -->
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'ass/fonts/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+    <link href="  https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'ass/css/index.css' %}">
+   
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+
+    <script>
+      // Initialisez le menu déroulant après que le document soit prêt
+      $(document).ready(function() {
+        $('.dropdown-toggle').dropdown();
+      });
+    </script>
+
+    <!-- Flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'as/fonts/flaticon.css '%}">
+    <link rel="stylesheet" href="{% static 'assets/plugins/datatables/datatables.min.css' %}">
+    
+
+  {% include 'layout/partial/header.html' %}
+  <!---script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script--->
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+{% block body %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h3 class="text-center">Profile Detail</h3>
+      <div class="card">
+        <div class="card-body">
+          {% if user_profile.profile_picture %}
+          <p class="fs-5"><strong></strong></p>
+          <img
+          src="{{ request.user.userprofile.profile_picture.url }}"
+            alt="Profile Picture"
+            width="70"
+            height="70"
+            class="img-fluid"
+          />
+          {% endif %}
+          <p class="fs-5">
+            <strong>User:</strong> {{ user_profile.user.username }}
+          </p>
+          <p class="fs-5">
+            <strong>First Name:</strong> {{ user_profile.first_name }}
+          </p>
+          <p class="fs-5">
+            <strong>Last Name:</strong> {{ user_profile.last_name }}
+          </p>
+          <p class="fs-5"><strong>Email:</strong> {{ user_profile.email }}</p>
+          <p class="fs-5">
+            <strong>Fonction:</strong> {{ user_profile.description }}
+          </p>
+          <p class="fs-5">
+            <strong>Tel:</strong> {{ user_profile.phone_number }}
+          </p>
+          <p class="fs-5">
+            <strong>Adresse:</strong> {{ user_profile.address }}
+          </p>
+        </div>
+      </div>
+      <a
+        href="{% url 'profile_list' %}"
+        class="btn btn-primary d-block text-center mt-3"
+        >Back to Profile List</a
+      >
+    </div>
+  </div>
+</div>
+{% include 'layout/partial/footer.html' %}
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<!-- script src="{% static 'js/main.js' %}"></script-->
+
+<!-- diagramme -->
+{% endblock %}
